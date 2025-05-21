@@ -32,6 +32,9 @@ export default function TechLeadershipSection() {
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground">
           Tech Leadership & Vision
         </h2>
+        <p className="text-lg text-muted-foreground text-center mb-12 max-w-3xl mx-auto">
+          As a tech leader, I focus on empowering teams, driving innovation, and delivering impactful solutions. My approach combines strategic thinking with hands-on technical expertise to navigate complex challenges and achieve ambitious goals.
+        </p>
         <div className="grid lg:grid-cols-5 gap-12 items-center">
           <div className="lg:col-span-2 relative aspect-video lg:aspect-auto lg:h-[500px] order-last lg:order-first">
             <Image
@@ -44,9 +47,6 @@ export default function TechLeadershipSection() {
             />
           </div>
           <div className="lg:col-span-3 space-y-8">
-            <p className="text-lg text-muted-foreground mb-6">
-              As a tech leader, I focus on empowering teams, driving innovation, and delivering impactful solutions. My approach combines strategic thinking with hands-on technical expertise to navigate complex challenges and achieve ambitious goals.
-            </p>
             {leadershipPoints.map((point) => (
               <Card key={point.title} className="bg-card shadow-md hover:shadow-lg transition-shadow duration-300">
                 <CardHeader className="pb-3">
