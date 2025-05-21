@@ -11,7 +11,7 @@ export default function Footer() {
           &copy; {currentYear} David Morgan-Gumm. All rights reserved.
         </p>
         <div className="flex gap-4">
-          <Link href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+          <Link href="https://github.com/DaiGumms" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
             <Github className="h-6 w-6 hover:text-accent transition-colors" />
           </Link>
           <Link href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">

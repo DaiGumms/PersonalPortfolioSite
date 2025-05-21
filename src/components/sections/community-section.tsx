@@ -7,7 +7,7 @@ const communities = [
   {
     name: 'GitHub',
     description: 'Follow my open-source contributions and collaborative projects.',
-    link: 'https://github.com/yourusername',
+    link: 'https://github.com/DaiGumms',
     icon: Github,
     cta: 'View Profile',
   },
