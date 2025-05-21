@@ -12,7 +12,7 @@ export default function HeroSection() {
             David<br />Morgan-Gumm
           </h1>
           <p className="text-2xl md:text-3xl font-medium text-accent">
-            Tech Leader & AI Innovator
+            Tech Leader | Data & AI Innovator
           </p>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto md:mx-0">
             Crafting data solutions that solve real-world problems. Driven to build scalable solutions and lead high-performing teams. Passionate techie & connected via sql_squared.

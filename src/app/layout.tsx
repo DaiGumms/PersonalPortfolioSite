@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import { Public_Sans } from 'next/font/google';
 import './globals.css';
@@ -5,6 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import Navbar from '@/components/layout/navbar';
 import Footer from '@/components/layout/footer';
 import { ThemeProvider } from '@/components/theme-provider';
+import FloatingThemeToggle from '@/components/layout/floating-theme-toggle';
 
 const publicSans = Public_Sans({
   subsets: ['latin'],
@@ -32,6 +34,7 @@ export default function RootLayout({
             </main>
             <Footer />
           </div>
+          <FloatingThemeToggle />
           <Toaster />
         </ThemeProvider>
       </body>
