@@ -19,8 +19,8 @@ export default function HeroSection() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <Button size="lg" asChild className="bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300 transform hover:scale-105">
-              <Link href="#projects">
-                View Projects <ArrowRight className="ml-2 h-5 w-5" />
+              <Link href="#leadership">
+                My Vision <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
             <Button variant="outline" size="lg" asChild className="border-accent text-accent hover:bg-accent/10 transition-all duration-300 transform hover:scale-105">
