@@ -17,7 +17,7 @@ export default function Footer() {
           <Link href="https://www.linkedin.com/in/david-morgan-gumm-450751133/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
             <Linkedin className="h-6 w-6 hover:text-accent transition-colors" />
           </Link>
-          <Link href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile">
+          <Link href="https://x.com/David_MGumm" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile">
             <Twitter className="h-6 w-6 hover:text-accent transition-colors" />
           </Link>
         </div>

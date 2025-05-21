@@ -19,6 +19,13 @@ const communities = [
     cta: 'Connect',
   },
   {
+    name: 'X / Twitter',
+    description: 'Follow my thoughts and updates on X (formerly Twitter).',
+    link: 'https://x.com/David_MGumm',
+    icon: Twitter,
+    cta: 'Follow Me',
+  },
+  {
     name: 'Dev.to / Medium',
     description: 'Read my articles and tutorials on software development and tech leadership.',
     link: '#', // Replace with actual link
@@ -44,7 +51,7 @@ export default function CommunitySection() {
         <p className="text-lg text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
           I believe in the power of community and actively participate in various tech platforms and groups to learn, share, and collaborate.
         </p>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8"> {/* Changed to lg:grid-cols-5 to accommodate the new item potentially */}
           {communities.map((community) => (
             <Card key={community.name} className="flex flex-col bg-card shadow-lg hover:shadow-xl transition-shadow duration-300 text-center group">
               <CardHeader className="items-center pb-4">
