@@ -9,7 +9,7 @@ export default function HeroSection() {
       <div className="container mx-auto px-4 md:px-6 grid md:grid-cols-2 gap-12 items-center">
         <div className="space-y-6 text-center md:text-left">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-            David Morgan-Gumm
+            David<br />Morgan-Gumm
           </h1>
           <p className="text-2xl md:text-3xl font-medium text-accent">
             Tech Leader & AI Innovator
