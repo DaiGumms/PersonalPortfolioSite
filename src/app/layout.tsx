@@ -11,8 +11,8 @@ const publicSans = Public_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'PersonalPortfolio | Showcase Your Expertise',
-  description: 'A personal portfolio site showcasing professional expertise and projects.',
+  title: 'David Morgan-Gumm | Data Platform Manager',
+  description: 'Personal portfolio of David Morgan-Gumm, Data Platform Manager at Oliver James, showcasing expertise and projects in data platforms.',
 };
 
 export default function RootLayout({

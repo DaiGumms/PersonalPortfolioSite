@@ -13,10 +13,10 @@ const skills = [
 
 const experiences = [
   {
-    role: 'Senior Tech Lead',
-    company: 'Innovate Solutions Inc.',
+    role: 'Data Platform Manager',
+    company: 'Oliver James',
     period: '2020 - Present',
-    description: 'Leading a team of 10 engineers in developing flagship SaaS product. Responsible for architecture, development lifecycle, and cross-functional collaboration.',
+    description: 'Leading data platform initiatives and managing a team to deliver robust and scalable data solutions. Responsible for architecture, development lifecycle, and cross-functional collaboration.',
   },
   {
     role: 'Full Stack Developer',
@@ -40,13 +40,13 @@ export default function AboutMeSection() {
             </CardHeader>
             <CardContent className="text-muted-foreground space-y-4">
               <p>
-                Hello! I&apos;m John Doe, a passionate and results-oriented technology professional with a proven track record of designing, developing, and deploying innovative software solutions.
+                Hello! I&apos;m David Morgan-Gumm, a passionate and results-oriented Data Platform Manager at Oliver James. I have a proven track record of designing, developing, and deploying innovative data solutions.
               </p>
               <p>
                 My journey in tech has been driven by a curiosity for how things work and a desire to build tools that make a tangible impact. I thrive in collaborative environments and enjoy tackling complex challenges that push the boundaries of technology.
               </p>
               <p>
-                When I&apos;m not coding or architecting, you can find me exploring new tech trends, contributing to open-source projects, or enjoying the great outdoors.
+                When I&apos;m not architecting data platforms or leading my team, you can find me exploring new tech trends, contributing to open-source projects, or enjoying the great outdoors.
               </p>
             </CardContent>
           </Card>

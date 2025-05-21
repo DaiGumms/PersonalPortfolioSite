@@ -9,10 +9,10 @@ export default function HeroSection() {
       <div className="container mx-auto px-4 md:px-6 grid md:grid-cols-2 gap-12 items-center">
         <div className="space-y-6 text-center md:text-left">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-            John Doe
+            David Morgan-Gumm
           </h1>
           <p className="text-2xl md:text-3xl font-medium text-accent">
-            Tech Innovator & Leader
+            Data Platform Manager
           </p>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto md:mx-0">
             Crafting digital experiences that inspire and solve real-world problems. Passionate about building scalable solutions and leading high-performing teams.
@@ -33,7 +33,7 @@ export default function HeroSection() {
         <div className="relative aspect-square max-w-md mx-auto md:max-w-none">
            <Image
             src="https://placehold.co/600x600.png"
-            alt="John Doe Portrait"
+            alt="David Morgan-Gumm Portrait"
             width={600}
             height={600}
             className="rounded-full shadow-2xl object-cover border-4 border-primary"
