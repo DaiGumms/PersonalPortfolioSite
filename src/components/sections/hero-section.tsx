@@ -15,7 +15,7 @@ export default function HeroSection() {
             Tech Leader & AI Innovator
           </p>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto md:mx-0">
-            Crafting digital experiences that inspire and solve real-world problems. Passionate about building scalable solutions and leading high-performing teams.
+            Crafting data solutions that solve real-world problems. Driven to build scalable solutions and lead high-performing teams. Passionate techie & connected via sql_squared.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <Button size="lg" asChild className="bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300 transform hover:scale-105">
