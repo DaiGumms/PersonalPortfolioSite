@@ -12,7 +12,7 @@ export default function HeroSection() {
             David Morgan-Gumm
           </h1>
           <p className="text-2xl md:text-3xl font-medium text-accent">
-            Data Platform Manager
+            Tech Leader & Innovator
           </p>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto md:mx-0">
             Crafting digital experiences that inspire and solve real-world problems. Passionate about building scalable solutions and leading high-performing teams.
