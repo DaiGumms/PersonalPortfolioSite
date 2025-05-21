@@ -1,9 +1,11 @@
+
 "use client";
 
 import Link from 'next/link';
 import { CodeXml, Home, User, Briefcase, Brain, Users, BookOpen, Download, Mail, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -31,16 +33,34 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const NavLinks = ({ onItemClick }: { onItemClick?: () => void }) => (
+  const NavLinks = ({ onItemClick, isMobile }: { onItemClick?: () => void; isMobile: boolean }) => (
     <>
-      {navItems.map((item) => (
-        <Button key={item.label} variant="ghost" asChild className="text-foreground hover:bg-primary/20 hover:text-accent-foreground">
-          <Link href={item.href} onClick={onItemClick}>
-            <item.icon className="mr-2 h-4 w-4" />
-            {item.label}
-          </Link>
-        </Button>
-      ))}
+      {navItems.map((item) =>
+        isMobile ? (
+          <Button key={item.label} variant="ghost" asChild className="text-foreground hover:bg-primary/20 hover:text-accent-foreground w-full justify-start">
+            <Link href={item.href} onClick={onItemClick}>
+              <item.icon className="mr-2 h-4 w-4" />
+              {item.label}
+            </Link>
+          </Button>
+        ) : (
+          <TooltipProvider key={item.label} delayDuration={0}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button variant="ghost" size="icon" asChild className="text-foreground hover:bg-primary/20 hover:text-accent-foreground">
+                  <Link href={item.href} onClick={onItemClick}>
+                    <item.icon className="h-5 w-5" />
+                    <span className="sr-only">{item.label}</span>
+                  </Link>
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent side="bottom">
+                <p>{item.label}</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        )
+      )}
     </>
   );
 
@@ -57,7 +77,7 @@ export default function Navbar() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-1">
-          <NavLinks />
+          <NavLinks isMobile={false} />
         </nav>
 
         {/* Mobile Navigation */}
@@ -84,7 +104,7 @@ export default function Navbar() {
                   </SheetClose>
                 </div>
                 <nav className="flex flex-col gap-2">
-                  <NavLinks onItemClick={() => setIsMobileMenuOpen(false)} />
+                  <NavLinks onItemClick={() => setIsMobileMenuOpen(false)} isMobile={true} />
                 </nav>
               </div>
             </SheetContent>
