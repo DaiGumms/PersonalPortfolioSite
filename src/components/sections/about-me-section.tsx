@@ -1,7 +1,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Lightbulb, Database, Users, Briefcase, Zap, BarChart3, DraftingCompass, UserCheck, Workflow } from 'lucide-react';
+import { Lightbulb, Database, Users, Briefcase, Zap, BarChart3, DraftingCompass, UserCheck, Workflow, Award, Building2, GraduationCap, BookOpen, FileText } from 'lucide-react';
 import {
   Carousel,
   CarouselContent,
@@ -23,33 +23,60 @@ const experiences = [
   {
     role: 'Data Platform Manager',
     company: 'Oliver James',
-    period: 'Oct 2023 - Present',
-    description: 'Leading the Data Engineering & Business Intelligence functions. Responsible for data platform strategy, architecture, development lifecycle, and cross-functional collaboration to enhance data capabilities across the business.',
+    period: 'Nov 2023 - Present',
+    description: 'Leading the Data Engineering & Software functions. Responsible for data platform strategy, architecture, development lifecycle, and cross-functional collaboration to enhance data capabilities across the business.',
+    type: 'promotion',
   },
   {
-    role: 'Lead Data Engineer',
+    role: 'Data Engineering Lead',
     company: 'Oliver James',
-    period: 'Apr 2022 - Oct 2023',
+    period: 'Aug 2022 - Nov 2023',
     description: 'Led a team of data engineers in designing and implementing scalable data pipelines and analytics solutions. Championed best practices in data engineering and contributed to significant platform enhancements.',
+    type: 'promotion',
   },
   {
     role: 'Senior Data Engineer',
     company: 'Oliver James',
-    period: 'Nov 2020 - Apr 2022',
+    period: 'Oct 2021 - Aug 2022',
     description: 'Developed and maintained ETL/ELT processes, built data models, and supported BI initiatives. Key contributor to migrating legacy systems to a modern Azure-based data platform.',
+    type: 'promotion',
   },
   {
     role: 'Data Developer',
     company: 'Oliver James',
-    period: 'Nov 2019 - Nov 2020',
+    period: 'Feb 2021 - Oct 2021',
     description: 'Focused on SQL development, database administration, and creating reports to support business decisions. Gained foundational experience in data warehousing and BI.',
+    type: 'new_company',
   },
   {
     role: 'SQL Developer & Software Tester',
     company: 'Marvin Consulting',
-    period: 'Aug 2017 - Nov 2019',
-    description: 'Developed SQL solutions and performed software testing for various client projects. Gained experience in quality assurance and database development within a consultancy environment.',
+    period: 'Jul 2018 - Feb 2021',
+    description: 'Developed SQL solutions and performed software testing for transformational projects. Gained experience in quality assurance and database development.',
+    type: 'new_company',
   },
+];
+
+const education = [
+  {
+    name: 'Computer Science (BSc) 2:1 Hons',
+    institution: 'University of Liverpool',
+    year: '2018',
+    icon: GraduationCap, // Example icon for a degree
+  },
+   {
+    name: 'Management & Leadership (Level 5)',
+    institution: 'Chartered Managers Institute',
+    year: 'In Progress',
+    icon: BookOpen, // Example icon for a diploma
+  },
+  {
+    name: 'Azure Fundamentals',
+    institution: 'Microsoft',
+    year: '2019',
+    icon: Award, // Example icon for a certification
+  }
+  // Add more education entries here if needed, with appropriate icons
 ];
 
 export default function AboutMeSection() {
@@ -59,7 +86,9 @@ export default function AboutMeSection() {
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground">
           About Me
         </h2>
+        {/* Grid layout for Personal Statement and Key Skills */}
         <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Personal Statement Card */}
           <Card className="lg:col-span-1 bg-card shadow-lg hover:shadow-xl transition-shadow duration-300">
             <CardHeader>
               <CardTitle className="text-2xl text-accent">Personal Statement</CardTitle>
@@ -77,24 +106,28 @@ export default function AboutMeSection() {
             </CardContent>
           </Card>
 
+          {/* Key Skills Card */}
+          {/* Adjusted col-span to take up remaining space */}
           <Card className="lg:col-span-2 bg-card shadow-lg hover:shadow-xl transition-shadow duration-300">
             <CardHeader>
               <CardTitle className="text-2xl text-accent">Key Skills</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"> {/* Adjusted grid for skills within the card back to 3 */}
                 {skills.map((skill) => (
-                  <div key={skill.name} className="flex flex-col items-center text-center p-4 bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors">
-                    <skill.icon className="h-10 w-10 mb-3 text-accent" />
-                    <h3 className="font-semibold text-foreground mb-1">{skill.name}</h3>
-                    <p className="text-xs text-muted-foreground">{skill.description}</p>
+                  <div key={skill.name} className="flex flex-col items-center text-center p-4 bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors">{/* Adjusted styling back */} 
+                    <skill.icon className="h-10 w-10 mb-3 text-accent" />{/* Adjusted icon size back */} 
+                    <h3 className="font-semibold text-foreground mb-1">{skill.name}</h3>{/* Adjusted styling back */} 
+                    <p className="text-xs text-muted-foreground">{skill.description}</p>{/* Adjusted styling back */} 
                   </div>
                 ))}
               </div>
             </CardContent>
           </Card>
+
         </div>
 
+        {/* My Journey Section */}
         <div className="mt-16">
           <h3 className="text-2xl md:text-3xl font-bold text-center mb-12 text-foreground">My Journey</h3>
           <Carousel
@@ -110,11 +143,17 @@ export default function AboutMeSection() {
                   <div className="p-1 h-full"> {/* Ensure padding doesn't shrink card, h-full for potential equal height */}
                     <Card className="bg-card shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
                       <CardHeader>
-                        <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
-                          <CardTitle className="text-xl text-accent mb-1 sm:mb-0">{exp.role}</CardTitle>
-                          <Badge variant="secondary" className="text-sm whitespace-nowrap">{exp.period}</Badge>
+                        <div>
+                          <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
+                             <div className="flex items-center">
+                              <CardTitle className="text-xl text-accent mb-1 sm:mb-0">{exp.role}</CardTitle>
+                               {exp.type === 'promotion' && <Award className="ml-2 h-5 w-5 text-yellow-500" />}
+                               {exp.type === 'new_company' && <Building2 className="ml-2 h-5 w-5 text-blue-500" />}
+                            </div>
+                            <Badge variant="secondary" className="text-sm whitespace-nowrap">{exp.period}</Badge>
+                          </div>
+                          <p className="text-md font-medium text-foreground">{exp.company}</p>
                         </div>
-                        <p className="text-md font-medium text-foreground">{exp.company}</p>
                       </CardHeader>
                       <CardContent className="flex-grow">
                         <p className="text-muted-foreground text-sm">{exp.description}</p>
@@ -132,6 +171,36 @@ export default function AboutMeSection() {
             )}
           </Carousel>
         </div>
+
+        {/* Education Section below My Journey */}
+        {/* This div now acts as the container for the horizontally scrolling education items */}
+        <div className="mt-16"> {/* Added margin-top for spacing */}
+           {/* Heading styled like My Journey title */} 
+           <h3 className="text-2xl md:text-3xl font-bold text-center mb-12 text-foreground">{/* Adjusted text alignment */} 
+              <div className="flex items-center justify-center space-x-2"> {/* Centered flex for icon and text */}  
+                 <span className="text-accent">Education & Qualifications</span> {/* Text with accent color */} 
+             </div>
+          </h3>
+          {/* Container for all education entries, using horizontal flex and allowing scroll */}
+          {/* Removed unnecessary outer div with card styling as the inner items have it */}
+          <div className="flex flex-row gap-6 w-full overflow-x-auto pb-4 px-2"> {/* Horizontal scroll container */} 
+            {education.map((edu, index) => (
+              // Flex container for each education entry (icon above details), centered
+              // Styled similarly to Key Skills items with rounded background and hover
+              <div key={index} className="flex flex-col items-center gap-2 p-4 bg-primary/10 rounded-lg text-center flex-shrink-0 w-40 hover:bg-primary/20 transition-colors"> 
+                 {/* Icon for the education entry */} 
+                {edu.icon && <edu.icon className="h-10 w-10 text-accent" />}
+                {/* Container for the details (name, institution, year), centered */} 
+                <div className="flex flex-col items-center gap-1 w-full"> 
+                  <p className="text-sm font-semibold text-foreground leading-tight">{edu.name}</p> 
+                  <p className="text-xs text-muted-foreground leading-tight">{edu.institution}</p> 
+                  <p className="text-xs text-muted-foreground leading-tight">{edu.year}</p> 
+                </div>
+              </div>
+              ))}
+          </div>
+        </div>
+
       </div>
     </section>
   );
