@@ -5,13 +5,6 @@ import { Github, Linkedin, Twitter, MessageSquare, Users } from 'lucide-react';
 
 const communities = [
   {
-    name: 'GitHub',
-    description: 'Follow my open-source contributions and collaborative projects.',
-    link: 'https://github.com/DaiGumms',
-    icon: Github,
-    cta: 'View Profile',
-  },
-  {
     name: 'LinkedIn',
     description: 'Connect with me for professional networking and industry insights.',
     link: 'https://www.linkedin.com/in/david-morgan-gumm-450751133/',
@@ -26,16 +19,23 @@ const communities = [
     cta: 'Follow Me',
   },
   {
-    name: 'Dev.to / Medium',
+    name: 'GitHub',
+    description: 'Follow my open-source contributions and collaborative projects.',
+    link: 'https://github.com/DaiGumms',
+    icon: Github,
+    cta: 'View Profile',
+  },
+  {
+    name: 'sql_squared Blogs',
     description: 'Read my articles and tutorials on software development and tech leadership.',
-    link: '#', // Replace with actual link
+    link: 'https://www.sqlsquared.co.uk/blog', // Replace with actual link
     icon: MessageSquare, // Or other appropriate icon for blogging
     cta: 'Read Articles',
   },
   {
     name: 'Local Tech Meetups',
     description: 'Engage with local tech communities and share knowledge.',
-    link: '#', // Replace with link to a meetup group or profile if applicable
+    link: 'https://meetup.com', // Replace with link to a meetup group or profile if applicable
     icon: Users,
     cta: 'Join Events',
   },
