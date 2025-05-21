@@ -58,10 +58,10 @@ body {
     --background: 267 70% 11%; /* Darkest Purple #0F0529 */
     --foreground: 275 30% 95%; /* Lighter Lavender/Off-White */
 
-    --card: 269 60% 15%; /* Slightly Lighter Dark Purple */
+    --card: 269 60% 18%; /* Slightly Lighter Dark Purple for cards #1F0F36 */
     --card-foreground: 275 30% 95%; /* Lighter Lavender/Off-White */
 
-    --popover: 267 70% 11%;
+    --popover: 269 60% 18%; /* Slightly Lighter Dark Purple for popovers #1F0F36 */
     --popover-foreground: 275 30% 95%; /* Lighter Lavender/Off-White */
 
     --primary: 275 42% 60%; /* Lightest Palette Purple #9E72C3 */
@@ -71,7 +71,7 @@ body {
     --secondary-foreground: 267 70% 11%; /* Dark Purple #0F0529 */
 
     --muted: 271 49% 30%; /* Darker Purple #4A2574 */
-    --muted-foreground: 273 30% 80%; /* Lighter Muted Purple */
+    --muted-foreground: 273 30% 85%; /* Lighter Muted Purple - Increased lightness */
 
     --accent: 270 49% 42%; /* Mid Purple #7338A0 */
     --accent-foreground: 0 0% 98%; /* Almost White */
