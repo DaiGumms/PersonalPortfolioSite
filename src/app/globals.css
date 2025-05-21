@@ -8,33 +8,33 @@ body {
 
 @layer base {
   :root {
-    --background: 0 0% 96%; /* Very light grey #F5F5F5 */
-    --foreground: 0 0% 10%; /* Dark Grey for readability */
+    --background: 0 0% 98%; /* Almost White */
+    --foreground: 267 70% 11%; /* Dark Purple #0F0529 */
 
     --card: 0 0% 100%; /* White for cards */
-    --card-foreground: 0 0% 10%;
+    --card-foreground: 267 70% 11%; /* Dark Purple #0F0529 */
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
+    --popover-foreground: 267 70% 11%;
 
-    --primary: 259 100% 88%; /* Soft Lavender #D0BFFF */
-    --primary-foreground: 0 0% 10%; /* Dark text on light lavender */
+    --primary: 270 49% 42%; /* Mid Purple #7338A0 */
+    --primary-foreground: 0 0% 98%; /* Almost White */
 
-    --secondary: 259 30% 92%; /* Lighter variant of Muted Violet or darker Lavender for secondary elements */
-    --secondary-foreground: 0 0% 10%;
+    --secondary: 273 52% 52%; /* Lighter Purple #924DBF */
+    --secondary-foreground: 0 0% 98%; /* Almost White */
 
-    --muted: 0 0% 90%; /* Slightly darker grey for muted backgrounds */
-    --muted-foreground: 0 0% 40%; /* Grey for muted text */
+    --muted: 275 50% 94%; /* Very Light Purple */
+    --muted-foreground: 270 30% 35%; /* Darker Muted Purple/Grey */
 
-    --accent: 259 36% 64%; /* Muted Violet #947BCE */
-    --accent-foreground: 0 0% 98%; /* Light text on muted violet */
+    --accent: 275 42% 60%; /* Lightest Palette Purple #9E72C3 */
+    --accent-foreground: 267 70% 11%; /* Dark Purple #0F0529 */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 85%; /* Lighter border */
-    --input: 0 0% 90%; /* Input background */
-    --ring: 259 36% 64%; /* Muted Violet for focus rings */
+    --border: 273 40% 85%; /* Light Purple/Grey border */
+    --input: 275 50% 90%; /* Light Purple input background */
+    --ring: 270 49% 42%; /* Mid Purple #7338A0 for focus rings */
 
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
@@ -43,52 +43,61 @@ body {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
 
-    /* Sidebar specific colors, can be adjusted if sidebar is used extensively with different theme */
+    /* Sidebar specific colors */
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-foreground: 267 70% 11%;
+    --sidebar-primary: 270 49% 42%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 275 50% 94%;
+    --sidebar-accent-foreground: 267 70% 11%;
+    --sidebar-border: 273 40% 85%;
+    --sidebar-ring: 270 49% 42%;
   }
 
   .dark {
-    /* Keeping dark mode for completeness, but primary focus is light mode */
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 259 100% 88%; /* Soft Lavender for dark mode primary too */
-    --primary-foreground: 0 0% 10%; /* Dark text on light lavender */
-    --secondary: 259 36% 20%; /* Darker Muted Violet */
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 259 36% 64%; /* Muted Violet for dark mode accent */
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
+    --background: 267 70% 11%; /* Darkest Purple #0F0529 */
+    --foreground: 275 30% 90%; /* Light Lavender/Off-White */
+
+    --card: 269 60% 15%; /* Slightly Lighter Dark Purple */
+    --card-foreground: 275 30% 90%;
+
+    --popover: 267 70% 11%;
+    --popover-foreground: 275 30% 90%;
+
+    --primary: 275 42% 60%; /* Lightest Palette Purple #9E72C3 */
+    --primary-foreground: 267 70% 11%; /* Dark Purple #0F0529 */
+
+    --secondary: 273 52% 52%; /* Mid Purple #924DBF */
+    --secondary-foreground: 267 70% 11%; /* Dark Purple #0F0529 */
+
+    --muted: 271 49% 30%; /* Darker Purple #4A2574 */
+    --muted-foreground: 273 30% 70%; /* Lighter Muted Purple */
+
+    --accent: 270 49% 42%; /* Mid Purple #7338A0 */
+    --accent-foreground: 0 0% 98%; /* Almost White */
+
+    --destructive: 0 72.2% 50.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 259 36% 64%; /* Muted Violet for focus rings */
+
+    --border: 271 49% 25%; /* Darker version of #4A2574 */
+    --input: 271 49% 20%; /* Even darker for input backgrounds */
+    --ring: 275 42% 60%; /* Lightest Palette Purple #9E72C3 */
+    
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
 
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar specific colors */
+    --sidebar-background: 267 70% 11%;
+    --sidebar-foreground: 275 30% 90%;
+    --sidebar-primary: 275 42% 60%;
+    --sidebar-primary-foreground: 267 70% 11%;
+    --sidebar-accent: 271 49% 20%;
+    --sidebar-accent-foreground: 275 30% 90%;
+    --sidebar-border: 271 49% 25%;
+    --sidebar-ring: 275 42% 60%;
   }
 }
 
