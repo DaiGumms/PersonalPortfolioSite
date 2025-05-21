@@ -17,8 +17,8 @@ body {
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
 
-    --primary: 240 5.9% 10%; /* Darker Gray for primary elements */
-    --primary-foreground: 0 0% 98%; /* Almost White */
+    --primary: 255 100% 87%; /* #D0BFFF - Light Purple */
+    --primary-foreground: 240 5.9% 10%; /* Darker Gray for primary elements */
 
     --secondary: 240 4.8% 95.9%; /* Light Gray */
     --secondary-foreground: 240 5.9% 10%;
@@ -26,8 +26,8 @@ body {
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%; /* Mid Gray */
 
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+    --accent: 275 42% 60%; /* #9e72c3 - Lighter Purple */
+    --accent-foreground: 0 0% 98%; /* Almost White for accent text */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
@@ -86,7 +86,7 @@ body {
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
+    --chart-4: 43 74% 66%;
     --chart-5: 340 75% 55%;
 
     /* Sidebar specific colors */
