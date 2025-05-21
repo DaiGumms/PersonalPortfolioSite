@@ -22,14 +22,11 @@ export default function ResumeDownloadSection() {
             </CardDescription>
             <Button size="lg" asChild className="bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300 transform hover:scale-105">
               {/* Replace with the actual path to your resume PDF */}
-              <Link href="/resume-placeholder.pdf" target="_blank" download="DavidMorganGumm-Resume.pdf">
+              <Link href="/DavidMorganGumm-Resume.pdf" target="_blank" download="DavidMorganGumm-Resume.pdf">
                 <DownloadCloud className="mr-2 h-5 w-5" />
                 Download Resume (PDF)
               </Link>
             </Button>
-            <p className="text-xs text-muted-foreground mt-4">
-              (Note: This is a placeholder link. Replace with your actual resume file.)
-            </p>
           </CardContent>
         </Card>
       </div>

@@ -34,20 +34,39 @@ export default function ContactSection() {
     },
   });
 
-  // Simulate form submission
   const onSubmit: SubmitHandler<ContactFormData> = async (data) => {
     setIsSubmitting(true);
     console.log("Contact form submitted:", data);
 
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
 
-    setIsSubmitting(false);
-    toast({
+      if (!response.ok) {
+        throw new Error('Failed to send message.');
+      }
+
+      const result = await response.json();
+      toast({
       title: "Message Sent!",
       description: "Thanks for reaching out. I'll get back to you soon.",
-    });
-    form.reset();
+      });
+      form.reset();
+    } catch (error) {
+      console.error("Error sending contact form:", error);
+      toast({
+        title: "Error",
+        description: "There was a problem sending your message. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
