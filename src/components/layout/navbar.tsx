@@ -2,12 +2,13 @@
 "use client";
 
 import Link from 'next/link';
-import { CodeXml, Home, User, Briefcase, Brain, Users, BookOpen, Download, Mail, Menu, X } from 'lucide-react';
+import { CodeXml, Home, User, Briefcase, Brain, Users, BookOpen, Download, Mail, Menu, X, Sun, Moon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import { useTheme } from '@/components/theme-provider';
 
 const navItems = [
   { href: '#home', label: 'Home', icon: Home },
@@ -24,6 +25,7 @@ const navItems = [
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,12 +78,40 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex gap-1">
+        <nav className="hidden md:flex items-center gap-1">
           <NavLinks isMobile={false} />
+          <div className="ml-2">
+            <TooltipProvider delayDuration={0}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button variant="ghost" size="icon" onClick={toggleTheme} className="text-foreground hover:bg-primary/20 hover:text-accent-foreground">
+                    {theme === 'light' ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
+                    <span className="sr-only">Toggle theme</span>
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent side="bottom">
+                  <p>{theme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode'}</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          </div>
         </nav>
 
         {/* Mobile Navigation */}
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center">
+           <TooltipProvider delayDuration={0}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                 <Button variant="ghost" size="icon" onClick={toggleTheme} className="text-foreground hover:bg-primary/20 hover:text-accent-foreground mr-1">
+                    {theme === 'light' ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
+                    <span className="sr-only">Toggle theme</span>
+                  </Button>
+              </TooltipTrigger>
+              <TooltipContent side="bottom">
+                <p>{theme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode'}</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
