@@ -14,7 +14,7 @@ const communities = [
   {
     name: 'LinkedIn',
     description: 'Connect with me for professional networking and industry insights.',
-    link: 'https://linkedin.com/in/yourusername',
+    link: 'https://www.linkedin.com/in/david-morgan-gumm-450751133/',
     icon: Linkedin,
     cta: 'Connect',
   },
