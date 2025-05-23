@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Home, User, Briefcase, Brain, Users, BookOpen, Download, Mail, Menu, X, Wand2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
@@ -137,6 +137,7 @@ export default function Navbar() {
         </div>
       </header>
       <DialogContent className="sm:max-w-[750px] p-0">
+        <DialogTitle className="sr-only">AI Self-Summary Enhancer</DialogTitle>
         {/* AISummaryToolSection includes its own Card and padding, so we remove Dialog's default padding with p-0 */}
         <AISummaryToolSection />
       </DialogContent>
