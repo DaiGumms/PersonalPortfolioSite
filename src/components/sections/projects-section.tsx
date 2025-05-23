@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Card, CardContent, CardHeader, CardTitle, CardFooter, CardDescription } from '@/components/ui/card';
@@ -103,7 +104,7 @@ export default function ProjectsSection() {
               src={'/images/squiggle.png'}
               alt={'sql_squared placeholder image'}
               layout="fill"
-              objectFit="cover"
+              objectFit="contain"
               className="rounded-md"
             />
           </div>
