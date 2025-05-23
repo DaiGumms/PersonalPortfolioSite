@@ -16,8 +16,8 @@ export default function HomePage() {
       <ProjectsSection />
       <CommunitySection />
       <BlogAndEventsSection />
-      <ResumeDownloadSection />
       <ContactSection />
+      <ResumeDownloadSection />
     </>
   );
 }

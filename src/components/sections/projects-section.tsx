@@ -1,9 +1,24 @@
+'use client';
+
 import { Card, CardContent, CardHeader, CardTitle, CardFooter, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Github, ExternalLink, Settings } from 'lucide-react';
+import { Github, ExternalLink, Settings, Podcast, BookOpen, Calendar } from 'lucide-react';
+import { useTheme } from '@/components/theme-provider';
+
+const sqlSquared = {
+  title: 'sql_squared',
+  description: 'sql_squared is a vibrant data and AI community I founded, home to insightful podcasts, informative blogs, and engaging events for enthusiasts and professionals alike.',
+  links: [
+    { type: 'Podcast', icon: <Podcast className="mr-2 h-4 w-4" />, url: '#' }, // Placeholder URL
+    { type: 'Blogs', icon: <BookOpen className="mr-2 h-4 w-4" />, url: '#' }, // Placeholder URL
+    { type: 'Events', icon: <Calendar className="mr-2 h-4 w-4" />, url: '#' }, // Placeholder URL
+    // Add a main community link if available
+    // { type: 'Community Site', icon: <Users className="mr-2 h-4 w-4" />, url: '#' },
+  ]
+};
 
 const projects = [
   {
@@ -31,7 +46,7 @@ const projects = [
     imageHint: 'mobile app',
     techStack: ['React Native', 'GraphQL', 'Node.js', 'MongoDB'],
     liveLink: '#',
-    githubLink: '#',
+    githubLink: '#'
   },
   {
     title: 'Open Source UI Library',
@@ -45,12 +60,42 @@ const projects = [
 ];
 
 export default function ProjectsSection() {
+  const { theme } = useTheme();
+
+  const sqlSquaredLogoSrc = theme === 'light' ? '/images/logo-square_light.png' : '/images/logo-square_dark.png';
+
   return (
     <section id="projects" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground">
           My Projects
         </h2>
+
+        {/* sql_squared section */}
+        <Card className="flex flex-col md:flex-row items-center bg-card shadow-lg mb-12 p-6 md:p-8">
+          <CardHeader className="flex-shrink-0 mb-4 md:mb-0 md:mr-8 p-0">
+             <Image src={sqlSquaredLogoSrc} alt="sql_squared logo" width={100} height={100} />
+          </CardHeader>
+          <CardContent className="flex-grow p-0">
+            <CardTitle className="text-2xl md:text-3xl font-bold text-accent mb-3">
+              {sqlSquared.title}
+            </CardTitle>
+            <CardDescription className="text-muted-foreground text-base mb-4">
+              {sqlSquared.description}
+            </CardDescription>
+            <div className="flex flex-wrap gap-4">
+              {sqlSquared.links.map((link) => (
+                <Button key={link.type} variant="outline" asChild className="border-accent text-accent hover:bg-accent/10">
+                  <Link href={link.url} target="_blank" rel="noopener noreferrer">
+                    {link.icon} {link.type}
+                  </Link>
+                </Button>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Existing projects grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
           {projects.map((project) => (
             <Card key={project.title} className="flex flex-col bg-card shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group">
