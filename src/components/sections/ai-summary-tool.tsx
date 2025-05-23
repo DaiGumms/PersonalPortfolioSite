@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from 'react';
@@ -9,7 +10,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2, Wand2, Sparkles } from 'lucide-react';
@@ -60,104 +60,100 @@ export default function AISummaryToolSection() {
   };
 
   return (
-    <section id="ai-tool" className="py-16 md:py-24 bg-background">
-      <div className="container mx-auto px-4 md:px-6">
-        <Card className="max-w-3xl mx-auto bg-card shadow-xl hover:shadow-2xl transition-shadow duration-300">
-          <CardHeader className="text-center">
-             <div className="flex justify-center mb-4">
-                <Wand2 className="h-12 w-12 text-accent" />
-            </div>
-            <CardTitle className="text-3xl md:text-4xl font-bold text-foreground">AI Self-Summary Enhancer</CardTitle>
-            <CardDescription className="text-lg text-muted-foreground mt-2">
-              Let AI help you craft a more impactful self-summary. Provide your current summary, relevant industry keywords, and key skills to get an improved version.
-            </CardDescription>
-          </CardHeader>
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)}>
-              <CardContent className="space-y-6">
-                <FormField
-                  control={form.control}
-                  name="summary"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel htmlFor="summary" className="text-md font-semibold text-foreground">Your Current Self-Summary</FormLabel>
-                      <FormControl>
-                        <Textarea
-                          id="summary"
-                          placeholder="Paste your current self-summary paragraph here..."
-                          rows={6}
-                          className="bg-input focus:ring-accent"
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="industryKeywords"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel htmlFor="industryKeywords" className="text-md font-semibold text-foreground">Target Industry Keywords</FormLabel>
-                      <FormControl>
-                        <Input
-                          id="industryKeywords"
-                          placeholder="e.g., SaaS, Machine Learning, Fintech"
-                          className="bg-input focus:ring-accent"
-                          {...field}
-                        />
-                      </FormControl>
-                       <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="skills"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel htmlFor="skills" className="text-md font-semibold text-foreground">Skills to Highlight (comma-separated)</FormLabel>
-                      <FormControl>
-                        <Input
-                          id="skills"
-                          placeholder="e.g., Python, Agile, Product Management"
-                          className="bg-input focus:ring-accent"
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </CardContent>
-              <CardFooter className="flex justify-center border-t pt-6">
-                <Button type="submit" size="lg" disabled={isLoading} className="bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300 transform hover:scale-105 w-full sm:w-auto">
-                  {isLoading ? (
-                    <>
-                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                      Enhancing...
-                    </>
-                  ) : (
-                    <>
-                      <Sparkles className="mr-2 h-5 w-5" />
-                      Improve My Summary
-                    </>
-                  )}
-                </Button>
-              </CardFooter>
-            </form>
-          </Form>
-          {improvedSummaryResult && (
-            <div className="px-6 pb-6 mt-6 border-t pt-6">
-              <h3 className="text-xl font-semibold mb-3 text-center text-foreground">✨ AI-Enhanced Summary ✨</h3>
-              <div className="p-4 bg-primary/10 rounded-md border border-primary">
-                <p className="text-foreground whitespace-pre-line">{improvedSummaryResult}</p>
-              </div>
-            </div>
-          )}
-        </Card>
-      </div>
-    </section>
+    <Card className="w-full border-0 shadow-none rounded-lg"> {/* Removed max-width, mx-auto, shadow, transition */}
+      <CardHeader className="text-center pt-6">
+         <div className="flex justify-center mb-4">
+            <Wand2 className="h-10 w-10 text-accent" /> {/* Slightly smaller icon for dialog context */}
+        </div>
+        <CardTitle className="text-2xl md:text-3xl font-bold text-foreground">AI Self-Summary Enhancer</CardTitle> {/* Adjusted title size for dialog */}
+        <CardDescription className="text-md text-muted-foreground mt-2">
+          Let AI help you craft a more impactful self-summary. Provide your current summary, relevant industry keywords, and key skills to get an improved version.
+        </CardDescription>
+      </CardHeader>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)}>
+          <CardContent className="space-y-4 px-6"> {/* Adjusted padding and spacing */}
+            <FormField
+              control={form.control}
+              name="summary"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel htmlFor="summary" className="text-md font-semibold text-foreground">Your Current Self-Summary</FormLabel>
+                  <FormControl>
+                    <Textarea
+                      id="summary"
+                      placeholder="Paste your current self-summary paragraph here..."
+                      rows={5} // Slightly reduced rows for dialog
+                      className="bg-input focus:ring-accent"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="industryKeywords"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel htmlFor="industryKeywords" className="text-md font-semibold text-foreground">Target Industry Keywords</FormLabel>
+                  <FormControl>
+                    <Input
+                      id="industryKeywords"
+                      placeholder="e.g., SaaS, Machine Learning, Fintech"
+                      className="bg-input focus:ring-accent"
+                      {...field}
+                    />
+                  </FormControl>
+                   <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="skills"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel htmlFor="skills" className="text-md font-semibold text-foreground">Skills to Highlight (comma-separated)</FormLabel>
+                  <FormControl>
+                    <Input
+                      id="skills"
+                      placeholder="e.g., Python, Agile, Product Management"
+                      className="bg-input focus:ring-accent"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </CardContent>
+          <CardFooter className="flex justify-center border-t pt-6 pb-6 px-6">
+            <Button type="submit" size="lg" disabled={isLoading} className="bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300 transform hover:scale-105 w-full sm:w-auto">
+              {isLoading ? (
+                <>
+                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                  Enhancing...
+                </>
+              ) : (
+                <>
+                  <Sparkles className="mr-2 h-5 w-5" />
+                  Improve My Summary
+                </>
+              )}
+            </Button>
+          </CardFooter>
+        </form>
+      </Form>
+      {improvedSummaryResult && (
+        <div className="px-6 pb-6 mt-4 border-t pt-6"> {/* Adjusted margin for dialog */}
+          <h3 className="text-lg font-semibold mb-3 text-center text-foreground">✨ AI-Enhanced Summary ✨</h3> {/* Adjusted title size */}
+          <div className="p-4 bg-primary/10 rounded-md border border-primary max-h-60 overflow-y-auto">
+            <p className="text-foreground whitespace-pre-line">{improvedSummaryResult}</p>
+          </div>
+        </div>
+      )}
+    </Card>
   );
 }
