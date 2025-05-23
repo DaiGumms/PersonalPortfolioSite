@@ -72,28 +72,42 @@ export default function ProjectsSection() {
         </h2>
 
         {/* sql_squared section */}
-        <Card className="flex flex-col md:flex-row items-center bg-card shadow-lg mb-12 p-6 md:p-8">
-          <CardHeader className="flex-shrink-0 mb-4 md:mb-0 md:mr-8 p-0">
-             <Image src={sqlSquaredLogoSrc} alt="sql_squared logo" width={100} height={100} />
-          </CardHeader>
-          <CardContent className="flex-grow p-0">
-            <CardTitle className="text-2xl md:text-3xl font-bold text-accent mb-3">
-              {sqlSquared.title}
-            </CardTitle>
-            <CardDescription className="text-muted-foreground text-base mb-4">
-              {sqlSquared.description}
-            </CardDescription>
-            <div className="flex flex-wrap gap-4">
-              {sqlSquared.links.map((link) => (
-                <Button key={link.type} variant="outline" asChild className="border-accent text-accent hover:bg-accent/10">
-                  <Link href={link.url} target="_blank" rel="noopener noreferrer">
-                    {link.icon} {link.type}
-                  </Link>
-                </Button>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+        <div className="grid lg:grid-cols-5 gap-12 items-center">
+          <div className="lg:col-span-3 space-y-8">
+            <Card className="flex flex-col md:flex-row items-center bg-card shadow-lg mb-12 p-6 md:p-8">
+              <CardHeader className="flex-shrink-0 mb-4 md:mb-0 md:mr-8 p-0">
+                <Image src={sqlSquaredLogoSrc} alt="sql_squared logo" width={100} height={100} />
+              </CardHeader>
+              <CardContent className="flex-grow p-0">
+                <CardTitle className="text-2xl md:text-3xl font-bold text-accent mb-3">
+                  {sqlSquared.title}
+                </CardTitle>
+                <CardDescription className="text-muted-foreground text-base mb-4">
+                  {sqlSquared.description}
+                </CardDescription>
+                <div className="flex flex-wrap gap-4">
+                  {sqlSquared.links.map((link) => (
+                    <Button key={link.type} variant="outline" asChild className="border-accent text-accent hover:bg-accent/10">
+                      <Link href={link.url} target="_blank" rel="noopener noreferrer">
+                        {link.icon} {link.type}
+                      </Link>
+                    </Button>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+          <div className="lg:col-span-2 relative aspect-video lg:aspect-auto lg:h-[500px] order-last lg:order-last">
+            {/* Placeholder image for sql_squared */}
+            <Image
+              src={'/images/squiggle.png'}
+              alt={'sql_squared placeholder image'}
+              layout="fill"
+              objectFit="cover"
+              className="rounded-md"
+            />
+          </div>
+        </div>
 
         {/* Existing projects grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
