@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Github, ExternalLink, Settings, Podcast, BookOpen, Calendar, Users } from 'lucide-react'; // Added Users
+import { Github, ExternalLink, Settings, Podcast, BookOpen, Calendar, Users } from 'lucide-react';
 import { useTheme } from '@/components/theme-provider';
 
 const sqlSquared = {
@@ -16,7 +16,6 @@ const sqlSquared = {
     { type: 'Podcast', icon: <Podcast className="mr-2 h-4 w-4" />, url: '#' }, // Placeholder URL
     { type: 'Blogs', icon: <BookOpen className="mr-2 h-4 w-4" />, url: '#' }, // Placeholder URL
     { type: 'Events', icon: <Calendar className="mr-2 h-4 w-4" />, url: '#' }, // Placeholder URL
-    // Add a main community link if available
     { type: 'Community Forum', icon: <Users className="mr-2 h-4 w-4" />, url: '#' },
   ]
 };
@@ -100,14 +99,16 @@ export default function ProjectsSection() {
           </div>
           <div className="lg:col-span-2 lg:h-[400px] order-last lg:order-last">
             <div className="bg-background dark:bg-muted shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg p-6 h-full flex items-center justify-center relative overflow-hidden">
-              <Image
-                src={'/images/squiggle.png'}
-                alt={'sql_squared brand image'}
-                layout="fill"
-                objectFit="contain"
-                className="rounded-md"
-                 data-ai-hint="abstract data"
-              />
+              <Link href="https://www.sqlsquared.co.uk" target="_blank" rel="noopener noreferrer" aria-label="Visit sqlsquared.co.uk">
+                <Image
+                  src={'/images/squiggle.png'}
+                  alt={'sql_squared brand image'}
+                  layout="fill"
+                  objectFit="contain"
+                  className="rounded-md"
+                  data-ai-hint="abstract data"
+                />
+              </Link>
             </div>
           </div>
         </div>
@@ -168,4 +169,3 @@ export default function ProjectsSection() {
     </section>
   );
 }
-
