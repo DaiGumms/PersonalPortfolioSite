@@ -66,14 +66,14 @@ export default function ProjectsSection() {
   const sqlSquaredLogoSrc = theme === 'light' ? '/images/logo-square_light.png' : '/images/logo-square_dark.png';
 
   return (
-    <section id="projects" className="py-16 md:py-24 bg-muted/50">
+    <section id="projects" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground">
           My Projects
         </h2>
 
         {/* sql_squared section */}
-        <div className="grid lg:grid-cols-5 gap-12 items-center mb-16"> {/* Added mb-16 for spacing */}
+        <div className="grid lg:grid-cols-5 gap-12 items-center mb-16">
           <div className="lg:col-span-3 space-y-8">
             <Card className="flex flex-col md:flex-row items-center bg-card shadow-lg p-6 md:p-8 hover:shadow-xl transition-shadow duration-300">
               <CardHeader className="flex-shrink-0 mb-4 md:mb-0 md:mr-8 p-0">
@@ -98,8 +98,8 @@ export default function ProjectsSection() {
               </CardContent>
             </Card>
           </div>
-          <div className="lg:col-span-2 lg:h-[400px] order-last lg:order-last"> {/* Adjusted height slightly */}
-            <div className="bg-card shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg p-6 h-full flex items-center justify-center relative overflow-hidden">
+          <div className="lg:col-span-2 lg:h-[400px] order-last lg:order-last">
+            <div className="bg-background dark:bg-muted shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg p-6 h-full flex items-center justify-center relative overflow-hidden">
               <Image
                 src={'/images/squiggle.png'}
                 alt={'sql_squared brand image'}
@@ -168,3 +168,4 @@ export default function ProjectsSection() {
     </section>
   );
 }
+
