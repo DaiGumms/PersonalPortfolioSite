@@ -17,7 +17,7 @@ const sqlSquared = {
     { type: 'Blogs', icon: <BookOpen className="mr-2 h-4 w-4" />, url: '#' }, // Placeholder URL
     { type: 'Events', icon: <Calendar className="mr-2 h-4 w-4" />, url: '#' }, // Placeholder URL
     // Add a main community link if available
-    { type: 'Community Site', icon: <Users className="mr-2 h-4 w-4" />, url: '#' },
+    { type: 'Community Forum', icon: <Users className="mr-2 h-4 w-4" />, url: '#' },
   ]
 };
 
