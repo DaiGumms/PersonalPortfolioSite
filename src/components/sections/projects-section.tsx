@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Github, ExternalLink, Settings, Podcast, BookOpen, Calendar } from 'lucide-react';
+import { Github, ExternalLink, Settings, Podcast, BookOpen, Calendar, Users } from 'lucide-react'; // Added Users
 import { useTheme } from '@/components/theme-provider';
 
 const sqlSquared = {
@@ -17,7 +17,7 @@ const sqlSquared = {
     { type: 'Blogs', icon: <BookOpen className="mr-2 h-4 w-4" />, url: '#' }, // Placeholder URL
     { type: 'Events', icon: <Calendar className="mr-2 h-4 w-4" />, url: '#' }, // Placeholder URL
     // Add a main community link if available
-    // { type: 'Community Site', icon: <Users className="mr-2 h-4 w-4" />, url: '#' },
+    { type: 'Community Site', icon: <Users className="mr-2 h-4 w-4" />, url: '#' },
   ]
 };
 
@@ -66,16 +66,16 @@ export default function ProjectsSection() {
   const sqlSquaredLogoSrc = theme === 'light' ? '/images/logo-square_light.png' : '/images/logo-square_dark.png';
 
   return (
-    <section id="projects" className="py-16 md:py-24 bg-background">
+    <section id="projects" className="py-16 md:py-24 bg-muted/50">
       <div className="container mx-auto px-4 md:px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground">
           My Projects
         </h2>
 
         {/* sql_squared section */}
-        <div className="grid lg:grid-cols-5 gap-12 items-center">
+        <div className="grid lg:grid-cols-5 gap-12 items-center mb-16"> {/* Added mb-16 for spacing */}
           <div className="lg:col-span-3 space-y-8">
-            <Card className="flex flex-col md:flex-row items-center bg-card shadow-lg mb-12 p-6 md:p-8">
+            <Card className="flex flex-col md:flex-row items-center bg-card shadow-lg p-6 md:p-8 hover:shadow-xl transition-shadow duration-300">
               <CardHeader className="flex-shrink-0 mb-4 md:mb-0 md:mr-8 p-0">
                 <Image src={sqlSquaredLogoSrc} alt="sql_squared logo" width={100} height={100} />
               </CardHeader>
@@ -98,15 +98,17 @@ export default function ProjectsSection() {
               </CardContent>
             </Card>
           </div>
-          <div className="lg:col-span-2 relative aspect-video lg:aspect-auto lg:h-[500px] order-last lg:order-last">
-            {/* Placeholder image for sql_squared */}
-            <Image
-              src={'/images/squiggle.png'}
-              alt={'sql_squared placeholder image'}
-              layout="fill"
-              objectFit="contain"
-              className="rounded-md"
-            />
+          <div className="lg:col-span-2 lg:h-[400px] order-last lg:order-last"> {/* Adjusted height slightly */}
+            <div className="bg-card shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg p-6 h-full flex items-center justify-center relative overflow-hidden">
+              <Image
+                src={'/images/squiggle.png'}
+                alt={'sql_squared brand image'}
+                layout="fill"
+                objectFit="contain"
+                className="rounded-md"
+                 data-ai-hint="abstract data"
+              />
+            </div>
           </div>
         </div>
 
