@@ -38,7 +38,7 @@ export default function Navbar() {
     <>
       {navItems.map((item) =>
         isMobile ? (
-          <Button key={item.label} variant="ghost" asChild className="text-foreground hover:bg-primary/20 hover:text-accent-foreground w-full justify-start">
+          <Button key={item.label} variant="ghost" asChild className="text-foreground hover:bg-primary/20 hover:text-foreground w-full justify-start">
             <Link href={item.href} onClick={onItemClick}>
               <item.icon className="mr-2 h-4 w-4" />
               {item.label}
@@ -48,7 +48,7 @@ export default function Navbar() {
           <TooltipProvider key={item.label} delayDuration={0}>
             <Tooltip>
               <TooltipTrigger asChild>
-                <Button variant="ghost" size="icon" asChild className="text-foreground hover:bg-primary/20 hover:text-accent-foreground">
+                <Button variant="ghost" size="icon" asChild className="text-foreground hover:bg-primary/20 hover:text-foreground">
                   <Link href={item.href} onClick={onItemClick}>
                     <item.icon className="h-5 w-5" />
                     <span className="sr-only">{item.label}</span>

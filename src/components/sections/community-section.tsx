@@ -65,7 +65,7 @@ export default function CommunitySection() {
               </CardContent>
               <div className="p-6 border-t">
                 <Button variant="outline" asChild className="w-full border-accent text-accent hover:bg-accent/10 transition-colors">
-                  <Link href={community.link} target="_blank" rel="noopener noreferrer">
+                  <Link href={community.link} target="_blank" rel="noopener noreferrer" className="hover:text-accent/80 hover:border-accent/80">
                     {community.cta}
                   </Link>
                 </Button>

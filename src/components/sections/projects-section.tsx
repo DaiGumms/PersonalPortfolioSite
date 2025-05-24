@@ -88,7 +88,7 @@ export default function ProjectsSection() {
                 </CardDescription>
                 <div className="flex flex-wrap gap-4">
                   {sqlSquared.links.map((link) => (
-                    <Button key={link.type} variant="outline" asChild className="border-accent text-accent hover:bg-accent/10">
+                    <Button key={link.type} variant="outline" asChild className="border-accent text-accent hover:bg-accent/10 hover:text-accent/80 hover:border-accent/80">
                       <Link href={link.url} target="_blank" rel="noopener noreferrer">
                         {link.icon} {link.type}
                       </Link>
@@ -149,7 +149,7 @@ export default function ProjectsSection() {
               </CardContent>
               <CardFooter className="flex justify-end gap-3 border-t pt-4">
                 {project.liveLink && project.liveLink !== '#' && (
-                  <Button variant="outline" asChild className="border-accent text-accent hover:bg-accent/10">
+                  <Button variant="outline" asChild className="border-accent text-accent hover:bg-accent/10 hover:text-accent/80 hover:border-accent/80">
                     <Link href={project.liveLink} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
                     </Link>

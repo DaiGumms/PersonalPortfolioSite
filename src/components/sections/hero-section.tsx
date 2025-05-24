@@ -23,7 +23,7 @@ export default function HeroSection() {
                 My Vision <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button variant="outline" size="lg" asChild className="border-accent text-accent hover:bg-accent/10 transition-all duration-300 transform hover:scale-105">
+            <Button variant="outline" size="lg" asChild className="border-accent text-accent hover:bg-accent/20 hover:text-accent/80 hover:border-accent/80 transition-all duration-300 transform hover:scale-105">
               <Link href="#contact">
                 Get In Touch
               </Link>
