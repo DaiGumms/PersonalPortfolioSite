@@ -13,49 +13,67 @@ const sqlSquared = {
   title: 'sql_squared',
   description: 'sql_squared is a vibrant data and AI community I founded, home to insightful podcasts, informative blogs, and engaging events for enthusiasts and professionals alike.',
   links: [
-    { type: 'Podcast', icon: <Podcast className="mr-2 h-4 w-4" />, url: '#' }, // Placeholder URL
-    { type: 'Blogs', icon: <BookOpen className="mr-2 h-4 w-4" />, url: '#' }, // Placeholder URL
-    { type: 'Events', icon: <Calendar className="mr-2 h-4 w-4" />, url: '#' }, // Placeholder URL
+    { type: 'Podcast', icon: <Podcast className="mr-2 h-4 w-4" />, url: '#' },
+    { type: 'Blogs', icon: <BookOpen className="mr-2 h-4 w-4" />, url: '#' },
+    { type: 'Events', icon: <Calendar className="mr-2 h-4 w-4" />, url: '#' },
     { type: 'Community Forum', icon: <Users className="mr-2 h-4 w-4" />, url: '#' },
-    { type: 'YouTube', icon: <Youtube className="mr-2 h-4 w-4" />, url: '#' }, // Placeholder URL for YouTube
+    { type: 'YouTube', icon: <Youtube className="mr-2 h-4 w-4" />, url: '#' },
   ]
 };
 
 const projects = [
   {
-    title: 'E-commerce Platform',
-    description: 'A full-featured e-commerce platform with advanced product management, user authentication, and payment gateway integration.',
-    image: 'https://placehold.co/600x400.png',
-    imageHint: 'online shopping',
-    techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Stripe', 'Firebase'],
+    title: 'Azure Analytical Data Platform',
+    description: 'Designed and implemented a scalable and secure Azure Analytical Data Platform using Azure Synapse Analytics to consolidate disparate data sources for comprehensive business intelligence and reporting.',
+    image: '/images/projects/DataPlatform.jpg', // Placeholder
+    imageHint: 'Azure data platform', // Placeholder
+    techStack: ['Azure Synapse', 'Azure Data Lake Storage', 'Azure Data Factory', 'Azure Logic Apps', 'Power BI', 'SQL', 'Python', ],
+    liveLink: '#', // Placeholder
+    githubLink: '#', // Placeholder
+  },
+  {
+    title: 'Global LinkedIn Job Market Data Warehousing and Reporting',
+    description: 'Built a data warehousing solution to ingest and analyze daily global LinkedIn job market data using Azure Data Explorer (Kusto) for real-time analytics and reporting.',
+    image: '/images/projects/LinkedInJobData.jpg', // Placeholder
+    imageHint: 'data warehousing', // Placeholder
+    techStack: ['Azure Data Explorer', 'Kusto Query Language (KQL)', 'Azure Functions', 'Power BI'],
     liveLink: '#',
     githubLink: '#',
   },
   {
-    title: 'AI Powered Analytics Dashboard',
-    description: 'A dashboard that uses machine learning to provide insights from large datasets, featuring interactive charts and reports.',
-    image: 'https://placehold.co/600x400.png',
-    imageHint: 'data charts',
-    techStack: ['Python', 'Flask', 'React', 'D3.js', 'PostgreSQL'],
-    liveLink: '#',
+    title: 'Telephony Platform Integrations and Global Reporting',
+    description: 'Developed real-time integrations with various global telephony platforms to extract, transform, and load call data using event-driven architecture for in-depth analysis and comprehensive global reporting.',
+    image: '/images/projects/TelephonyData.jpg', // Placeholder
+    imageHint: 'telephony reporting', // Placeholder
+    techStack: ['REST APIs', 'Azure Functions', 'Azure SQL Database', 'Power BI'],
+    liveLink: '#', // Placeholder
     githubLink: '#',
   },
   {
-    title: 'Mobile Task Manager',
-    description: 'A cross-platform mobile application for task management with real-time collaboration features and offline support.',
-    image: 'https://placehold.co/600x400.png',
-    imageHint: 'mobile app',
-    techStack: ['React Native', 'GraphQL', 'Node.js', 'MongoDB'],
-    liveLink: '#',
-    githubLink: '#'
+    title: 'ERP Integrations to SAP ByDesign',
+    description: 'Engineered robust data integration pipelines to connect SAP ByDesign ERP system with downstream financial reporting and forecasting tools, ensuring data consistency and accuracy.',
+    image: '/images/projects/FinanceData.jpg', // Placeholder
+    imageHint: 'ERP integration', // Placeholder
+    techStack: ['SAP ByDesign APIs', 'Azure Data Factory', 'SQL Server', 'Financial Reporting Tools'],
+    liveLink: '#', // Placeholder
+    githubLink: '#',
   },
   {
-    title: 'Open Source UI Library',
-    description: 'A customizable and accessible component library for web developers, published on npm.',
-    image: 'https://placehold.co/600x400.png',
-    imageHint: 'code components',
-    techStack: ['TypeScript', 'Storybook', 'Rollup.js', 'CSS-in-JS'],
-    liveLink: '#',
+    title: 'Batch ETL Ingestion of Sales Data',
+    description: 'Implemented a reliable batch ETL process for ingesting sales data from various sources into a data lake for subsequent processing and analysis.',
+    image: '/images/projects/SalesforceData.jpg', // Placeholder
+    imageHint: 'batch data ingestion', // Placeholder
+    techStack: ['Azure Data Factory', 'Salesforce', 'SQL', 'SOQL', 'Azure Data Lake Storage'],
+    liveLink: '#', // Placeholder
+    githubLink: '#',
+  },
+  {
+    title: 'Database DevOps and CI/CD Implementation',
+    description: 'Established Database DevOps practices and implemented Continuous Integration/Continuous Deployment (CI/CD) pipelines for database changes, improving release velocity and reducing deployment risks.',
+    image: '/images/projects/DevOpsData.jpg', // Placeholder
+    imageHint: 'DevOps CI/CD', // Placeholder
+    techStack: ['Azure DevOps', 'CI/CD Pipelines', 'SQL Server Data Tools (SSDT)', 'Version Control (Git)'],
+    liveLink: '#', // Placeholder
     githubLink: '#',
   },
 ];

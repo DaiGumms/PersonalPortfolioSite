@@ -38,7 +38,7 @@ export default function TechLeadershipSection() {
         <div className="grid lg:grid-cols-5 gap-12 items-center">
           <div className="lg:col-span-2 relative aspect-video lg:aspect-auto lg:h-[500px] order-last lg:order-first">
             <Image
-              src="https://placehold.co/600x750.png"
+              src="/images/Gemini_Generated_Image_v9b8dwv9b8dwv9b8.jpg"
               alt="Tech Leadership Concept"
               layout="fill"
               objectFit="cover"
