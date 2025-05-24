@@ -74,7 +74,7 @@ export default function Navbar() {
         <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
           <Link href="#home" className="flex items-center gap-2">
             <Wand2 className="h-7 w-7 text-accent" /> {/* Changed icon for portfolio */}
-            <span className="text-xl font-bold text-foreground">PersonalPortfolio</span>
+            <span className="text-xl font-bold text-foreground">David Morgan-Gumm</span>
           </Link>
 
           {/* Desktop Navigation */}

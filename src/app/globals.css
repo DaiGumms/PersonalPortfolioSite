@@ -52,6 +52,18 @@ body {
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 240 5.9% 90%;
     --sidebar-ring: 240 5.9% 10%;
+
+    /* Custom hover styles for light theme */
+    .light {
+      /* Secondary buttons */
+      .text-secondary-foreground.hover\:bg-secondary\/80:hover {
+          color: hsl(var(--foreground)); /* Darker text on hover */
+      }
+      /* Ghost buttons (used in navbar) */
+      .hover\:text-accent-foreground.hover\:bg-accent:hover {
+          color: hsl(var(--foreground)); /* Darker text on hover */
+      }
+    }
   }
 
   .dark {
