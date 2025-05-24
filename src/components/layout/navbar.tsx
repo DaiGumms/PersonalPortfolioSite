@@ -2,7 +2,7 @@
 "use client";
 
 import Link from 'next/link';
-import { Home, User, Briefcase, Brain, Users, BookOpen, Download, Mail, Menu, X, Wand2 } from 'lucide-react';
+import { Home, User, Briefcase, Brain, Users, Download, Mail, Menu, X, Wand2, Lightbulb } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
@@ -73,7 +73,7 @@ export default function Navbar() {
       )}>
         <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
           <Link href="#home" className="flex items-center gap-2">
-            <Wand2 className="h-7 w-7 text-accent" /> {/* Changed icon for portfolio */}
+            <Lightbulb className="h-7 w-7 text-accent" />
             <span className="text-xl font-bold text-foreground">David Morgan-Gumm</span>
           </Link>
 
@@ -110,7 +110,7 @@ export default function Navbar() {
                 <div className="flex flex-col gap-4">
                   <div className="flex justify-between items-center mb-4">
                      <Link href="#home" className="flex items-center gap-2" onClick={() => { setIsMobileMenuOpen(false); }}>
-                      <Wand2 className="h-7 w-7 text-accent" />
+                      <Lightbulb className="h-7 w-7 text-accent" />
                       <span className="text-xl font-bold text-foreground">Portfolio</span>
                     </Link>
                     <SheetClose asChild>
@@ -143,4 +143,3 @@ export default function Navbar() {
     </Dialog>
   );
 }
-
