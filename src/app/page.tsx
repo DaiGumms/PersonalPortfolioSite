@@ -15,7 +15,6 @@ export default function HomePage() {
       <TechLeadershipSection />
       <ProjectsSection />
       <CommunitySection />
-      <BlogAndEventsSection />
       <ContactSection />
       <ResumeDownloadSection />
     </>

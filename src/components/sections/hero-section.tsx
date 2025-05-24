@@ -32,7 +32,7 @@ export default function HeroSection() {
         </div>
         <div className="relative aspect-square max-w-md mx-auto md:max-w-none">
            <Image
-            src="https://placehold.co/600x600.png"
+            src="/images/hero_profile.png"
             alt="David Morgan-Gumm Portrait"
             width={600}
             height={600}

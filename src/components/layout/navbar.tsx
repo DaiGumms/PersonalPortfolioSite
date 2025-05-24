@@ -17,9 +17,8 @@ const navItems = [
   { href: '#leadership', label: 'Leadership', icon: Brain },
   { href: '#projects', label: 'Projects', icon: Briefcase },
   { href: '#community', label: 'Community', icon: Users },
-  { href: '#blog', label: 'Blog/Events', icon: BookOpen },
-  { href: '#resume', label: 'Resume', icon: Download },
   { href: '#contact', label: 'Contact', icon: Mail },
+  { href: '#resume', label: 'Resume', icon: Download },
 ];
 
 export default function Navbar() {
