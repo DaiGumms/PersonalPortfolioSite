@@ -62,21 +62,20 @@ const education = [
     name: 'Computer Science (BSc) 2:1 Hons',
     institution: 'University of Liverpool',
     year: '2018',
-    icon: GraduationCap, // Example icon for a degree
+    icon: GraduationCap, 
   },
    {
     name: 'Management & Leadership (Level 5)',
     institution: 'Chartered Managers Institute',
     year: 'In Progress',
-    icon: BookOpen, // Example icon for a diploma
+    icon: BookOpen, 
   },
   {
     name: 'Azure Fundamentals',
     institution: 'Microsoft',
     year: '2019',
-    icon: Award, // Example icon for a certification
+    icon: Award, 
   }
-  // Add more education entries here if needed, with appropriate icons
 ];
 
 export default function AboutMeSection() {
@@ -86,10 +85,8 @@ export default function AboutMeSection() {
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground">
           About Me
         </h2>
-        {/* Grid layout for Personal Statement and Key Skills */}
         <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Personal Statement Card */}
-          <Card className="lg:col-span-1 bg-card shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <Card className="lg:col-span-1 bg-card shadow-lg hover:shadow-xl hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300 ease-in-out">
             <CardHeader>
               <CardTitle className="text-2xl text-accent">Personal Statement</CardTitle>
             </CardHeader>
@@ -106,28 +103,24 @@ export default function AboutMeSection() {
             </CardContent>
           </Card>
 
-          {/* Key Skills Card */}
-          {/* Adjusted col-span to take up remaining space */}
-          <Card className="lg:col-span-2 bg-card shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <Card className="lg:col-span-2 bg-card shadow-lg hover:shadow-xl hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300 ease-in-out">
             <CardHeader>
               <CardTitle className="text-2xl text-accent">Key Skills</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"> {/* Adjusted grid for skills within the card back to 3 */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {skills.map((skill) => (
-                  <div key={skill.name} className="flex flex-col items-center text-center p-4 bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors">{/* Adjusted styling back */} 
-                    <skill.icon className="h-10 w-10 mb-3 text-accent" />{/* Adjusted icon size back */} 
-                    <h3 className="font-semibold text-foreground mb-1">{skill.name}</h3>{/* Adjusted styling back */} 
-                    <p className="text-xs text-muted-foreground">{skill.description}</p>{/* Adjusted styling back */} 
+                  <div key={skill.name} className="flex flex-col items-center text-center p-4 bg-primary/10 rounded-lg hover:bg-primary/20 transform hover:scale-105 transition-all duration-300 ease-in-out"> 
+                    <skill.icon className="h-10 w-10 mb-3 text-accent" />
+                    <h3 className="font-semibold text-foreground mb-1">{skill.name}</h3>
+                    <p className="text-xs text-muted-foreground">{skill.description}</p>
                   </div>
                 ))}
               </div>
             </CardContent>
           </Card>
-
         </div>
 
-        {/* My Journey Section */}
         <div className="mt-16">
           <h3 className="text-2xl md:text-3xl font-bold text-center mb-12 text-foreground">My Journey</h3>
           <Carousel
@@ -139,9 +132,9 @@ export default function AboutMeSection() {
           >
             <CarouselContent>
               {experiences.map((exp, index) => (
-                <CarouselItem key={index} className="md:basis-full lg:basis-full"> {/* Ensure one item per view */}
-                  <div className="p-1 h-full"> {/* Ensure padding doesn't shrink card, h-full for potential equal height */}
-                    <Card className="bg-card shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
+                <CarouselItem key={index} className="md:basis-full lg:basis-full">
+                  <div className="p-1 h-full">
+                    <Card className="bg-card shadow-lg hover:shadow-xl hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300 ease-in-out h-full flex flex-col">
                       <CardHeader>
                         <div>
                           <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
@@ -172,25 +165,16 @@ export default function AboutMeSection() {
           </Carousel>
         </div>
 
-        {/* Education Section below My Journey */}
-        {/* This div now acts as the container for the horizontally scrolling education items */}
-        <div className="mt-16"> {/* Added margin-top for spacing */}
-           {/* Heading styled like My Journey title */} 
-           <h3 className="text-2xl md:text-3xl font-bold text-center mb-12 text-foreground">{/* Adjusted text alignment */} 
-              <div className="flex items-center justify-center space-x-2"> {/* Centered flex for icon and text */}  
-                 <span className="text-accent">Education & Qualifications</span> {/* Text with accent color */} 
+        <div className="mt-16"> 
+           <h3 className="text-2xl md:text-3xl font-bold text-center mb-12 text-foreground"> 
+              <div className="flex items-center justify-center space-x-2">   
+                 <span className="text-accent">Education & Qualifications</span> 
              </div>
           </h3>
-          {/* Container for all education entries, using horizontal flex and allowing scroll */}
-          {/* Removed unnecessary outer div with card styling as the inner items have it */}
-          <div className="flex flex-row gap-6 w-full overflow-x-auto pb-4 px-2"> {/* Horizontal scroll container */} 
+          <div className="flex flex-row gap-6 w-full overflow-x-auto pb-4 px-2"> 
             {education.map((edu, index) => (
-              // Flex container for each education entry (icon above details), centered
-              // Styled similarly to Key Skills items with rounded background and hover
-              <div key={index} className="flex flex-col items-center gap-2 p-4 bg-primary/10 rounded-lg text-center flex-shrink-0 w-40 hover:bg-primary/20 transition-colors"> 
-                 {/* Icon for the education entry */} 
+              <div key={index} className="flex flex-col items-center gap-2 p-4 bg-primary/10 rounded-lg text-center flex-shrink-0 w-40 hover:bg-primary/20 transform hover:scale-105 transition-all duration-300 ease-in-out"> 
                 {edu.icon && <edu.icon className="h-10 w-10 text-accent" />}
-                {/* Container for the details (name, institution, year), centered */} 
                 <div className="flex flex-col items-center gap-1 w-full"> 
                   <p className="text-sm font-semibold text-foreground leading-tight">{edu.name}</p> 
                   <p className="text-xs text-muted-foreground leading-tight">{edu.institution}</p> 
@@ -205,4 +189,3 @@ export default function AboutMeSection() {
     </section>
   );
 }
-
