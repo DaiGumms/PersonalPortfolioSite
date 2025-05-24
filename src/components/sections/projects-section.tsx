@@ -84,7 +84,7 @@ export default function ProjectsSection() {
   const sqlSquaredLogoSrc = theme === 'light' ? '/images/logo-square_light.png' : '/images/logo-square_dark.png';
 
   return (
-    <section id="projects" className="py-16 md:py-24 bg-background">
+    <section id="projects" className="py-16 md:py-24 bg-muted/50">
       <div className="container mx-auto px-4 md:px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground">
           My Projects
@@ -93,7 +93,7 @@ export default function ProjectsSection() {
         {/* sql_squared section */}
         <div className="grid lg:grid-cols-5 gap-12 items-center mb-16">
           <div className="lg:col-span-3 space-y-8">
-            <Card className="flex flex-col md:flex-row items-center bg-card shadow-lg p-6 md:p-8 hover:shadow-xl transition-shadow duration-300">
+            <Card className="flex flex-col md:flex-row items-center bg-card shadow-lg p-6 md:p-8 hover:shadow-xl transition-all duration-300 ease-in-out hover:scale-[1.02] hover:-translate-y-1">
               <CardHeader className="flex-shrink-0 mb-4 md:mb-0 md:mr-8 p-0">
                 <Image src={sqlSquaredLogoSrc} alt="sql_squared logo" width={100} height={100} />
               </CardHeader>
@@ -135,7 +135,7 @@ export default function ProjectsSection() {
         {/* Existing projects grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
           {projects.map((project) => (
-            <Card key={project.title} className="flex flex-col bg-card shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group">
+            <Card key={project.title} className="flex flex-col bg-card shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden group hover:scale-[1.02] hover:-translate-y-1">
               <div className="relative w-full h-64">
                 <Image
                   src={project.image}
@@ -188,4 +188,3 @@ export default function ProjectsSection() {
     </section>
   );
 }
-
