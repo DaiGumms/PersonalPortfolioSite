@@ -38,12 +38,14 @@ export default function Navbar() {
     <>
       {navItems.map((item) =>
         isMobile ? (
-          <Button key={item.label} variant="ghost" asChild className="text-foreground hover:bg-primary/20 hover:text-foreground w-full justify-start">
-            <Link href={item.href} onClick={onItemClick}>
-              <item.icon className="mr-2 h-4 w-4" />
-              {item.label}
-            </Link>
-          </Button>
+          <SheetClose asChild key={item.label}>
+            <Button variant="ghost" asChild className="text-foreground hover:bg-primary/20 hover:text-foreground w-full justify-start">
+              <Link href={item.href} onClick={onItemClick}>
+                <item.icon className="mr-2 h-4 w-4" />
+                {item.label}
+              </Link>
+            </Button>
+          </SheetClose>
         ) : (
           <TooltipProvider key={item.label} delayDuration={0}>
             <Tooltip>
@@ -84,7 +86,10 @@ export default function Navbar() {
               <Tooltip>
                 <DialogTrigger asChild>
                   <TooltipTrigger asChild>
-                     <Button size="icon" className="ml-2 rounded-md bg-gradient-to-br from-primary via-accent to-secondary text-accent-foreground shadow-md hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 transition-all duration-300">
+                     <Button 
+                       size="icon" 
+                       className="ml-2 rounded-md bg-gradient-to-br from-primary via-accent to-secondary text-accent-foreground shadow-md focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 transition-all duration-300 hover:from-secondary hover:to-primary"
+                     >
                       <Wand2 className="h-5 w-5" />
                       <span className="sr-only">AI Summary Tool</span>
                     </Button>
