@@ -134,7 +134,7 @@ export default function AboutMeSection() {
               {experiences.map((exp, index) => (
                 <CarouselItem key={index} className="md:basis-full lg:basis-full">
                   <div className="p-1 h-full">
-                    <Card className="bg-card shadow-lg hover:shadow-xl hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300 ease-in-out h-full flex flex-col">
+                    <Card className="bg-card shadow-lg h-full flex flex-col"> {/* Removed hover animation classes */}
                       <CardHeader>
                         <div>
                           <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
@@ -189,3 +189,4 @@ export default function AboutMeSection() {
     </section>
   );
 }
+
