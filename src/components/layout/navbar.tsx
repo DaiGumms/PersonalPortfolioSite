@@ -88,7 +88,7 @@ export default function Navbar() {
                   <TooltipTrigger asChild>
                      <Button 
                        size="icon" 
-                       className="ml-2 rounded-md bg-gradient-to-br from-primary via-accent to-secondary text-accent-foreground shadow-md focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 transition-all duration-300 hover:from-secondary hover:to-primary"
+                       className="ml-2 rounded-md bg-gradient-to-br from-primary via-accent to-secondary text-accent-foreground shadow-md hover:brightness-90 hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 transition-all duration-300"
                      >
                       <Wand2 className="h-5 w-5" />
                       <span className="sr-only">AI Summary Tool</span>
@@ -148,3 +148,4 @@ export default function Navbar() {
     </Dialog>
   );
 }
+
