@@ -15,11 +15,11 @@ const sqlSquared = {
   title: 'sql_squared',
   description: 'sql_squared is a vibrant data and AI community I founded, home to insightful podcasts, informative blogs, and engaging events for enthusiasts and professionals alike.',
   links: [
-    { type: 'Podcast', icon: <Podcast className="mr-2 h-4 w-4" />, url: '#' },
-    { type: 'Blogs', icon: <BookOpen className="mr-2 h-4 w-4" />, url: '#' },
-    { type: 'Events', icon: <Calendar className="mr-2 h-4 w-4" />, url: '#' },
-    { type: 'Community Forum', icon: <Users className="mr-2 h-4 w-4" />, url: '#' },
-    { type: 'YouTube', icon: <Youtube className="mr-2 h-4 w-4" />, url: '#' },
+    { type: 'Podcast', icon: <Podcast className="mr-2 h-4 w-4" />, url: 'https://www.sqlsquared.co.uk/podcast' },
+    { type: 'Blogs', icon: <BookOpen className="mr-2 h-4 w-4" />, url: 'https://www.sqlsquared.co.uk/blog' },
+    { type: 'Events', icon: <Calendar className="mr-2 h-4 w-4" />, url: 'https://www.sqlsquared.co.uk/events' },
+    { type: 'Community Forum', icon: <Users className="mr-2 h-4 w-4" />, url: 'https://www.sqlsquared.co.uk/forum' },
+    { type: 'YouTube', icon: <Youtube className="mr-2 h-4 w-4" />, url: 'https://www.youtube.com/@sql_squared' },
   ]
 };
 
@@ -29,7 +29,7 @@ const projects = [
     description: 'Designed and implemented a scalable and secure Azure Analytical Data Platform using Azure Synapse Analytics to consolidate disparate data sources for comprehensive business intelligence and reporting.',
     image: '/images/projects/DataPlatform.jpg',
     imageHint: 'Azure data platform',
-    techStack: ['Azure Synapse', 'Azure Data Lake Storage', 'Azure Data Factory', 'Azure Logic Apps', 'Power BI', 'SQL', 'Python', ],
+    techStack: ['Azure Synapse', 'Azure Data Lake Storage', 'Azure Data Factory', 'Azure Logic Apps', 'Power BI', 'SQL', 'Python',],
     liveLink: '#',
     githubLink: '#',
   },
@@ -116,7 +116,7 @@ export default function ProjectsSection() {
 
     const titleObserver = createObserver(titleRef, setIsTitleVisible);
     const sqlSquaredBlockObserver = createObserver(sqlSquaredBlockRef, setIsSqlSquaredBlockVisible, contentObserverOptions);
-    const projectsGridObserver = createObserver(projectsGridRef, setIsProjectsGridVisible, {...observerOptions, threshold: 0.05}); // Trigger sooner for the grid
+    const projectsGridObserver = createObserver(projectsGridRef, setIsProjectsGridVisible, { ...observerOptions, threshold: 0.05 }); // Trigger sooner for the grid
 
     return () => {
       if (titleRef.current) titleObserver.unobserve(titleRef.current);
@@ -173,9 +173,9 @@ export default function ProjectsSection() {
           </div>
           <div className={cn(
             "lg:col-span-2 lg:h-[400px] order-last lg:order-last transition-all duration-700 ease-out",
-             isSqlSquaredBlockVisible ? "opacity-100 translate-x-0 delay-300" : "opacity-0 translate-x-10"
+            isSqlSquaredBlockVisible ? "opacity-100 translate-x-0 delay-300" : "opacity-0 translate-x-10"
           )}>
-             <div className="bg-background dark:bg-muted shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg p-6 h-full flex items-center justify-center relative overflow-hidden">
+            <div className="bg-background dark:bg-muted shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg p-6 h-full flex items-center justify-center relative overflow-hidden">
               <Link href="https://www.sqlsquared.co.uk" target="_blank" rel="noopener noreferrer" aria-label="Visit sqlsquared.co.uk">
                 <Image
                   src={'/images/squiggle.png'}
@@ -200,7 +200,7 @@ export default function ProjectsSection() {
               key={project.title}
               className={cn(
                 "flex flex-col bg-card shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden group hover:scale-[1.02] hover:-translate-y-1",
-                "transform", 
+                "transform",
                 isProjectsGridVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"

@@ -6,7 +6,7 @@ Built with Next.js and hosted on GitHub, this website is designed to be a dynami
 
 ## About Me
 
-I am a passionate software developer and tech leader with a strong focus on building robust, scalable, and impactful tools. My career has been driven by a desire to leverage technology to solve complex problems and improve processes. I'm constantly exploring new tech trends, contributing to open-source projects, and sharing my insights and experiences on my blog at [sqlsquared.co.uk](https://sqlsquared.co.uk).
+I am a passionate software developer and tech leader with a strong focus on building robust, scalable, and impactful tools. My career has been driven by a desire to leverage technology to solve complex problems and improve processes. I'm constantly exploring new tech trends, contributing to open-source projects, and sharing my insights and experiences on my blog at [sqlsquared.co.uk](https://www.sqlsquared.co.uk).
 
 ## Projects
 
@@ -39,7 +39,7 @@ I believe in the importance of sharing knowledge and engaging with the tech comm
 
 I also regularly share my thoughts and technical insights on my blog:
 
-*   **sqlsquared.co.uk:** [https://sqlsquared.co.uk](https://sqlsquared.co.uk)
+*   **sqlsquared.co.uk:** [https://www.sqlsquared.co.uk](https://www.sqlsquared.co.uk)
 
 ## Contact
 
