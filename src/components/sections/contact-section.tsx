@@ -1,19 +1,17 @@
 "use client";
 
-import { useForm, type SubmitHandler } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { useToast } from '@/hooks/use-toast';
-import { Loader2, Send, Mail, CheckCircle2, AlertTriangle, Info } from 'lucide-react';
-import { useState, useEffect } from 'react';
-import type { ContactFormResponse } from '@/lib/contact-utils';
-import { isValidEmail } from '@/lib/contact-utils';
+import { useState, useEffect } from "react";
+import { useForm, type SubmitHandler } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { useToast } from "@/hooks/use-toast";
+import { Mail, CheckCircle2, AlertTriangle, Info, Loader2, Send } from "lucide-react";
+import { isValidEmail, type ContactFormResponse } from "@/lib/contact-utils";
 
 // Create a schema for form validation with more detailed rules
 const contactFormSchema = z.object({
@@ -45,7 +43,7 @@ export default function ContactSection() {
   const [submissionTime, setSubmissionTime] = useState<Date | null>(null);
   const [formStatus, setFormStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const { toast } = useToast();
-  
+
   // Rate limiting for client-side submissions
   useEffect(() => {
     const lastSubmission = localStorage.getItem('lastSubmission');
@@ -58,6 +56,7 @@ export default function ContactSection() {
       }
     }
   }, []);
+
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -68,7 +67,7 @@ export default function ContactSection() {
     },
     mode: "onBlur", // Validate on blur for better UX
   });
-  
+
   // Track form changes to reset status
   useEffect(() => {
     const subscription = form.watch(() => {
@@ -82,7 +81,7 @@ export default function ContactSection() {
   const onSubmit: SubmitHandler<ContactFormData> = async (data) => {
     // Prevent multiple submissions
     if (isSubmitting) return;
-    
+
     // Check for honeypot field (bot detection)
     if (data.honeypot) {
       console.log("Bot submission detected");
@@ -93,39 +92,34 @@ export default function ContactSection() {
       setFormStatus('success'); // Fake success to not alert bots
       return;
     }
-    
+
     // Check submission rate
     if (submitCount >= 3) {
       toast({
-        title: (
-          <div className="flex items-center gap-2">
-            <AlertTriangle className="h-5 w-5 text-amber-500" />
-            <span>Too Many Attempts</span>
-          </div>
-        ),
+        title: "Too Many Attempts",
         description: "Please wait before sending another message.",
         variant: "destructive",
         duration: 5000,
       });
       return;
     }
-    
+
     // Check if submission is too quick (likely a bot)
     const now = new Date();
     if (submissionTime && now.getTime() - submissionTime.getTime() < 3000) {
       console.log("Suspicious rapid submission detected");
       return;
     }
-    
+
     setIsSubmitting(true);
     setSubmissionTime(now);
     setSubmitCount(prev => prev + 1);
     localStorage.setItem('lastSubmission', Date.now().toString());
-    
+
     try {
       // Remove honeypot field from submission
       const { honeypot, ...submissionData } = data;
-      
+
       // Send the form data to our API endpoint
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -145,39 +139,29 @@ export default function ContactSection() {
 
       // Update form status
       setFormStatus('success');
-      
-      // Show success message with checkmark icon
+
+      // Show success message
       toast({
-        title: (
-          <div className="flex items-center gap-2">
-            <CheckCircle2 className="h-5 w-5 text-green-500" />
-            <span>Message Sent Successfully!</span>
-          </div>
-        ),
+        title: "Message Sent Successfully!",
         description: "Thanks for reaching out. I'll get back to you soon.",
         variant: "default",
-        duration: 5000, // Show for 5 seconds
+        duration: 5000,
       });
-      
+
       // Reset the form after successful submission
       form.reset();
     } catch (error) {
       console.error("Error sending contact form:", error);
-      
+
       // Update form status
       setFormStatus('error');
-      
-      // Show error message with appropriate icon
+
+      // Show error message
       toast({
-        title: (
-          <div className="flex items-center gap-2">
-            <AlertTriangle className="h-5 w-5 text-red-500" />
-            <span>Message Could Not Be Sent</span>
-          </div>
-        ),
+        title: "Message Could Not Be Sent",
         description: error instanceof Error ? error.message : "There was a problem sending your message. Please try again later.",
         variant: "destructive",
-        duration: 7000, // Show for 7 seconds
+        duration: 7000,
       });
     } finally {
       setIsSubmitting(false);
@@ -187,9 +171,10 @@ export default function ContactSection() {
   return (
     <section id="contact" className="py-16 md:py-24 bg-muted/50">
       <div className="container mx-auto px-4 md:px-6">
-        <Card className="max-w-2xl mx-auto bg-card shadow-xl hover:shadow-2xl transition-shadow duration-300">          <CardHeader className="text-center">
+        <Card className="max-w-2xl mx-auto bg-card shadow-xl hover:shadow-2xl transition-shadow duration-300">
+          <CardHeader className="text-center">
             <div className="flex justify-center mb-4">
-                <Mail className="h-12 w-12 text-accent" aria-hidden="true" />
+              <Mail className="h-12 w-12 text-accent" aria-hidden="true" />
             </div>
             <CardTitle className="text-3xl md:text-4xl font-bold text-foreground">Get In Touch</CardTitle>
             <CardDescription className="text-lg text-muted-foreground mt-2">
@@ -200,7 +185,8 @@ export default function ContactSection() {
             </div>
           </CardHeader>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)}>              <CardContent className="space-y-6">
+            <form onSubmit={form.handleSubmit(onSubmit)}>
+              <CardContent className="space-y-6">
                 {/* Honeypot field - hidden from real users but bots will fill it */}
                 <div className="hidden" aria-hidden="true" style={{ display: 'none' }}>
                   <FormField
@@ -210,17 +196,17 @@ export default function ContactSection() {
                       <FormItem>
                         <FormLabel>Do not fill this field</FormLabel>
                         <FormControl>
-                          <Input 
+                          <Input
                             tabIndex={-1}
                             autoComplete="off"
-                            {...field} 
+                            {...field}
                           />
                         </FormControl>
                       </FormItem>
                     )}
                   />
                 </div>
-                
+
                 <FormField
                   control={form.control}
                   name="name"
@@ -228,15 +214,15 @@ export default function ContactSection() {
                     <FormItem>
                       <FormLabel htmlFor="name" className="text-md font-semibold text-foreground">Full Name</FormLabel>
                       <FormControl>
-                        <Input 
-                          id="name" 
-                          placeholder="John Doe" 
-                          className="bg-input focus:ring-accent" 
+                        <Input
+                          id="name"
+                          placeholder="John Doe"
+                          className="bg-input focus:ring-accent"
                           aria-required="true"
                           aria-invalid={!!form.formState.errors.name}
                           aria-describedby="name-description"
                           autoComplete="name"
-                          {...field} 
+                          {...field}
                         />
                       </FormControl>
                       <div id="name-description" className="text-xs text-muted-foreground">
@@ -246,7 +232,7 @@ export default function ContactSection() {
                     </FormItem>
                   )}
                 />
-                
+
                 <FormField
                   control={form.control}
                   name="email"
@@ -254,16 +240,16 @@ export default function ContactSection() {
                     <FormItem>
                       <FormLabel htmlFor="email" className="text-md font-semibold text-foreground">Email Address</FormLabel>
                       <FormControl>
-                        <Input 
-                          id="email" 
-                          type="email" 
-                          placeholder="john.doe@example.com" 
+                        <Input
+                          id="email"
+                          type="email"
+                          placeholder="john.doe@example.com"
                           className="bg-input focus:ring-accent"
                           aria-required="true"
                           aria-invalid={!!form.formState.errors.email}
-                          aria-describedby="email-description" 
+                          aria-describedby="email-description"
                           autoComplete="email"
-                          {...field} 
+                          {...field}
                         />
                       </FormControl>
                       <div id="email-description" className="text-xs text-muted-foreground">
@@ -273,7 +259,7 @@ export default function ContactSection() {
                     </FormItem>
                   )}
                 />
-                
+
                 <FormField
                   control={form.control}
                   name="message"
@@ -299,7 +285,9 @@ export default function ContactSection() {
                     </FormItem>
                   )}
                 />
-              </CardContent>              <CardFooter className="flex flex-col gap-4 justify-center border-t pt-6">
+              </CardContent>
+
+              <CardFooter className="flex flex-col gap-4 justify-center border-t pt-6">
                 {/* Form status message */}
                 {formStatus === 'success' && (
                   <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-md text-green-800 flex items-center">
@@ -310,7 +298,7 @@ export default function ContactSection() {
                     </div>
                   </div>
                 )}
-                
+
                 {formStatus === 'error' && (
                   <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-md text-red-800 flex items-center">
                     <AlertTriangle className="h-5 w-5 mr-2 text-red-500" />
@@ -320,17 +308,17 @@ export default function ContactSection() {
                     </div>
                   </div>
                 )}
-                
+
                 {/* Info about data privacy */}
                 <div className="mb-4 p-3 bg-blue-50 border border-blue-100 rounded-md text-blue-800 flex items-start">
                   <Info className="h-5 w-5 mr-2 text-blue-500 mt-0.5" />
                   <p className="text-sm">Your contact information will only be used to respond to your inquiry and will never be shared with third parties.</p>
                 </div>
-                
-                <Button 
-                  type="submit" 
-                  size="lg" 
-                  disabled={isSubmitting || !form.formState.isValid || submitCount >= 3} 
+
+                <Button
+                  type="submit"
+                  size="lg"
+                  disabled={isSubmitting || !form.formState.isValid || submitCount >= 3}
                   className={`
                     transition-all duration-300 transform 
                     ${isSubmitting ? 'bg-accent/70' : 'bg-accent hover:bg-accent/90 hover:scale-105'} 
@@ -357,13 +345,13 @@ export default function ContactSection() {
                     </>
                   )}
                 </Button>
-                
+
                 {isSubmitting && (
                   <div className="text-center text-sm text-muted-foreground animate-pulse">
                     Processing your message, please wait...
                   </div>
                 )}
-                
+
                 {/* Subtle hint about required fields */}
                 <div className="text-center text-xs text-muted-foreground mt-4">
                   All fields marked with a label are required

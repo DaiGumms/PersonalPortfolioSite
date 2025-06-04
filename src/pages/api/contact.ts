@@ -1,14 +1,14 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
 import { google } from 'googleapis';
-import { 
-  sanitizeInput, 
-  isValidEmail, 
+import {
+  sanitizeInput,
+  isValidEmail,
   isValidInput,
   shouldRateLimit,
   generateEmailTemplate,
-  type ContactFormData, 
-  type ContactFormResponse 
+  type ContactFormData,
+  type ContactFormResponse
 } from '@/lib/contact-utils';
 
 const { OAuth2 } = google.auth;
@@ -54,21 +54,21 @@ const createTransporter = async () => {
 };
 
 export default async function handler(
-  req: NextApiRequest, 
+  req: NextApiRequest,
   res: NextApiResponse<ContactFormResponse>
 ) {
   // Only allow POST requests
   if (req.method !== 'POST') {
-    return res.status(405).json({ 
+    return res.status(405).json({
       success: false,
-      message: 'Method Not Allowed' 
+      message: 'Method Not Allowed'
     });
   }
 
   // Get client IP for rate limiting
   const forwardedFor = req.headers['x-forwarded-for'] as string;
   const clientIp = forwardedFor ? forwardedFor.split(',')[0].trim() : '127.0.0.1';
-  
+
   // Check rate limiting
   if (shouldRateLimit(clientIp, 3600000, 5)) { // 5 requests per hour
     return res.status(429).json({
@@ -82,9 +82,9 @@ export default async function handler(
 
   // Check for required fields
   if (!name || !email || !message) {
-    return res.status(400).json({ 
+    return res.status(400).json({
       success: false,
-      message: 'Missing required fields' 
+      message: 'Missing required fields'
     });
   }
 
@@ -98,9 +98,9 @@ export default async function handler(
 
   // Validate email format
   if (!isValidEmail(email)) {
-    return res.status(400).json({ 
+    return res.status(400).json({
       success: false,
-      message: 'Invalid email format' 
+      message: 'Invalid email format'
     });
   }
 
@@ -111,15 +111,15 @@ export default async function handler(
       message: 'Message must be between 10 and 1000 characters and contain no malicious content'
     });
   }
-  
+
   // Sanitize inputs to prevent XSS
   const sanitizedName = sanitizeInput(name);
   const sanitizedEmail = sanitizeInput(email);
   const sanitizedMessage = sanitizeInput(message);
   try {
     // Create the email transporter using OAuth2
-    const transporter = await createTransporter();    
-    
+    const transporter = await createTransporter();
+
     // Get timestamp for tracking
     const timestamp = new Date().toISOString();
     const ipInfo = req.headers['x-forwarded-for'] || 'Unknown IP';
@@ -142,7 +142,7 @@ ${sanitizedMessage}
 Timestamp: ${timestamp}
 IP: ${ipInfo}
 User-Agent: ${userAgent}
-      `,      
+      `,
       html: `
 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eaeaea; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
   <div style="text-align: center; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #eaeaea;">
@@ -174,7 +174,7 @@ User-Agent: ${userAgent}
 
     // Define auto-responder email to send to the user
     const autoReplyOptions = {
-      from: `"David Morgan" <${process.env.GMAIL_SENDER_EMAIL}>`,
+      from: `"David Morgan-Gumm" <${process.env.GMAIL_SENDER_EMAIL}>`,
       to: `"${sanitizedName}" <${sanitizedEmail}>`,
       subject: 'Thank you for your message',
       text: `
@@ -185,7 +185,7 @@ Thank you for contacting me through my portfolio website. I've received your mes
 I typically respond within 1-2 business days. If your matter is urgent, please let me know.
 
 Best regards,
-David Morgan
+David Morgan-Gumm
       `,
       html: `
 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eaeaea; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
@@ -213,25 +213,26 @@ David Morgan
     // Send both emails
     console.log('Sending notification email to site owner...');
     await transporter.sendMail(ownerMailOptions);
-    
+
     console.log('Sending auto-reply to user...');
     await transporter.sendMail(autoReplyOptions);
 
     // Return success response
-    res.status(200).json({ 
+    res.status(200).json({
       success: true,
-      message: 'Email sent successfully' 
-    });  } catch (error) {
+      message: 'Email sent successfully'
+    });
+  } catch (error) {
     // Log the error with detailed information
     console.error('Error sending email:', error);
-    
+
     // Determine the specific error type for better user feedback
     let errorMessage = 'Failed to send email. Please try again later.';
     let statusCode = 500;
-    
+
     if (error instanceof Error) {
       const errorString = error.toString().toLowerCase();
-      
+
       if (errorString.includes('authentication') || errorString.includes('auth')) {
         errorMessage = 'Authentication error with email service. Please contact the site administrator.';
         console.error('OAuth2 authentication error. Check your credentials.');
@@ -240,7 +241,7 @@ David Morgan
       } else if (errorString.includes('quota') || errorString.includes('limit')) {
         errorMessage = 'Email sending limit reached. Please try again tomorrow.';
       }
-      
+
       // Log additional details for debugging
       console.error('Error details:', {
         name: error.name,
@@ -248,14 +249,14 @@ David Morgan
         stack: error.stack?.split('\n').slice(0, 3)
       });
     }
-    
+
     // Return a user-friendly error response
-    res.status(statusCode).json({ 
+    res.status(statusCode).json({
       success: false,
-      message: errorMessage, 
+      message: errorMessage,
       error: error instanceof Error ? error.message : 'Unknown error'
     });
-    
+
     // For critical errors, you might want to log to an external service or send an admin notification
     if (statusCode === 500) {
       try {
