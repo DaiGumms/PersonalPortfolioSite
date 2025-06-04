@@ -1,0 +1,82 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Next.js: Dev Server",
+            "type": "npm",
+            "script": "dev",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "group": "develop"
+            },
+            "runOptions": {
+                "runOn": "folderOpen"
+            },
+            "isBackground": true
+        },
+        {
+            "label": "Next.js: Build",
+            "type": "npm",
+            "script": "build",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Next.js: Start Production Server",
+            "type": "npm",
+            "script": "start",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "TypeCheck",
+            "type": "npm",
+            "script": "typecheck",
+            "problemMatcher": ["$tsc"],
+            "presentation": {
+                "reveal": "never",
+                "panel": "dedicated"
+            }
+        },
+        {
+            "label": "Lint",
+            "type": "npm",
+            "script": "lint",
+            "problemMatcher": ["$eslint-stylish"],
+            "presentation": {
+                "reveal": "never",
+                "panel": "dedicated"
+            }
+        },
+        {
+            "label": "GenKit: Dev",
+            "type": "npm",
+            "script": "genkit:dev",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "group": "develop"
+            }
+        },
+        {
+            "label": "GenKit: Watch",
+            "type": "npm",
+            "script": "genkit:watch",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "group": "develop"
+            }
+        }
+    ]
+}

@@ -2,6 +2,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Lightbulb, Database, Users, Briefcase, Zap, BarChart3, DraftingCompass, UserCheck, Workflow, Award, Building2, GraduationCap, BookOpen, FileText } from 'lucide-react';
+import Link from 'next/link';
 import {
   Carousel,
   CarouselContent,
@@ -98,7 +99,7 @@ export default function AboutMeSection() {
                 My journey in tech has been driven by a curiosity for how things work and a desire to build tools that make a tangible impact. I thrive in collaborative environments and enjoy tackling complex challenges that push the boundaries of technology and data.
               </p>
               <p>
-                When I&apos;m not architecting data platforms or leading my team, you can find me exploring new tech trends, contributing to open-source projects, or sharing insights on sqlsquared.co.uk.
+                When I&apos;m not architecting data platforms or leading my team, you can find me exploring new tech trends, contributing to open-source projects, or sharing insights on <Link href="https://www.sqlsquared.co.uk" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">sqlsquared.co.uk</Link>.
               </p>
             </CardContent>
           </Card>
