@@ -24,18 +24,17 @@ const communities = [
     link: 'https://github.com/DaiGumms',
     icon: Github,
     cta: 'View Profile',
-  },
-  {
+  },  {
     name: 'sql_squared Blogs',
     description: 'Read my articles and tutorials on software development and tech leadership.',
-    link: 'https://www.sqlsquared.co.uk/blog', // Replace with actual link
-    icon: MessageSquare, // Or other appropriate icon for blogging
+    link: 'https://www.sqlsquared.co.uk/blog',
+    icon: MessageSquare,
     cta: 'Read Articles',
   },
   {
     name: 'Local Tech Meetups',
     description: 'Engage with local tech communities and share knowledge.',
-    link: 'https://meetup.com', // Replace with link to a meetup group or profile if applicable
+    link: 'https://www.sqlsquared.co.uk/events',
     icon: Users,
     cta: 'Join Events',
   },
