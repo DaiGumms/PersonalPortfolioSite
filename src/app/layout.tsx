@@ -16,6 +16,19 @@ const publicSans = Public_Sans({
 export const metadata: Metadata = {
   title: 'David Morgan-Gumm | Data Platform Manager',
   description: 'Personal portfolio of David Morgan-Gumm, Data Platform Manager at Oliver James, showcasing expertise and projects in data platforms.',
+  icons: {
+    icon: [
+      {
+        url: '/favicon-color.svg',
+        type: 'image/svg+xml',
+      },
+      {
+        url: '/favicon.svg',
+        type: 'image/svg+xml',
+        media: '(prefers-color-scheme: dark)',
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
