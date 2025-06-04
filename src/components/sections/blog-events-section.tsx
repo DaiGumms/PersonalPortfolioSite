@@ -8,8 +8,7 @@ const items = [
   {
     type: 'Blog',
     title: 'Mastering SQL for Data Analysis',
-    description: 'An in-depth guide to leveraging advanced SQL techniques for insightful data analysis. Explore window functions, CTEs, and more.',
-    link: 'https://sqlsquared.co.uk/blog/mastering-sql', // Example link
+    description: 'An in-depth guide to leveraging advanced SQL techniques for insightful data analysis. Explore window functions, CTEs, and more.',    link: 'https://www.sqlsquared.co.uk/blog/mastering-sql',
     image: 'https://placehold.co/600x300.png',
     imageHint: 'code database',
     icon: Rss,
@@ -17,8 +16,7 @@ const items = [
   {
     type: 'Event',
     title: 'Webinar: The Future of Database Technologies',
-    description: 'Join us for a discussion on emerging trends in database management, including NoSQL, NewSQL, and cloud-native databases.',
-    link: 'https://sqlsquared.co.uk/events/future-of-databases', // Example link
+    description: 'Join us for a discussion on emerging trends in database management, including NoSQL, NewSQL, and cloud-native databases.',    link: 'https://www.sqlsquared.co.uk/events/future-of-databases',
     image: 'https://placehold.co/600x300.png',
     imageHint: 'conference presentation',
     icon: CalendarDays,
@@ -26,8 +24,7 @@ const items = [
   {
     type: 'Blog',
     title: 'Optimizing Database Performance: A Checklist',
-    description: 'Practical tips and tricks for identifying and resolving performance bottlenecks in your SQL databases.',
-    link: 'https://sqlsquared.co.uk/blog/optimizing-performance', // Example link
+    description: 'Practical tips and tricks for identifying and resolving performance bottlenecks in your SQL databases.',    link: 'https://www.sqlsquared.co.uk/blog/optimizing-performance',
     image: 'https://placehold.co/600x300.png',
     imageHint: 'server performance',
     icon: Rss,
@@ -40,9 +37,8 @@ export default function BlogAndEventsSection() {
       <div className="container mx-auto px-4 md:px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-foreground">
           Blog & Events
-        </h2>
-        <p className="text-lg text-muted-foreground text-center mb-12">
-          Insights, articles, and event updates from <Link href="https://sqlsquared.co.uk" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">sqlsquared.co.uk</Link>.
+        </h2>        <p className="text-lg text-muted-foreground text-center mb-12">
+          Insights, articles, and event updates from <Link href="https://www.sqlsquared.co.uk" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">sqlsquared.co.uk</Link>.
         </p>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {items.map((item) => (
@@ -78,8 +74,7 @@ export default function BlogAndEventsSection() {
           ))}
         </div>
         <div className="text-center mt-12">
-          <Button size="lg" asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
-            <Link href="https://sqlsquared.co.uk" target="_blank" rel="noopener noreferrer">
+          <Button size="lg" asChild className="bg-accent text-accent-foreground hover:bg-accent/90">            <Link href="https://www.sqlsquared.co.uk" target="_blank" rel="noopener noreferrer">
               Visit sqlsquared.co.uk <ExternalLink className="ml-2 h-4 w-4" />
             </Link>
           </Button>

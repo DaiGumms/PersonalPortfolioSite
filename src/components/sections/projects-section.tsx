@@ -15,11 +15,11 @@ const sqlSquared = {
   title: 'sql_squared',
   description: 'sql_squared is a vibrant data and AI community I founded, home to insightful podcasts, informative blogs, and engaging events for enthusiasts and professionals alike.',
   links: [
-    { type: 'Podcast', icon: <Podcast className="mr-2 h-4 w-4" />, url: '#' },
-    { type: 'Blogs', icon: <BookOpen className="mr-2 h-4 w-4" />, url: '#' },
-    { type: 'Events', icon: <Calendar className="mr-2 h-4 w-4" />, url: '#' },
-    { type: 'Community Forum', icon: <Users className="mr-2 h-4 w-4" />, url: '#' },
-    { type: 'YouTube', icon: <Youtube className="mr-2 h-4 w-4" />, url: '#' },
+    { type: 'Podcast', icon: <Podcast className="mr-2 h-4 w-4" />, url: 'https://www.sqlsquared.co.uk/podcast' },
+    { type: 'Blogs', icon: <BookOpen className="mr-2 h-4 w-4" />, url: 'https://www.sqlsquared.co.uk/blog' },
+    { type: 'Events', icon: <Calendar className="mr-2 h-4 w-4" />, url: 'https://www.sqlsquared.co.uk/events' },
+    { type: 'Community Forum', icon: <Users className="mr-2 h-4 w-4" />, url: 'https://www.sqlsquared.co.uk/community' },
+    { type: 'YouTube', icon: <Youtube className="mr-2 h-4 w-4" />, url: 'https://www.youtube.com/@sqlsquared' },
   ]
 };
 
