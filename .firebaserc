@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "personalportfolio-v3ftw",
+    "Prod": "personalportfolio-v3ftw"
+  },
+  "targets": {},
+  "etags": {}
+}

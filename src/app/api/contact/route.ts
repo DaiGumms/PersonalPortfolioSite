@@ -1,4 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { google } from 'googleapis';
 import {
@@ -32,9 +32,7 @@ const createTransporter = async () => {
 
     if (!accessToken) {
       throw new Error('Failed to obtain access token');
-    }
-
-    const transporter = nodemailer.createTransport({
+    } const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
         type: 'OAuth2',
@@ -53,77 +51,68 @@ const createTransporter = async () => {
   }
 };
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<ContactFormResponse>
-) {
-  // Only allow POST requests
-  if (req.method !== 'POST') {
-    return res.status(405).json({
-      success: false,
-      message: 'Method Not Allowed'
-    });
-  }
-
-  // Get client IP for rate limiting
-  const forwardedFor = req.headers['x-forwarded-for'] as string;
-  const clientIp = forwardedFor ? forwardedFor.split(',')[0].trim() : '127.0.0.1';
-
-  // Check rate limiting
-  if (shouldRateLimit(clientIp, 3600000, 5)) { // 5 requests per hour
-    return res.status(429).json({
-      success: false,
-      message: 'Too many requests. Please try again later.'
-    });
-  }
-
-  // Extract and validate form data
-  const { name, email, message } = req.body as ContactFormData;
-
-  // Check for required fields
-  if (!name || !email || !message) {
-    return res.status(400).json({
-      success: false,
-      message: 'Missing required fields'
-    });
-  }
-
-  // Validate name (2-50 characters)
-  if (!isValidInput(name, 2, 50)) {
-    return res.status(400).json({
-      success: false,
-      message: 'Name must be between 2 and 50 characters and contain no malicious content'
-    });
-  }
-
-  // Validate email format
-  if (!isValidEmail(email)) {
-    return res.status(400).json({
-      success: false,
-      message: 'Invalid email format'
-    });
-  }
-
-  // Validate message (10-1000 characters)
-  if (!isValidInput(message, 10, 1000)) {
-    return res.status(400).json({
-      success: false,
-      message: 'Message must be between 10 and 1000 characters and contain no malicious content'
-    });
-  }
-
-  // Sanitize inputs to prevent XSS
-  const sanitizedName = sanitizeInput(name);
-  const sanitizedEmail = sanitizeInput(email);
-  const sanitizedMessage = sanitizeInput(message);
+export async function POST(request: NextRequest) {
   try {
+    // Get client IP for rate limiting
+    const forwardedFor = request.headers.get('x-forwarded-for');
+    const clientIp = forwardedFor ? forwardedFor.split(',')[0].trim() : '127.0.0.1';
+
+    // Check rate limiting
+    if (shouldRateLimit(clientIp, 3600000, 5)) { // 5 requests per hour
+      return NextResponse.json({
+        success: false,
+        message: 'Too many requests. Please try again later.'
+      }, { status: 429 });
+    }
+
+    // Parse request body
+    const body = await request.json() as ContactFormData;
+    const { name, email, message } = body;
+
+    // Check for required fields
+    if (!name || !email || !message) {
+      return NextResponse.json({
+        success: false,
+        message: 'Missing required fields'
+      }, { status: 400 });
+    }
+
+    // Validate name (2-50 characters)
+    if (!isValidInput(name, 2, 50)) {
+      return NextResponse.json({
+        success: false,
+        message: 'Name must be between 2 and 50 characters and contain no malicious content'
+      }, { status: 400 });
+    }
+
+    // Validate email format
+    if (!isValidEmail(email)) {
+      return NextResponse.json({
+        success: false,
+        message: 'Invalid email format'
+      }, { status: 400 });
+    }
+
+    // Validate message (10-1000 characters)
+    if (!isValidInput(message, 10, 1000)) {
+      return NextResponse.json({
+        success: false,
+        message: 'Message must be between 10 and 1000 characters and contain no malicious content'
+      }, { status: 400 });
+    }
+
+    // Sanitize inputs to prevent XSS
+    const sanitizedName = sanitizeInput(name);
+    const sanitizedEmail = sanitizeInput(email);
+    const sanitizedMessage = sanitizeInput(message);
+
     // Create the email transporter using OAuth2
     const transporter = await createTransporter();
 
     // Get timestamp for tracking
     const timestamp = new Date().toISOString();
-    const ipInfo = req.headers['x-forwarded-for'] || 'Unknown IP';
-    const userAgent = req.headers['user-agent'] || 'Unknown Browser';
+    const ipInfo = request.headers.get('x-forwarded-for') || 'Unknown IP';
+    const userAgent = request.headers.get('user-agent') || 'Unknown Browser';
 
     // Format the email to site owner with HTML and plain text alternatives
     const ownerMailOptions = {
@@ -200,7 +189,7 @@ David Morgan-Gumm
     
     <p>I typically respond within 1-2 business days. If your matter is urgent, please let me know.</p>
     
-    <p style="margin-top: 25px;">Best regards,<br>David Morgan</p>
+    <p style="margin-top: 25px;">Best regards,<br>David Morgan-Gumm</p>
   </div>
   
   <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eaeaea; font-size: 12px; color: #777; text-align: center;">
@@ -218,10 +207,11 @@ David Morgan-Gumm
     await transporter.sendMail(autoReplyOptions);
 
     // Return success response
-    res.status(200).json({
+    return NextResponse.json({
       success: true,
       message: 'Email sent successfully'
     });
+
   } catch (error) {
     // Log the error with detailed information
     console.error('Error sending email:', error);
@@ -251,24 +241,18 @@ David Morgan-Gumm
     }
 
     // Return a user-friendly error response
-    res.status(statusCode).json({
+    return NextResponse.json({
       success: false,
       message: errorMessage,
       error: error instanceof Error ? error.message : 'Unknown error'
-    });
-
-    // For critical errors, you might want to log to an external service or send an admin notification
-    if (statusCode === 500) {
-      try {
-        // This could be extended to log to a service like Sentry, LogRocket, etc.
-        console.error('CRITICAL ERROR IN CONTACT FORM:', {
-          timestamp: new Date().toISOString(),
-          error: error instanceof Error ? error.message : 'Unknown error'
-        });
-      } catch (logError) {
-        // Silently fail if error logging fails
-        console.error('Failed to log error:', logError);
-      }
-    }
+    }, { status: statusCode });
   }
+}
+
+// Handle non-POST requests
+export async function GET() {
+  return NextResponse.json({
+    success: false,
+    message: 'Method Not Allowed'
+  }, { status: 405 });
 }
