@@ -1,14 +1,16 @@
 {
-  "apphosting": {
-    "backendId": "personalportfolio-h48sk26",
-    "rootDir": "/",
-    "ignore": [
-      "node_modules",
-      ".git",
-      "firebase-debug.log",
-      "firebase-debug.*.log",
-      "functions"
-    ],
-    "alwaysDeployFromSource": true
-  }
+  "apphosting": [
+    {
+      "backendId": "personalportfolio-h48sk26",
+      "rootDir": "/",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "functions"
+      ],
+      "alwaysDeployFromSource": true
+    }
+  ]
 }
