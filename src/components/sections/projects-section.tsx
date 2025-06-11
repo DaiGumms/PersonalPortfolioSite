@@ -170,7 +170,8 @@ export default function ProjectsSection() {
                 </div>
               </CardContent>
             </Card>
-          </div>          <div className={cn(
+          </div>
+          <div className={cn(
             "lg:col-span-2 lg:h-[400px] order-last lg:order-last transition-all duration-700 ease-out",
             isSqlSquaredBlockVisible ? "opacity-100 translate-x-0 delay-300" : "opacity-0 translate-x-10"
           )}>            <div className="bg-background dark:bg-muted shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg p-4 h-full flex items-center justify-center relative overflow-hidden">
