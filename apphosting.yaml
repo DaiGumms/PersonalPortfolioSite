@@ -27,3 +27,5 @@ env:
     secret: GMAIL_CLIENT_SECRET
   - variable: GMAIL_REFRESH_TOKEN
     secret: GMAIL_REFRESH_TOKEN
+  - variable: GMAIL_RECIPIENT_EMAIL
+    secret: GMAIL_RECIPIENT_EMAIL
