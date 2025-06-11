@@ -99,18 +99,12 @@ export async function POST(request: NextRequest) {
         success: false,
         message: 'Message must be between 10 and 1000 characters and contain no malicious content'
       }, { status: 400 });
-    }    // Sanitize inputs to prevent XSS
-    const sanitizedName = sanitizeInput(name);
-    const sanitizedEmail = email.trim(); // Don't sanitize email - just trim whitespace
-    const sanitizedMessage = sanitizeInput(message);
+    }
 
-    // Debug logging
-    console.log('Email addresses:', {
-      originalEmail: email,
-      sanitizedEmail: sanitizedEmail,
-      senderEmail: process.env.GMAIL_SENDER_EMAIL,
-      recipientEmail: process.env.GMAIL_RECIPIENT_EMAIL
-    });
+    // Sanitize inputs to prevent XSS
+    const sanitizedName = sanitizeInput(name);
+    const sanitizedEmail = sanitizeInput(email);
+    const sanitizedMessage = sanitizeInput(message);
 
     // Create the email transporter using OAuth2
     const transporter = await createTransporter();
@@ -203,13 +197,13 @@ David Morgan-Gumm
   </div>
 </div>
       `,
-    };    // Send both emails
+    };
+
+    // Send both emails
     console.log('Sending notification email to site owner...');
-    console.log('Owner email recipient:', process.env.GMAIL_RECIPIENT_EMAIL);
     await transporter.sendMail(ownerMailOptions);
 
     console.log('Sending auto-reply to user...');
-    console.log('Auto-reply recipient:', `"${sanitizedName}" <${sanitizedEmail}>`);
     await transporter.sendMail(autoReplyOptions);
 
     // Return success response

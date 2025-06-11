@@ -29,3 +29,5 @@ env:
     secret: GMAIL_REFRESH_TOKEN
   - variable: GMAIL_RECIPIENT_EMAIL
     secret: GMAIL_RECIPIENT_EMAIL
+  - variable: GOOGLE_API_KEY
+    secret: GOOGLE_API_KEY
