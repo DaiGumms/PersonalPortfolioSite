@@ -15,7 +15,7 @@ const sqlSquared = {
   title: 'sql_squared',
   description: 'sql_squared is a vibrant data and AI community I founded, home to insightful podcasts, informative blogs, and engaging events for enthusiasts and professionals alike.',
   links: [
-    { type: 'Podcast', icon: <Podcast className="mr-2 h-4 w-4" />, url: 'https://www.sqlsquared.co.uk/podcast' },
+    { type: 'Podcast', icon: <Podcast className="mr-2 h-4 w-4" />, url: 'https://podcast.sqlsquared.co.uk' },
     { type: 'Blogs', icon: <BookOpen className="mr-2 h-4 w-4" />, url: 'https://www.sqlsquared.co.uk/blog' },
     { type: 'Events', icon: <Calendar className="mr-2 h-4 w-4" />, url: 'https://www.sqlsquared.co.uk/events' },
     { type: 'Community Forum', icon: <Users className="mr-2 h-4 w-4" />, url: 'https://www.sqlsquared.co.uk/forum' },
@@ -170,22 +170,20 @@ export default function ProjectsSection() {
                 </div>
               </CardContent>
             </Card>
-          </div>
-          <div className={cn(
+          </div>          <div className={cn(
             "lg:col-span-2 lg:h-[400px] order-last lg:order-last transition-all duration-700 ease-out",
             isSqlSquaredBlockVisible ? "opacity-100 translate-x-0 delay-300" : "opacity-0 translate-x-10"
-          )}>
-            <div className="bg-background dark:bg-muted shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg p-6 h-full flex items-center justify-center relative overflow-hidden">
-              <Link href="https://www.sqlsquared.co.uk" target="_blank" rel="noopener noreferrer" aria-label="Visit sqlsquared.co.uk">
+          )}>            <div className="bg-background dark:bg-muted shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg p-4 h-full flex items-center justify-center relative overflow-hidden">
+              <div className="relative w-full h-full max-w-[90%] max-h-[90%]">
                 <Image
                   src={'/images/squiggle.png'}
                   alt={'sql_squared brand image'}
-                  layout="fill"
-                  objectFit="contain"
-                  className="rounded-md"
+                  fill
+                  sizes="(max-width: 768px) 80vw, (max-width: 1200px) 50vw, 400px"
+                  className="rounded-md object-contain hover:scale-105 transition-transform duration-300"
                   data-ai-hint="abstract data"
                 />
-              </Link>
+              </div>
             </div>
           </div>
         </div>
