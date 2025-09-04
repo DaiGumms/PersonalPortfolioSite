@@ -15,7 +15,7 @@ export default function HeroSection() {
             Tech Leader | Data & AI Innovator
           </p>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto md:mx-0">
-            Crafting data solutions that solve real-world problems. Driven to build scalable solutions and lead high-performing teams. Passionate techie & connected via sql_squared.
+            Hey! I'm passionate about turning messy data into something useful. I spend my days leading an awesome team of engineers, building platforms that thousands of people rely on. When I'm not buried in Azure configs, you'll find me running the sql_squared community or probably debugging a personal project late at night (we've all been there, right?).
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <Button size="lg" asChild className="bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300 transform hover:scale-105">
@@ -31,7 +31,7 @@ export default function HeroSection() {
           </div>
         </div>
         <div className="relative aspect-square max-w-md mx-auto md:max-w-none">
-           <Image
+          <Image
             src="/images/hero_profile.png"
             alt="David Morgan-Gumm Portrait"
             width={600}

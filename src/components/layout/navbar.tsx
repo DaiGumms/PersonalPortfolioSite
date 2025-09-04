@@ -2,7 +2,7 @@
 "use client";
 
 import Link from 'next/link';
-import { Home, User, Briefcase, Brain, Users, Download, Mail, Menu, X, Wand2, Lightbulb } from 'lucide-react';
+import { Home, User, Briefcase, Brain, Users, Download, Mail, Menu, X, Wand2, Lightbulb, Trophy, BookOpen, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
@@ -86,10 +86,10 @@ export default function Navbar() {
               <Tooltip>
                 <DialogTrigger asChild>
                   <TooltipTrigger asChild>
-                     <Button 
-                       size="icon" 
-                       className="ml-2 rounded-md bg-gradient-to-br from-primary via-accent to-secondary text-accent-foreground shadow-md hover:brightness-90 hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 transition-all duration-300"
-                     >
+                    <Button
+                      size="icon"
+                      className="ml-2 rounded-md bg-gradient-to-br from-primary via-accent to-secondary text-accent-foreground shadow-md hover:brightness-90 hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 transition-all duration-300"
+                    >
                       <Wand2 className="h-5 w-5" />
                       <span className="sr-only">AI Summary Tool</span>
                     </Button>
@@ -114,7 +114,7 @@ export default function Navbar() {
               <SheetContent side="right" className="w-full max-w-xs bg-background p-6">
                 <div className="flex flex-col gap-4">
                   <div className="flex justify-between items-center mb-4">
-                     <Link href="#home" className="flex items-center gap-2" onClick={() => { setIsMobileMenuOpen(false); }}>
+                    <Link href="#home" className="flex items-center gap-2" onClick={() => { setIsMobileMenuOpen(false); }}>
                       <Lightbulb className="h-7 w-7 text-accent" />
                       <span className="text-xl font-bold text-foreground">Portfolio</span>
                     </Link>
@@ -127,11 +127,11 @@ export default function Navbar() {
                   </div>
                   <nav className="flex flex-col gap-2">
                     <NavLinks onItemClick={() => setIsMobileMenuOpen(false)} isMobile={true} />
-                     <DialogTrigger asChild>
-                        <Button variant="ghost" className="text-foreground hover:bg-primary/20 hover:text-accent-foreground w-full justify-start" onClick={() => {setIsMobileMenuOpen(false); setIsAiToolDialogOpen(true);}}>
-                          <Wand2 className="mr-2 h-4 w-4" />
-                          AI Summary Enhancer
-                        </Button>
+                    <DialogTrigger asChild>
+                      <Button variant="ghost" className="text-foreground hover:bg-primary/20 hover:text-accent-foreground w-full justify-start" onClick={() => { setIsMobileMenuOpen(false); setIsAiToolDialogOpen(true); }}>
+                        <Wand2 className="mr-2 h-4 w-4" />
+                        AI Summary Enhancer
+                      </Button>
                     </DialogTrigger>
                   </nav>
                 </div>

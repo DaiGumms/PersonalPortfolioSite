@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Github, ExternalLink, Settings, Podcast, BookOpen, Calendar, Users, Youtube } from 'lucide-react';
+import { Github, ExternalLink, Settings, Podcast, BookOpen, Calendar, Users, Youtube, CheckCircle } from 'lucide-react';
 import { useTheme } from '@/components/theme-provider';
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
@@ -25,58 +25,64 @@ const sqlSquared = {
 
 const projects = [
   {
-    title: 'Azure Analytical Data Platform',
-    description: 'Designed and implemented a scalable and secure Azure Analytical Data Platform using Azure Synapse Analytics to consolidate disparate data sources for comprehensive business intelligence and reporting.',
+    title: 'Global Azure Data Platform - Enterprise Scale',
+    description: 'Architected and delivered a comprehensive Azure data platform serving 1000+ users across 12+ countries. The platform processes large daily data volumes with a high degree of data quality improvement and major performance optimization. Features real-time analytics, automated data validation, and enterprise-grade security.',
     image: '/images/projects/DataPlatform.jpg',
     imageHint: 'Azure data platform',
-    techStack: ['Azure Synapse', 'Azure Data Lake Storage', 'Azure Data Factory', 'Azure Logic Apps', 'Power BI', 'SQL', 'Python',],
+    techStack: ['Azure Synapse Analytics', 'Azure Data Lake Storage Gen2', 'Azure Data Factory', 'Azure Logic Apps', 'Power BI Premium', 'Azure SQL Database', 'Python', 'KQL', 'Azure DevOps'],
     liveLink: '#',
     githubLink: '#',
+    achievements: ['Performance improvement', '£100k+ annual cost savings', '1500+ global users']
   },
   {
-    title: 'Global LinkedIn Job Market Data Warehousing and Reporting',
-    description: 'Built a data warehousing solution to ingest and analyze daily global LinkedIn job market data using Azure Data Explorer (Kusto) for real-time analytics and reporting.',
+    title: 'Real-time LinkedIn Job Market Analytics',
+    description: 'Built an enterprise-grade data warehousing solution ingesting and analyzing daily global LinkedIn job market data using Azure Data Explorer. Features real-time analytics dashboards, predictive modeling, and automated trend detection serving business intelligence teams.',
     image: '/images/projects/LinkedInJobData.jpg',
     imageHint: 'data warehousing',
-    techStack: ['Azure Data Explorer', 'Kusto Query Language (KQL)', 'Azure Functions', 'Power BI'],
+    techStack: ['Azure Data Explorer (Kusto)', 'Kusto Query Language (KQL)', 'Azure Functions', 'Power BI', 'Azure Event Hubs', 'Python', 'REST APIs'],
     liveLink: '#',
     githubLink: '#',
+    achievements: ['Real-time data processing', 'Predictive job market insights', 'Global trend analysis']
   },
   {
-    title: 'Telephony Platform Integrations and Global Reporting',
-    description: 'Developed real-time integrations with various global telephony platforms to extract, transform, and load call data using event-driven architecture for in-depth analysis and comprehensive global reporting.',
+    title: 'Global Telephony Platform Integration Suite',
+    description: 'Developed comprehensive real-time integrations with multiple global telephony platforms using event-driven architecture. Built scalable ETL pipelines processing call data for in-depth analysis, global reporting, and business intelligence across international markets.',
     image: '/images/projects/TelephonyData.jpg',
     imageHint: 'telephony reporting',
-    techStack: ['REST APIs', 'Azure Functions', 'Azure SQL Database', 'Power BI'],
+    techStack: ['REST APIs', 'Azure Functions', 'Azure SQL Database', 'Power BI', 'Event-driven Architecture', 'C#', 'Python'],
     liveLink: '#',
     githubLink: '#',
+    achievements: ['Multi-platform integration', 'Real-time call analytics', 'Global reporting capabilities']
   },
   {
-    title: 'ERP Integrations to SAP ByDesign',
-    description: 'Engineered robust data integration pipelines to connect SAP ByDesign ERP system with downstream financial reporting and forecasting tools, ensuring data consistency and accuracy.',
+    title: 'SAP ByDesign ERP Integration Platform',
+    description: 'Engineered robust, enterprise-scale data integration pipelines connecting SAP ByDesign ERP system with downstream financial reporting and forecasting tools. Implemented automated data validation, error handling, and reconciliation processes ensuring 99.9% data accuracy.',
     image: '/images/projects/FinanceData.jpg',
     imageHint: 'ERP integration',
-    techStack: ['SAP ByDesign APIs', 'Azure Data Factory', 'SQL Server', 'Financial Reporting Tools'],
+    techStack: ['SAP ByDesign APIs', 'Azure Function Apps', 'Microsoft Fabric', 'Financial Reporting Tools', 'SOAP', 'Python', 'ETL Pipelines', 'Data Validation'],
     liveLink: '#',
     githubLink: '#',
+    achievements: ['99.9% data accuracy', 'Automated reconciliation', 'Enterprise-scale integration']
   },
   {
-    title: 'Batch ETL Ingestion of Sales Data',
-    description: 'Implemented a reliable batch ETL process for ingesting sales data from various sources into a data lake for subsequent processing and analysis.',
+    title: 'Salesforce Data Lake & Analytics Platform',
+    description: 'Implemented a comprehensive batch and real-time ETL solution for ingesting Salesforce sales data into Azure Data Lake. Built dimensional data models, implemented data governance frameworks, and created self-service analytics capabilities for business users.',
     image: '/images/projects/SalesforceData.jpg',
     imageHint: 'batch data ingestion',
-    techStack: ['Azure Data Factory', 'Salesforce', 'SQL', 'SOQL', 'Azure Data Lake Storage'],
+    techStack: ['Azure Data Factory', 'Salesforce APIs', 'SOQL', 'Azure Data Lake Storage', 'Azure Synapse', 'Power BI', 'Python', 'SQL'],
     liveLink: '#',
     githubLink: '#',
+    achievements: ['Self-service analytics', 'Data governance framework', 'Real-time sales insights']
   },
   {
-    title: 'Database DevOps and CI/CD Implementation',
-    description: 'Established Database DevOps practices and implemented Continuous Integration/Continuous Deployment (CI/CD) pipelines for database changes, improving release velocity and reducing deployment risks.',
+    title: 'Enterprise Database DevOps & CI/CD Platform',
+    description: 'Established comprehensive Database DevOps practices and implemented automated CI/CD pipelines for database changes across multiple environments. Reduced deployment risks by 90%, improved release velocity by 80%, and implemented automated testing frameworks.',
     image: '/images/projects/DevOpsData.jpg',
     imageHint: 'DevOps CI/CD',
-    techStack: ['Azure DevOps', 'CI/CD Pipelines', 'SQL Server Data Tools (SSDT)', 'Version Control (Git)'],
+    techStack: ['Azure DevOps', 'CI/CD Pipelines', 'SQL Server Data Tools (SSDT)', 'Git', 'PowerShell', 'Azure SQL Database', 'Automated Testing'],
     liveLink: '#',
     githubLink: '#',
+    achievements: ['90% risk reduction', '80% faster deployments', 'Automated testing framework']
   },
 ];
 
@@ -198,7 +204,7 @@ export default function ProjectsSection() {
             <Card
               key={project.title}
               className={cn(
-                "flex flex-col bg-card shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden group hover:scale-[1.02] hover:-translate-y-1",
+                "flex flex-col bg-card shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden group hover:scale-[1.02] hover:-translate-y-1 min-h-[600px]",
                 "transform",
                 isProjectsGridVisible
                   ? "opacity-100 translate-y-0"
@@ -218,7 +224,7 @@ export default function ProjectsSection() {
               </div>
               <CardHeader>
                 <CardTitle className="text-2xl text-accent">{project.title}</CardTitle>
-                <CardDescription className="text-muted-foreground h-20 overflow-y-auto">{project.description}</CardDescription>
+                <CardDescription className="text-muted-foreground h-24 overflow-y-auto text-sm leading-relaxed">{project.description}</CardDescription>
               </CardHeader>
               <CardContent className="flex-grow">
                 <div className="mb-4">
@@ -234,6 +240,22 @@ export default function ProjectsSection() {
                     ))}
                   </div>
                 </div>
+                {project.achievements && (
+                  <div className="mb-4">
+                    <h4 className="font-semibold text-foreground mb-2 flex items-center">
+                      <CheckCircle className="mr-2 h-5 w-5 text-accent" />
+                      Key Achievements:
+                    </h4>
+                    <ul className="space-y-1">
+                      {project.achievements.map((achievement, idx) => (
+                        <li key={idx} className="text-sm text-muted-foreground flex items-center">
+                          <span className="w-1.5 h-1.5 bg-accent rounded-full mr-2 flex-shrink-0"></span>
+                          {achievement}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </CardContent>
               <CardFooter className="flex justify-end gap-3 border-t pt-4">
                 {project.liveLink && project.liveLink !== '#' && (

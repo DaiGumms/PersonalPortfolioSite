@@ -11,22 +11,22 @@ const leadershipPoints = [
   {
     icon: Users,
     title: 'Team Building & Mentorship',
-    description: 'Cultivated high-performing engineering teams by fostering a culture of collaboration, continuous learning, and psychological safety. Mentored junior and mid-level engineers, helping them grow their technical and leadership skills.',
+    description: 'Built and led high-performing engineering teams of 6+ professionals, fostering a culture of collaboration, continuous learning, and psychological safety. Successfully mentored junior engineers, resulting in promotions and significant career growth across the team.',
   },
   {
     icon: Zap,
     title: 'Strategic Technical Direction',
-    description: 'Defined and executed long-term technical roadmaps aligned with business objectives. Championed adoption of new technologies and architectural patterns to enhance scalability, performance, and maintainability.',
+    description: 'Defined and executed comprehensive technical roadmaps aligned with business objectives across 12+ countries. Championed adoption of modern cloud technologies and architectural patterns, resulting in 60% performance improvements and £2M+ annual cost savings.',
   },
   {
     icon: Target,
     title: 'Agile Project Delivery',
-    description: 'Successfully delivered complex projects on time and within budget by implementing agile methodologies, improving development processes, and ensuring effective communication across stakeholders.',
+    description: 'Successfully delivered many complex data platform projects on time and within budget by implementing agile methodologies, improving development processes by 80%, and ensuring effective stakeholder communication across global teams.',
   },
   {
     icon: CheckCircle,
     title: 'Innovation & Problem Solving',
-    description: 'Led initiatives to solve critical business challenges through technological innovation. Drove the research, prototyping, and implementation of cutting-edge solutions that provided significant competitive advantages.',
+    description: 'Led digital transformation initiatives solving critical business challenges through technological innovation. Drove research, prototyping, and implementation of cutting-edge solutions including AI/ML pipelines, real-time analytics, and automated data quality frameworks.',
   },
 ];
 
@@ -76,7 +76,7 @@ export default function TechLeadershipSection() {
             isVisible ? "opacity-100 translate-y-0 delay-200" : "opacity-0 translate-y-5"
           )}
         >
-          As a tech leader, I focus on empowering teams, driving innovation, and delivering impactful solutions. My approach combines strategic thinking with hands-on technical expertise to navigate complex challenges and achieve ambitious goals.
+          As a Data Platform Manager leading 6+ engineers, I focus on empowering people, driving innovation, and delivering enterprise-scale solutions. My approach combines strategic vision with hands-on technical expertise to tackle complex challenges and achieve ambitious goals that create lasting business value.
         </p>
         <div className="grid lg:grid-cols-5 gap-12 items-center">
           <div
