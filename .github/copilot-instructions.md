@@ -209,6 +209,91 @@ All colors are defined as CSS custom properties in `src/app/globals.css` and con
 
 ---
 
+## GitHub Issues & PRs (via GitHub MCP)
+
+David manages this repo's issues and PRs through the GitHub MCP. Use the MCP tools below — **always call `tool_search_tool_regex` with `^mcp_github_` before invoking any GitHub MCP tool** to ensure it is loaded.
+
+### Repository Context
+
+- **Owner:** `DaiGumms`
+- **Repo:** `PersonalPortfolioSite`
+- **Default branch:** `master`
+- Always call `mcp_github_get_me` first if user permissions or identity are unclear.
+
+### Issue Templates
+
+Blank issues are disabled. Always use one of these templates (in `.github/ISSUE_TEMPLATE/`):
+
+| Template        | File                  | Title prefix  | Label         |
+| --------------- | --------------------- | ------------- | ------------- |
+| Bug Report      | `bug_report.yml`      | `[Bug]: `     | `bug`         |
+| Feature Request | `feature_request.yml` | `[Feature]: ` | `enhancement` |
+
+See `.github/copilot/instructions/github-issue-create.instructions.md` for the full field-by-field guide.
+
+### Issues — Workflow
+
+| Task                                     | Tool(s)                              |
+| ---------------------------------------- | ------------------------------------ |
+| List all open issues                     | `mcp_github_list_issues`             |
+| Search issues by keyword / label / state | `mcp_github_search_issues`           |
+| Read a specific issue                    | `mcp_github_issue_read`              |
+| Create or update an issue                | `mcp_github_issue_write`             |
+| Add a comment to an issue                | `mcp_github_add_issue_comment`       |
+| Create a sub-issue                       | `mcp_github_sub_issue_write`         |
+| Assign Copilot to an issue               | `mcp_github_assign_copilot_to_issue` |
+| Check available issue types              | `mcp_github_list_issue_types`        |
+
+**Guidelines:**
+
+- Use `mcp_github_search_issues` before creating a new issue to avoid duplicates.
+- Check `mcp_github_list_issue_types` for the org/repo to use the correct type.
+- Always set `state_reason` when closing an issue (e.g. `completed`, `not_planned`).
+
+### Pull Requests — Workflow
+
+| Task                                 | Tool(s)                                 |
+| ------------------------------------ | --------------------------------------- |
+| List open PRs                        | `mcp_github_list_pull_requests`         |
+| Search PRs                           | `mcp_github_search_pull_requests`       |
+| Read a PR (diff, files, metadata)    | `mcp_github_pull_request_read`          |
+| Create a PR                          | `mcp_github_create_pull_request`        |
+| Update PR title / body / state       | `mcp_github_update_pull_request`        |
+| Sync PR branch with base             | `mcp_github_update_pull_request_branch` |
+| Submit a PR review (inline comments) | See review workflow below               |
+| Merge a PR                           | `mcp_github_merge_pull_request`         |
+| Request Copilot review               | `mcp_github_request_copilot_review`     |
+
+**PR Template:** `.github/PULL_REQUEST_TEMPLATE.md` — sections: Summary, Changes, Type of change (7 options), Checklist (9 items), Screenshots/recordings, Related issues. See `.github/copilot/instructions/github-pull-request-create.instructions.md` for the full creation workflow.
+
+**Review workflow (for complex reviews with line-specific comments):**
+
+1. `mcp_github_pull_request_review_write` with `method: "create"` → creates a pending review
+2. `mcp_github_add_comment_to_pending_review` → adds line-level comments
+3. `mcp_github_pull_request_review_write` with `method: "submit_pending"` → submits the review
+
+### Branches & Code
+
+| Task                              | Tool(s)                                             |
+| --------------------------------- | --------------------------------------------------- |
+| List branches                     | `mcp_github_list_branches`                          |
+| Create a branch                   | `mcp_github_create_branch`                          |
+| Get file contents                 | `mcp_github_get_file_contents`                      |
+| Create or update a file on GitHub | `mcp_github_create_or_update_file`                  |
+| Push multiple files in one commit | `mcp_github_push_files`                             |
+| Search code in the repo           | `mcp_github_search_code`                            |
+| View recent commits               | `mcp_github_list_commits` / `mcp_github_get_commit` |
+
+### General Guidance
+
+- Prefer `search_*` tools for targeted queries (keywords, labels, authors) and `list_*` tools for broad pagination.
+- Use `minimal_output: true` when full details are not needed — keeps context lean.
+- Paginate in batches of 5–10 items.
+- Do **not** force-push, reset history, or take destructive branch actions without explicit confirmation from David.
+- `search_*` query strings should contain only search criteria (e.g. `repo:DaiGumms/PersonalPortfolioSite is:open`) — never embed `sort:` syntax in the query string; use separate `sort` / `order` parameters.
+
+---
+
 ## Personal Details (for content decisions)
 
 - **Name:** David Morgan-Gumm
