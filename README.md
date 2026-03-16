@@ -8,14 +8,14 @@ Personal portfolio site built with **Next.js 15** and deployed on **Firebase App
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Framework | Next.js 15 (App Router, Turbopack) |
-| Language | TypeScript 5 |
-| Styling | Tailwind CSS v3 + shadcn/ui |
-| AI | Genkit 1.8 + Google AI (Gemini 2.0 Flash) |
-| Email | Nodemailer + Gmail OAuth2 |
-| Deployment | Firebase App Hosting (Cloud Run) |
+| Layer      | Technology                                |
+| ---------- | ----------------------------------------- |
+| Framework  | Next.js 15 (App Router, Turbopack)        |
+| Language   | TypeScript 5                              |
+| Styling    | Tailwind CSS v3 + shadcn/ui               |
+| AI         | Genkit 1.8 + Google AI (Gemini 2.0 Flash) |
+| Email      | Nodemailer + Gmail OAuth2                 |
+| Deployment | Firebase App Hosting (Cloud Run)          |
 
 ---
 
@@ -59,12 +59,12 @@ npm run genkit:dev   # Genkit AI dev UI (separate terminal)
 
 ### Other Scripts
 
-| Command | Purpose |
-|---|---|
-| `npm run build` | Production build |
-| `npm run start` | Start production server |
-| `npm run typecheck` | TypeScript check (no emit) |
-| `npm run lint` | ESLint |
+| Command                | Purpose                          |
+| ---------------------- | -------------------------------- |
+| `npm run build`        | Production build                 |
+| `npm run start`        | Start production server          |
+| `npm run typecheck`    | TypeScript check (no emit)       |
+| `npm run lint`         | ESLint                           |
 | `npm run genkit:watch` | Genkit dev UI with file watching |
 
 ---
@@ -91,6 +91,7 @@ The site is deployed via **Firebase App Hosting** (backed by Cloud Run).
 Secrets are managed through **Firebase Secret Manager** and mapped in `apphosting.yaml`. To deploy, push to the `master` branch — Firebase App Hosting handles the rest via `alwaysDeployFromSource: true`.
 
 To add a new secret:
+
 1. Add it to Firebase Secret Manager in the Firebase Console
 2. Map it in `apphosting.yaml` under `env:`
 
