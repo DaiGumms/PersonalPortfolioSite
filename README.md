@@ -1,50 +1,115 @@
-# David Morgan Gumm - Personal Website & Portfolio
+# David Morgan-Gumm — Personal Portfolio
 
-Welcome to the repository for my personal website and portfolio. This site serves as a showcase of my journey as a software developer and tech leader, highlighting my projects, skills, and contributions to the tech community.
+Personal portfolio site built with **Next.js 15** and deployed on **Firebase App Hosting**. A single-page application showcasing my work as a Data Platform Manager, including projects, career history, skills, an AI-powered summary tool, and a contact form.
 
-Built with Next.js and hosted on GitHub, this website is designed to be a dynamic and evolving representation of my work.
+🌐 **Live site:** [davidmorgangumm.com](https://davidmorgangumm.com)
 
-## About Me
+---
 
-I am a passionate software developer and tech leader with a strong focus on building robust, scalable, and impactful tools. My career has been driven by a desire to leverage technology to solve complex problems and improve processes. I'm constantly exploring new tech trends, contributing to open-source projects, and sharing my insights and experiences on my blog at [sqlsquared.co.uk](https://www.sqlsquared.co.uk).
+## Tech Stack
 
-## Projects
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 15 (App Router, Turbopack) |
+| Language | TypeScript 5 |
+| Styling | Tailwind CSS v3 + shadcn/ui |
+| AI | Genkit 1.8 + Google AI (Gemini 2.0 Flash) |
+| Email | Nodemailer + Gmail OAuth2 |
+| Deployment | Firebase App Hosting (Cloud Run) |
 
-Here are a few examples of projects I've worked on:
+---
 
-*   **ERP Integration Platform:** Designed and implemented a middleware solution to seamlessly integrate various enterprise resource planning (ERP) systems, improving data flow and operational efficiency. (Technologies: Node.js, Express, PostgreSQL, Docker, AWS)
-*   **Large-Scale Batch ETL Ingestion:** Developed and optimized a data pipeline for ingesting and processing large volumes of data from various sources into a data warehouse, enabling comprehensive analytics and reporting. (Technologies: Python, Apache Spark, AWS S3, AWS Redshift)
-*   **Database DevOps Implementation:** Led the adoption of DevOps practices for database management, including automated schema changes, continuous integration, and continuous deployment, significantly reducing deployment risks and improving development velocity. (Technologies: SQL Server, Git, Azure DevOps, PowerShell)
+## Getting Started
 
-You can find more details about these and other projects on my website.
+### Prerequisites
 
-## Skills
+- Node.js 20+
+- npm
 
-My technical skillset includes:
+### Installation
 
-*   **Programming Languages:** JavaScript (Node.js, React, Next.js), Python, C#, T-SQL
-*   **Frameworks & Libraries:** Express, Django, .NET, various frontend libraries
-*   **Databases:** PostgreSQL, SQL Server, MongoDB, Redis
-*   **Cloud Platforms:** AWS, Azure
-*   **DevOps & Tools:** Docker, Kubernetes, Git, CI/CD pipelines (Azure DevOps, GitHub Actions), Terraform, Infrastructure as Code
-*   **Other:** RESTful APIs, Microservices, Agile Methodologies
+```bash
+git clone https://github.com/DaiGumms/PersonalPortfolioSite.git
+cd PersonalPortfolioSite
+npm install
+```
 
-## Community & Blog
+### Environment Variables
 
-I believe in the importance of sharing knowledge and engaging with the tech community. You can find me on:
+Create a `.env.local` file in the project root:
 
-*   **LinkedIn:** [Your LinkedIn Profile URL]
-*   **X (formerly Twitter):** [Your X (formerly Twitter) Profile URL]
-*   **GitHub:** [Your GitHub Profile URL]
+```env
+# Gmail OAuth2 — required for contact form
+GMAIL_CLIENT_ID=
+GMAIL_CLIENT_SECRET=
+GMAIL_REFRESH_TOKEN=
+GMAIL_SENDER_EMAIL=
+GMAIL_RECIPIENT_EMAIL=
 
-I also regularly share my thoughts and technical insights on my blog:
+# Google AI — required for AI summary tool
+GOOGLE_GENAI_API_KEY=
+```
 
-*   **sqlsquared.co.uk:** [https://www.sqlsquared.co.uk](https://www.sqlsquared.co.uk)
+### Development
 
-## Contact
+```bash
+npm run dev          # Next.js dev server on http://localhost:9002
+npm run genkit:dev   # Genkit AI dev UI (separate terminal)
+```
 
-If you'd like to connect, collaborate, or just say hello, feel free to reach out through any of the platforms mentioned above or via the contact form on my website.
+### Other Scripts
+
+| Command | Purpose |
+|---|---|
+| `npm run build` | Production build |
+| `npm run start` | Start production server |
+| `npm run typecheck` | TypeScript check (no emit) |
+| `npm run lint` | ESLint |
+| `npm run genkit:watch` | Genkit dev UI with file watching |
+
+---
+
+## Project Structure
+
+```
+src/
+  app/                  # Next.js App Router (pages, API routes, global styles)
+  ai/                   # Genkit flows and configuration
+  components/
+    layout/             # Navbar, Footer, FloatingThemeToggle
+    sections/           # One component per page section
+    ui/                 # shadcn/ui primitives
+  lib/                  # Shared utilities
+```
+
+---
+
+## Deployment
+
+The site is deployed via **Firebase App Hosting** (backed by Cloud Run).
+
+Secrets are managed through **Firebase Secret Manager** and mapped in `apphosting.yaml`. To deploy, push to the `master` branch — Firebase App Hosting handles the rest via `alwaysDeployFromSource: true`.
+
+To add a new secret:
+1. Add it to Firebase Secret Manager in the Firebase Console
+2. Map it in `apphosting.yaml` under `env:`
+
+---
+
+## Community
+
+I founded and run **sql_squared** — a data & AI community with podcasts, blogs, and events.
+
+🔗 [sqlsquared.co.uk](https://www.sqlsquared.co.uk)
+
+---
+
+## Connect
+
+- **LinkedIn:** [david-morgan-gumm](https://www.linkedin.com/in/david-morgan-gumm-450751133/)
+- **GitHub:** [DaiGumms](https://github.com/DaiGumms)
+- **X:** [@David_MGumm](https://x.com/David_MGumm)
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+MIT © David Morgan-Gumm
