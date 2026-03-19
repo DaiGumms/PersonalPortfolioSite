@@ -7,7 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const sqlSquared = {
-  title: 'sql_squared Community',
+  title: 'sql_squared',
   description: 'Founded and manage a thriving data community. We host podcasts, publish technical articles, and organize regular events to foster knowledge sharing and networking among data professionals.',
   links: [
     { type: 'Website', url: 'https://www.sqlsquared.co.uk', icon: <ExternalLink className="mr-2 h-4 w-4" /> },
@@ -17,44 +17,49 @@ const sqlSquared = {
 
 const projects = [
   {
-    title: 'Enterprise Data Warehouse Migration',
-    description: 'Led the successful migration of a legacy on-premise data warehouse to a modern Azure-based cloud architecture. Resulted in 60% faster query performance, 40% reduction in infrastructure costs, and enabled self-service analytics for 500+ users.',
-    image: '/images/projects/DataWarehouse.jpg',
-    imageHint: 'cloud data architecture',
-    techStack: ['Azure Synapse', 'Databricks', 'Azure Data Factory', 'Power BI', 'SQL Server'],
+    title: 'K-Means Rust',
+    description: 'Implementation of the K-Means clustering algorithm in Rust.',
+    image: '/images/projects/kmeans.jpg',
+    imageHint: 'Rust programming language logo or data clustering abstract',
+    techStack: ['Rust'],
     liveLink: '#',
     githubLink: '#',
-    achievements: ['60% performance increase', '40% cost reduction', 'Enabled self-service BI']
   },
   {
-    title: 'Real-time Analytics Engine',
-    description: 'Architected and built a streaming data pipeline to process high-volume IoT telemetry data in real-time. The solution provides sub-second latency for anomaly detection and operational dashboards.',
-    image: '/images/projects/RealTimeEngine.jpg',
-    imageHint: 'data streaming dashboard',
-    techStack: ['Apache Kafka', 'Spark Structured Streaming', 'Azure Event Hubs', 'Cosmos DB', 'Python'],
+    title: 'Achieve-AI',
+    description: 'An AI-powered application to help you achieve your goals by breaking them down into actionable steps.',
+    image: '/images/projects/achieve-ai.jpg',
+    imageHint: 'AI target goal dashboard',
+    techStack: ['Next.js', 'React', 'TypeScript', 'OpenAI API'],
     liveLink: '#',
     githubLink: '#',
-    achievements: ['Sub-second latency', 'Processed 1M+ events/min', 'Real-time anomaly detection']
   },
   {
-    title: 'Automated Data Quality Framework',
-    description: 'Designed and implemented a comprehensive data quality framework using open-source tools. Automated validation rules across 100+ critical datasets, reducing data-related incidents by 75% and improving overall trust in data assets.',
-    image: '/images/projects/DataQuality.jpg',
-    imageHint: 'data quality dashboard',
-    techStack: ['Great Expectations', 'Python', 'Airflow', 'dbt', 'Snowflake'],
-    liveLink: '#',
-    githubLink: 'https://github.com/DaiGumms/DQ-Framework',
-    achievements: ['75% reduction in data incidents', 'Automated 500+ rules', 'Improved data trust']
-  },
-  {
-    title: 'Database DevOps Implementation',
-    description: 'Spearheaded the adoption of comprehensive Database DevOps practices and implemented automated CI/CD pipelines for database changes across multiple environments. Reduced deployment risks by 90%, improved release velocity by 80%, and implemented automated testing frameworks.',
-    image: '/images/projects/DevOpsData.jpg',
-    imageHint: 'DevOps CI/CD',
-    techStack: ['Azure DevOps', 'CI/CD Pipelines', 'SQL Server Data Tools (SSDT)', 'Git', 'PowerShell'],
+    title: 'Oasis',
+    description: 'A serene and calming web experience designed to help users relax and de-stress.',
+    image: '/images/projects/oasis.jpg',
+    imageHint: 'peaceful desert oasis',
+    techStack: ['HTML', 'CSS', 'JavaScript'],
     liveLink: '#',
     githubLink: '#',
-    achievements: ['90% risk reduction', '80% faster deployments', 'Automated testing framework']
+  },
+  {
+    title: 'Chatwithme',
+    description: 'A real-time chat application featuring user authentication and real-time messaging.',
+    image: '/images/projects/chatwithme.jpg',
+    imageHint: 'messaging app interface',
+    techStack: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
+    liveLink: '#',
+    githubLink: '#',
+  },
+  {
+    title: 'Implementing Microsoft Fabric',
+    description: 'End-to-end implementation of Microsoft Fabric for enterprise data analytics, integrating Power BI, Synapse, and Data Factory into a unified SaaS platform.',
+    image: '/images/projects/fabric.jpg',
+    imageHint: 'Microsoft Fabric architecture',
+    techStack: ['Microsoft Fabric', 'Power BI', 'Synapse Analytics', 'Data Factory'],
+    liveLink: '#',
+    githubLink: '#',
   },
 ];
 
