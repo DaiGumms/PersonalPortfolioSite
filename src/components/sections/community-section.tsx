@@ -33,10 +33,12 @@ export default function CommunitySection() {
           {/* Left Column: Intro & Socials */}
           <div className="lg:w-5/12 space-y-8">
             <div>
-              <h2 className="text-sm font-semibold text-primary uppercase tracking-widest mb-3">Ecosystem</h2>
-              <h3 className="text-5xl font-bold font-display text-foreground leading-[1.1]">
-                Community<br/>Involvement
-              </h3>
+              <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-3">
+                Ecosystem
+              </span>
+              <h2 className="text-5xl font-bold font-display text-foreground leading-[1.1]">
+                Community<br /><em className="not-italic text-primary">Involvement.</em>
+              </h2>
             </div>
 
             <p className="text-lg text-secondary font-sans leading-relaxed">
@@ -70,39 +72,39 @@ export default function CommunitySection() {
 
             {/* Mentorship Card */}
             <Card className="border-0 shadow-ambient bg-surface-low rounded-[2rem] overflow-hidden flex flex-col h-full min-h-[400px]">
-               <div className="relative h-48 w-full bg-surface-high opacity-50 mix-blend-multiply">
-                 <Image
-                   src="/images/projects/DevOpsData.jpg"
-                   alt="Mentorship"
-                   fill
-                   className="object-cover opacity-30 grayscale"
-                 />
-               </div>
-               <CardContent className="p-8 flex flex-col flex-grow relative z-10 bg-gradient-to-t from-surface-low via-surface-low to-transparent -mt-24">
-                  <div className="mt-auto">
-                    <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary text-white text-[10px] font-bold uppercase tracking-wider mb-4">
-                      Mentorship
-                    </div>
-                    <h4 className="text-3xl font-bold text-foreground font-display leading-tight">
-                      Empowering the next generation of engineers.
-                    </h4>
+              <div className="relative h-48 w-full bg-surface-high opacity-50 mix-blend-multiply">
+                <Image
+                  src="/images/projects/DevOpsData.jpg"
+                  alt="Mentorship"
+                  fill
+                  className="object-cover opacity-30 grayscale"
+                />
+              </div>
+              <CardContent className="p-8 flex flex-col flex-grow relative z-10 bg-gradient-to-t from-surface-low via-surface-low to-transparent -mt-24">
+                <div className="mt-auto">
+                  <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary text-white text-[10px] font-bold uppercase tracking-wider mb-4">
+                    Mentorship
                   </div>
-               </CardContent>
+                  <h4 className="text-3xl font-bold text-foreground font-display leading-tight">
+                    Empowering the next generation of engineers.
+                  </h4>
+                </div>
+              </CardContent>
             </Card>
 
             {/* Speaking Card */}
             <Card className="border-0 shadow-ambient bg-primary rounded-[2rem] overflow-hidden flex flex-col h-full min-h-[400px]">
-               <CardContent className="p-8 flex flex-col flex-grow relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-50" />
-                  <div className="mt-auto relative z-10">
-                    <div className="inline-flex items-center px-3 py-1 rounded-full bg-white text-primary text-[10px] font-bold uppercase tracking-wider mb-4">
-                      Events
-                    </div>
-                    <h4 className="text-3xl font-bold text-white font-display leading-tight">
-                      Speaking at tech summits and conferences globally.
-                    </h4>
+              <CardContent className="p-8 flex flex-col flex-grow relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-50" />
+                <div className="mt-auto relative z-10">
+                  <div className="inline-flex items-center px-3 py-1 rounded-full bg-white text-primary text-[10px] font-bold uppercase tracking-wider mb-4">
+                    Events
                   </div>
-               </CardContent>
+                  <h4 className="text-3xl font-bold text-white font-display leading-tight">
+                    Speaking at tech summits and conferences globally.
+                  </h4>
+                </div>
+              </CardContent>
             </Card>
 
           </div>

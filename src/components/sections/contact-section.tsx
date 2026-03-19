@@ -175,13 +175,13 @@ export default function ContactSection() {
                 <div className="h-10 w-10 rounded-full bg-surface flex items-center justify-center text-primary shrink-0">
                   <Mail className="h-4 w-4" />
                 </div>
-                <span className="text-foreground font-medium">hello@techleader.studio</span>
+                <span className="text-foreground font-medium">davidmorgangumm@gmail.com</span>
               </div>
               <div className="flex items-center space-x-4">
                 <div className="h-10 w-10 rounded-full bg-surface flex items-center justify-center text-primary shrink-0">
                   <MapPin className="h-4 w-4" />
                 </div>
-                <span className="text-foreground font-medium">San Francisco, CA</span>
+                <span className="text-foreground font-medium">Manchester, UK</span>
               </div>
             </div>
           </div>

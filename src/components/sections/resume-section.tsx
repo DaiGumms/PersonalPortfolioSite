@@ -14,10 +14,10 @@ export default function ResumeDownloadSection() {
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent blur-3xl opacity-50 pointer-events-none" />
 
             <div className="md:w-7/12 space-y-4 relative z-10 text-center md:text-left">
-              <h3 className="text-4xl md:text-5xl font-bold font-display leading-tight text-white">
+              <h3 className="text-4xl md:text-5xl font-bold font-display leading-tight text-background">
                 View My Full Story
               </h3>
-              <p className="text-lg text-slate-300 font-sans leading-relaxed max-w-xl mx-auto md:mx-0">
+              <p className="text-lg text-background/70 font-sans leading-relaxed max-w-xl mx-auto md:mx-0">
                 Detailed breakdown of my technical expertise, professional experience, and academic background.
               </p>
             </div>
@@ -28,7 +28,7 @@ export default function ResumeDownloadSection() {
                   <Download className="mr-2 h-5 w-5" /> Download Resume
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-0 bg-surface/10 hover:bg-surface/20 text-white rounded-full px-8 h-14 transition-all w-full sm:w-auto">
+              <Button asChild variant="outline" size="lg" className="border-0 bg-background/10 hover:bg-background/20 text-background rounded-full px-8 h-14 transition-all w-full sm:w-auto">
                 <Link href="/DavidMorganGumm-Resume.pdf" target="_blank" rel="noopener noreferrer">
                   <Eye className="mr-2 h-5 w-5" /> Preview PDF
                 </Link>

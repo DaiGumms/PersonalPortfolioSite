@@ -11,12 +11,12 @@ const leadershipPoints = [
   {
     icon: Users,
     title: 'Team Building & Mentorship',
-    description: 'Built and led high-performing engineering teams of 6+ professionals, fostering a culture of collaboration, continuous learning, and psychological safety. Successfully mentored junior engineers, resulting in promotions and significant career growth across the team.',
+    description: 'Built and led high-performing engineering teams, fostering a culture of collaboration, continuous learning, and psychological safety. Successfully mentored junior engineers, resulting in promotions and significant career growth across the team.',
   },
   {
     icon: Zap,
     title: 'Strategic Technical Direction',
-    description: 'Defined and executed comprehensive technical roadmaps aligned with business objectives across 12+ countries. Championed adoption of modern cloud technologies and architectural patterns, resulting in 60% performance improvements and £2M+ annual cost savings.',
+    description: 'Defined and executed comprehensive technical roadmaps aligned with business objectives across 12+ countries. Championed adoption of modern cloud technologies and architectural patterns, resulting in 60% performance improvements and £5K+ monthly cost savings.',
   },
   {
     icon: Target,
@@ -76,7 +76,7 @@ export default function TechLeadershipSectionVision() {
             isVisible ? "opacity-100 translate-y-0 delay-200" : "opacity-0 translate-y-5"
           )}
         >
-          As a Data Platform Manager leading 6+ engineers, I focus on empowering people, driving innovation, and delivering enterprise-scale solutions. My approach combines strategic vision with hands-on technical expertise to tackle complex challenges and achieve ambitious goals that create lasting business value.
+          As a Data Platform Manager leading a team of data & software engineers, I focus on empowering people, driving innovation, and delivering enterprise-scale solutions. My approach combines strategic vision with hands-on technical expertise to tackle complex challenges and achieve ambitious goals that create lasting business value.
         </p>
         <div className="grid lg:grid-cols-5 gap-12 items-center">
           <div

@@ -43,15 +43,17 @@ export default function AboutMeSection() {
           {/* Left Column: Text */}
           <div className="md:w-5/12 space-y-8">
             <div>
-              <h2 className="text-sm font-semibold text-primary uppercase tracking-widest mb-3">About Me</h2>
-              <h3 className="text-4xl font-bold font-display text-foreground leading-tight">
-                Bridging the gap between engineering and insight.
-              </h3>
+              <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-3">
+                About Me
+              </span>
+              <h2 className="text-4xl font-bold font-display text-foreground leading-tight">
+                Bridging the gap between engineering and <em className="not-italic text-primary">insight.</em>
+              </h2>
             </div>
 
             <div className="space-y-6 text-lg text-secondary font-sans leading-relaxed">
               <p>
-                I&apos;m David Morgan-Gumm, a Data Platform Manager at Oliver James with over 6 years of experience. I specialize in turning chaotic data ecosystems into streamlined, high-performance engines that drive business value.
+                I&apos;m David Morgan-Gumm, a Data Platform Manager at Oliver James with {new Date().getFullYear() - 2018} years of experience turning chaotic data ecosystems into streamlined, high-performance engines that drive business value.
               </p>
               <p>
                 My approach combines rigorous software engineering practices with deep domain knowledge in data architecture. I believe the best solutions aren&apos;t just technically sound—they&apos;re intuitively designed for the people who use them.
