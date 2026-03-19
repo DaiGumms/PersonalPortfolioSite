@@ -24,12 +24,12 @@ export default function ResumeDownloadSection() {
 
             <div className="md:w-5/12 flex flex-col sm:flex-row gap-4 justify-center md:justify-end relative z-10 w-full">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-14 shadow-ambient transition-all w-full sm:w-auto">
-                <Link href="/documents/David_Morgan-Gumm_CV.pdf" download="David_Morgan-Gumm_CV.pdf">
+                <Link href="/DavidMorganGumm-Resume.pdf" download="DavidMorganGumm-Resume.pdf">
                   <Download className="mr-2 h-5 w-5" /> Download Resume
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="border-0 bg-surface/10 hover:bg-surface/20 text-white rounded-full px-8 h-14 transition-all w-full sm:w-auto">
-                <Link href="/documents/David_Morgan-Gumm_CV.pdf" target="_blank" rel="noopener noreferrer">
+                <Link href="/DavidMorganGumm-Resume.pdf" target="_blank" rel="noopener noreferrer">
                   <Eye className="mr-2 h-5 w-5" /> Preview PDF
                 </Link>
               </Button>

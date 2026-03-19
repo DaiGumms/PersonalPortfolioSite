@@ -115,17 +115,6 @@ export default function ProjectsSection() {
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project) => (
             <Card key={project.title} className="border-0 shadow-ambient bg-surface-low rounded-2xl overflow-hidden group flex flex-col hover:shadow-ambient-lg transition-all duration-300 hover:-translate-y-1">
-               {/* Image Container with fixed aspect ratio */}
-               <div className="relative w-full aspect-[16/9] overflow-hidden bg-surface">
-                 <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors duration-500 z-10" />
-                 <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                 />
-               </div>
-
                <CardContent className="p-8 flex flex-col flex-grow">
                   <h5 className="text-2xl font-bold text-foreground font-display mb-3">{project.title}</h5>
                   <p className="text-secondary mb-6 leading-relaxed flex-grow">

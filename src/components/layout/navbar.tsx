@@ -80,7 +80,7 @@ export default function Navbar() {
       )}>
         <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
           <Link href="/" className="flex items-center">
-            <span className="text-xl font-bold font-display text-foreground">TechLeader</span>
+            <span className="text-xl font-bold font-display text-foreground">David Morgan-Gumm</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -129,7 +129,7 @@ export default function Navbar() {
                 <div className="flex flex-col gap-8">
                   <div className="flex justify-between items-center">
                     <Link href="/" className="flex items-center" onClick={() => { setIsMobileMenuOpen(false); }}>
-                      <span className="text-xl font-bold font-display text-foreground">TechLeader</span>
+                      <span className="text-xl font-bold font-display text-foreground">David Morgan-Gumm</span>
                     </Link>
                     <SheetClose asChild>
                       <Button variant="ghost" size="icon" className="text-secondary hover:text-primary">
