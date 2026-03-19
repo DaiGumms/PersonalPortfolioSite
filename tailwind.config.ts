@@ -17,7 +17,8 @@ export default {
     },
   	extend: {
       fontFamily: {
-        sans: ["var(--font-public-sans)", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
+        sans: ["var(--font-inter)", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
+        display: ["var(--font-public-sans)", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
       },
   		colors: {
   			background: 'hsl(var(--background))',
@@ -50,6 +51,12 @@ export default {
   				DEFAULT: 'hsl(var(--destructive))',
   				foreground: 'hsl(var(--destructive-foreground))'
   			},
+        surface: {
+          lowest: 'hsl(var(--surface-lowest))',
+          low: 'hsl(var(--surface-low))',
+          DEFAULT: 'hsl(var(--surface))',
+          high: 'hsl(var(--surface-high))',
+        },
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',

@@ -1,78 +1,114 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
 import Link from 'next/link';
-import { Github, Linkedin, Twitter, MessageSquare, Users } from 'lucide-react';
+import Image from 'next/image';
+import { Github, Linkedin, Twitter, ArrowUpRight } from 'lucide-react';
 
-const communities = [
-  {
-    name: 'LinkedIn',
-    description: 'Connect with me for professional networking and industry insights.',
-    link: 'https://www.linkedin.com/in/david-morgan-gumm-450751133/',
-    icon: Linkedin,
-    cta: 'Connect',
-  },
-  {
-    name: 'X / Twitter',
-    description: 'Follow my thoughts and updates on X (formerly Twitter).',
-    link: 'https://x.com/David_MGumm',
-    icon: Twitter,
-    cta: 'Follow Me',
-  },
+const socialLinks = [
   {
     name: 'GitHub',
-    description: 'Follow my open-source contributions and collaborative projects.',
+    description: 'Open Source Contributor',
     link: 'https://github.com/DaiGumms',
     icon: Github,
-    cta: 'View Profile',
-  },  {
-    name: 'sql_squared Blogs',
-    description: 'Read my articles and tutorials on software development and tech leadership.',
-    link: 'https://www.sqlsquared.co.uk/blog',
-    icon: MessageSquare,
-    cta: 'Read Articles',
   },
   {
-    name: 'Local Tech Meetups',
-    description: 'Engage with local tech communities and share knowledge.',
-    link: 'https://www.sqlsquared.co.uk/events',
-    icon: Users,
-    cta: 'Join Events',
+    name: 'LinkedIn',
+    description: 'Professional Network',
+    link: 'https://www.linkedin.com/in/david-morgan-gumm-450751133/',
+    icon: Linkedin,
+  },
+  {
+    name: 'Twitter',
+    description: 'Tech Thoughts & Updates',
+    link: 'https://x.com/David_MGumm',
+    icon: Twitter,
   },
 ];
 
 export default function CommunitySection() {
   return (
-    <section id="community" className="py-16 md:py-24 bg-muted/50">
+    <div className="py-24 bg-surface-lowest">
       <div className="container mx-auto px-4 md:px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground">
-          Community Involvement
-        </h2>
-        <p className="text-lg text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-          I believe in the power of community and actively participate in various tech platforms and groups to learn, share, and collaborate.
-        </p>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8"> {/* Changed to lg:grid-cols-5 to accommodate the new item potentially */}
-          {communities.map((community) => (
-            <Card key={community.name} className="flex flex-col bg-card shadow-lg hover:shadow-xl transition-shadow duration-300 text-center group">
-              <CardHeader className="items-center pb-4">
-                <div className="p-4 bg-primary/20 rounded-full mb-4 group-hover:bg-primary/30 transition-colors">
-                  <community.icon className="h-10 w-10 text-accent" />
-                </div>
-                <CardTitle className="text-xl text-primary">{community.name}</CardTitle>
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <p className="text-muted-foreground mb-4 text-sm">{community.description}</p>
-              </CardContent>
-              <div className="p-6 border-t">
-                <Button variant="outline" asChild className="w-full border-accent text-accent hover:bg-accent/10 transition-colors">
-                  <Link href={community.link} target="_blank" rel="noopener noreferrer" className="hover:text-accent/80 hover:border-accent/80">
-                    {community.cta}
-                  </Link>
-                </Button>
-              </div>
+        <div className="flex flex-col lg:flex-row gap-16">
+
+          {/* Left Column: Intro & Socials */}
+          <div className="lg:w-5/12 space-y-8">
+            <div>
+              <h2 className="text-sm font-semibold text-primary uppercase tracking-widest mb-3">Ecosystem</h2>
+              <h3 className="text-5xl font-bold font-display text-foreground leading-[1.1]">
+                Community<br/>Involvement
+              </h3>
+            </div>
+
+            <p className="text-lg text-secondary font-sans leading-relaxed">
+              Beyond shipping code, I&apos;m dedicated to fostering growth in the tech space through open source, mentorship, and editorial contributions.
+            </p>
+
+            <div className="space-y-4 pt-4">
+              {socialLinks.map((social) => (
+                <Link key={social.name} href={social.link} target="_blank" rel="noopener noreferrer" className="block">
+                  <Card className="border-0 shadow-sm bg-surface-low hover:bg-surface hover:shadow-ambient hover:-translate-y-0.5 transition-all duration-300 rounded-2xl group cursor-pointer">
+                    <CardContent className="p-4 flex items-center justify-between">
+                      <div className="flex items-center space-x-4">
+                        <div className="h-12 w-12 rounded-full bg-surface-lowest flex items-center justify-center text-primary shadow-sm">
+                          <social.icon className="h-5 w-5" />
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-foreground font-display leading-tight">{social.name}</h4>
+                          <p className="text-secondary text-sm">{social.description}</p>
+                        </div>
+                      </div>
+                      <ArrowUpRight className="h-5 w-5 text-secondary group-hover:text-primary transition-colors" />
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Column: Highlight Cards */}
+          <div className="lg:w-7/12 grid sm:grid-cols-2 gap-6">
+
+            {/* Mentorship Card */}
+            <Card className="border-0 shadow-ambient bg-surface-low rounded-[2rem] overflow-hidden flex flex-col h-full min-h-[400px]">
+               <div className="relative h-48 w-full bg-surface-high opacity-50 mix-blend-multiply">
+                 <Image
+                   src="/images/projects/DevOpsData.jpg"
+                   alt="Mentorship"
+                   fill
+                   className="object-cover opacity-30 grayscale"
+                 />
+               </div>
+               <CardContent className="p-8 flex flex-col flex-grow relative z-10 bg-gradient-to-t from-surface-low via-surface-low to-transparent -mt-24">
+                  <div className="mt-auto">
+                    <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary text-white text-[10px] font-bold uppercase tracking-wider mb-4">
+                      Mentorship
+                    </div>
+                    <h4 className="text-3xl font-bold text-foreground font-display leading-tight">
+                      Empowering the next generation of engineers.
+                    </h4>
+                  </div>
+               </CardContent>
             </Card>
-          ))}
+
+            {/* Speaking Card */}
+            <Card className="border-0 shadow-ambient bg-primary rounded-[2rem] overflow-hidden flex flex-col h-full min-h-[400px]">
+               <CardContent className="p-8 flex flex-col flex-grow relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-50" />
+                  <div className="mt-auto relative z-10">
+                    <div className="inline-flex items-center px-3 py-1 rounded-full bg-white text-primary text-[10px] font-bold uppercase tracking-wider mb-4">
+                      Events
+                    </div>
+                    <h4 className="text-3xl font-bold text-white font-display leading-tight">
+                      Speaking at tech summits and conferences globally.
+                    </h4>
+                  </div>
+               </CardContent>
+            </Card>
+
+          </div>
+
         </div>
       </div>
-    </section>
+    </div>
   );
 }

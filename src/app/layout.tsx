@@ -1,6 +1,5 @@
-
 import type { Metadata } from 'next';
-import { Public_Sans } from 'next/font/google';
+import { Public_Sans, Inter } from 'next/font/google';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import Navbar from '@/components/layout/navbar';
@@ -11,11 +10,18 @@ import FloatingThemeToggle from '@/components/layout/floating-theme-toggle';
 const publicSans = Public_Sans({
   subsets: ['latin'],
   variable: '--font-public-sans',
+  display: 'swap',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: 'David Morgan-Gumm | Data Platform Manager',
-  description: 'Personal portfolio of David Morgan-Gumm, Data Platform Manager at Oliver James, showcasing expertise and projects in data platforms.',
+  title: 'David Morgan-Gumm | Tech Leader',
+  description: 'Personal portfolio of David Morgan-Gumm, Tech Leader, showcasing expertise, projects, and journey.',
   icons: {
     icon: [
       {
@@ -38,7 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className={`${publicSans.variable} font-sans antialiased`}>
+      <body className={`${publicSans.variable} ${inter.variable} font-sans antialiased text-foreground bg-surface-lowest`}>
         <ThemeProvider>
           <div className="flex flex-col min-h-screen">
             <Navbar />

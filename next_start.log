@@ -1,0 +1,16 @@
+
+> nextn@0.1.0 start
+> next start
+
+   ▲ Next.js 15.5.2
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.0.2:3000
+
+ ✓ Starting...
+ ✓ Ready in 985ms
+ ⨯ The requested resource isn't a valid image for /images/projects/RealTimeEngine.jpg received null
+ ⨯ The requested resource isn't a valid image for /images/projects/DataWarehouse.jpg received null
+ ⨯ The requested resource isn't a valid image for /images/projects/DataQuality.jpg received null
+ ⨯ The requested resource isn't a valid image for /images/projects/DataWarehouse.jpg received null
+ ⨯ The requested resource isn't a valid image for /images/projects/RealTimeEngine.jpg received null
+ ⨯ The requested resource isn't a valid image for /images/projects/DataQuality.jpg received null
