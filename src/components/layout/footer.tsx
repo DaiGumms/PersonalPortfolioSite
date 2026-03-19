@@ -5,20 +5,25 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-muted py-8 text-muted-foreground">
-      <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row justify-between items-center">
+    <footer className="bg-[#f8f9fa] py-8 text-[#5f6c7b]">
+      <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="text-base font-bold text-[#091124] tracking-wide mb-4 md:mb-0">
+          David Morgan-Gumm
+        </div>
+
         <p className="text-sm text-center md:text-left mb-4 md:mb-0">
           &copy; {currentYear} David Morgan-Gumm. All rights reserved.
         </p>
+
         <div className="flex gap-4">
           <Link href="https://github.com/DaiGumms" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
-            <Github className="h-6 w-6 hover:text-accent transition-colors" />
+            <Github className="h-6 w-6 hover:text-[#3b82f6] transition-colors" />
           </Link>
           <Link href="https://www.linkedin.com/in/david-morgan-gumm-450751133/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
-            <Linkedin className="h-6 w-6 hover:text-accent transition-colors" />
+            <Linkedin className="h-6 w-6 hover:text-[#3b82f6] transition-colors" />
           </Link>
           <Link href="https://x.com/David_MGumm" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile">
-            <Twitter className="h-6 w-6 hover:text-accent transition-colors" />
+            <Twitter className="h-6 w-6 hover:text-[#3b82f6] transition-colors" />
           </Link>
         </div>
       </div>

@@ -1,85 +1,53 @@
 'use client';
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Trophy, Users, Target, TrendingUp, Award, Lightbulb, DollarSign, Clock } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Users, Target, TrendingUp, Award, DollarSign, Clock } from 'lucide-react';
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 
-const achievements = [
+const metrics = [
   {
     icon: TrendingUp,
     title: 'Platform Performance',
     value: '60%',
-    description: 'Reduction in data processing time through optimization initiatives',
-    category: 'technical'
+    description: 'Reduction in data processing time through optimisation initiatives',
+    category: 'Technical',
   },
   {
     icon: DollarSign,
     title: 'Cost Savings',
-    value: '£2M+',
-    description: 'Annual cost savings through digital transformation initiatives',
-    category: 'business'
+    value: '£5K+',
+    description: 'Monthly cost savings delivered through digital transformation initiatives',
+    category: 'Business',
   },
   {
     icon: Users,
     title: 'Global Reach',
     value: '1000+',
-    description: 'Users served by data platforms across 15+ countries',
-    category: 'impact'
+    description: 'Users served by data platforms across 12+ countries',
+    category: 'Impact',
   },
   {
     icon: Clock,
     title: 'Deployment Speed',
     value: '80%',
     description: 'Reduction in deployment time through CI/CD implementation',
-    category: 'technical'
+    category: 'Technical',
   },
   {
     icon: Target,
     title: 'Data Quality',
-    value: '95%',
+    value: '90%+',
     description: 'Improvement in data quality through validation frameworks',
-    category: 'technical'
+    category: 'Technical',
   },
   {
     icon: Award,
     title: 'Team Growth',
-    value: '3/6',
-    description: 'Junior engineers promoted under my mentorship',
-    category: 'leadership'
-  }
-];
-
-const recognitions = [
-  {
-    title: 'Data Community Leader',
-    organization: 'sql_squared Community',
-    description: 'Founded and lead a thriving data community with 2000+ members',
-    year: '2022',
-    type: 'community'
+    value: '2',
+    description: 'Junior engineers promoted under my direct mentorship',
+    category: 'Leadership',
   },
-  {
-    title: 'Technical Excellence Award',
-    organization: 'Oliver James',
-    description: 'Recognized for outstanding technical leadership and innovation',
-    year: '2024',
-    type: 'professional'
-  },
-  {
-    title: 'Conference Speaker',
-    organization: 'DataMinds, SQLBits, PASS',
-    description: 'Regular speaker at major data and technology conferences',
-    year: '2023-2024',
-    type: 'speaking'
-  },
-  {
-    title: 'Mentorship Excellence',
-    organization: 'Oliver James',
-    description: 'Recognized for exceptional mentoring and team development',
-    year: '2023',
-    type: 'leadership'
-  }
 ];
 
 export default function AchievementsSection() {
@@ -98,136 +66,71 @@ export default function AchievementsSection() {
       },
       { threshold: 0.1 }
     );
-
     const currentRef = sectionRef.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
+    if (currentRef) observer.observe(currentRef);
+    return () => { if (currentRef) observer.unobserve(currentRef); };
   }, []);
 
-  const getCategoryColor = (category: string) => {
-    switch (category) {
-      case 'technical': return 'bg-blue-500/20 text-blue-700 dark:text-blue-300';
-      case 'business': return 'bg-green-500/20 text-green-700 dark:text-green-300';
-      case 'impact': return 'bg-purple-500/20 text-purple-700 dark:text-purple-300';
-      case 'leadership': return 'bg-orange-500/20 text-orange-700 dark:text-orange-300';
-      default: return 'bg-gray-500/20 text-gray-700 dark:text-gray-300';
-    }
-  };
-
-  const getRecognitionColor = (type: string) => {
-    switch (type) {
-      case 'community': return 'bg-purple-500/20 text-purple-700 dark:text-purple-300';
-      case 'professional': return 'bg-blue-500/20 text-blue-700 dark:text-blue-300';
-      case 'speaking': return 'bg-green-500/20 text-green-700 dark:text-green-300';
-      case 'leadership': return 'bg-orange-500/20 text-orange-700 dark:text-orange-300';
-      default: return 'bg-gray-500/20 text-gray-700 dark:text-gray-300';
-    }
-  };
-
   return (
-    <section id="achievements" className="py-16 md:py-24 bg-muted/30 overflow-hidden" ref={sectionRef}>
+    <section id="achievements" className="py-24 bg-surface-low overflow-hidden" ref={sectionRef}>
       <div className="container mx-auto px-4 md:px-6">
-        <h2
+
+        {/* Section header */}
+        <div
           className={cn(
-            "text-3xl md:text-4xl font-bold text-center mb-12 text-foreground transition-all duration-700 ease-out",
+            "text-center mb-16 transition-all duration-700 ease-out",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
           )}
         >
-          Achievements & Recognition
-        </h2>
+          <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-3">
+            Highlights
+          </span>
+          <h2 className="text-4xl font-bold font-display text-foreground leading-tight mb-4">
+            Key <em className="not-italic text-primary">Achievements.</em>
+          </h2>
+          <p className="text-lg text-secondary max-w-2xl mx-auto font-sans leading-relaxed">
+            A snapshot of the impact delivered across platforms, teams, and communities throughout my career.
+          </p>
+        </div>
 
         {/* Key Metrics */}
-        <div className="mb-16">
-          <h3
+        <div>
+          <h4
             className={cn(
-              "text-2xl font-semibold text-center mb-8 text-foreground transition-all duration-700 ease-out",
-              isVisible ? "opacity-100 translate-y-0 delay-200" : "opacity-0 translate-y-5"
+              "text-xs font-semibold text-secondary uppercase tracking-widest text-center mb-8 transition-all duration-700 ease-out",
+              isVisible ? "opacity-100 translate-y-0 delay-100" : "opacity-0 translate-y-3"
             )}
           >
             Key Impact Metrics
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {achievements.map((achievement, index) => (
+          </h4>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {metrics.map((item, index) => (
               <Card
-                key={achievement.title}
+                key={item.title}
                 className={cn(
-                  "bg-card shadow-lg hover:shadow-xl transition-all duration-300 ease-out hover:scale-105",
+                  "border-0 shadow-ambient bg-surface-lowest rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-ambient-lg hover:-translate-y-1",
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 )}
-                style={{
-                  transitionDelay: `${isVisible ? 300 + index * 100 : 0}ms`
-                }}
+                style={{ transitionDelay: `${isVisible ? 200 + index * 80 : 0}ms` }}
               >
-                <CardHeader className="pb-3">
-                  <div className="flex items-center justify-between">
-                    <achievement.icon className="h-8 w-8 text-accent" />
-                    <Badge variant="secondary" className={getCategoryColor(achievement.category)}>
-                      {achievement.category}
-                    </Badge>
+                <CardContent className="p-8">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="h-11 w-11 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                      <item.icon className="h-5 w-5" />
+                    </div>
+                    <span className="text-xs font-medium text-primary bg-primary/10 rounded-full px-3 py-1">
+                      {item.category}
+                    </span>
                   </div>
-                  <CardTitle className="text-3xl font-bold text-accent">{achievement.value}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <h4 className="font-semibold text-foreground mb-2">{achievement.title}</h4>
-                  <p className="text-sm text-muted-foreground">{achievement.description}</p>
+                  <p className="text-4xl font-bold font-display text-primary mb-2">{item.value}</p>
+                  <h5 className="text-base font-semibold text-foreground mb-1 font-display">{item.title}</h5>
+                  <p className="text-sm text-secondary font-sans leading-relaxed">{item.description}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
         </div>
 
-        {/* Recognition & Awards */}
-        <div>
-          <h3
-            className={cn(
-              "text-2xl font-semibold text-center mb-8 text-foreground transition-all duration-700 ease-out",
-              isVisible ? "opacity-100 translate-y-0 delay-500" : "opacity-0 translate-y-5"
-            )}
-          >
-            Recognition & Awards
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {recognitions.map((recognition, index) => (
-              <Card
-                key={recognition.title}
-                className={cn(
-                  "bg-card shadow-lg hover:shadow-xl transition-all duration-300 ease-out hover:scale-[1.02]",
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-                )}
-                style={{
-                  transitionDelay: `${isVisible ? 700 + index * 150 : 0}ms`
-                }}
-              >
-                <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <CardTitle className="text-xl text-accent mb-1">{recognition.title}</CardTitle>
-                      <p className="text-sm font-medium text-foreground">{recognition.organization}</p>
-                    </div>
-                    <div className="flex flex-col items-end gap-2">
-                      <Badge variant="outline" className="text-xs">
-                        {recognition.year}
-                      </Badge>
-                      <Badge variant="secondary" className={getRecognitionColor(recognition.type)}>
-                        {recognition.type}
-                      </Badge>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{recognition.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );

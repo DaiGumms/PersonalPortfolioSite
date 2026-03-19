@@ -1,0 +1,20 @@
+
+> nextn@0.1.0 dev
+> next dev --turbopack -p 9002
+
+   ▲ Next.js 15.5.2 (Turbopack)
+   - Local:        http://localhost:9002
+   - Network:      http://192.168.0.2:9002
+
+ ✓ Starting...
+ ✓ Ready in 1470ms
+ ○ Compiling /journey ...
+ ✓ Compiled /journey in 10s
+Image with src "/images/Gemini_Generated_Image_v9b8dwv9b8dwv9b8.jpg" has legacy prop "layout". Did you forget to run the codemod?
+Read more: https://nextjs.org/docs/messages/next-image-upgrade-to-13
+Image with src "/images/Gemini_Generated_Image_v9b8dwv9b8dwv9b8.jpg" has legacy prop "objectFit". Did you forget to run the codemod?
+Read more: https://nextjs.org/docs/messages/next-image-upgrade-to-13
+ GET /journey 200 in 11973ms
+ ○ Compiling /projects ...
+ ✓ Compiled /projects in 1233ms
+ GET /projects 200 in 1578ms

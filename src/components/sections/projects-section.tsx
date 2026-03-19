@@ -1,283 +1,303 @@
-
 'use client';
 
-import { Card, CardContent, CardHeader, CardTitle, CardFooter, CardDescription } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { ExternalLink, Github, LayoutGrid, CheckCircle, Layers, GitMerge, Globe, BarChart2, Phone, Building2, Cloud, GitBranch, Camera, Palette, TrendingUp, Users, Swords, PlayCircle } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Github, ExternalLink, Settings, Podcast, BookOpen, Calendar, Users, Youtube, CheckCircle } from 'lucide-react';
-import { useTheme } from '@/components/theme-provider';
-import React, { useEffect, useRef, useState } from 'react';
-import { cn } from '@/lib/utils';
+import Script from 'next/script';
+import type { LucideIcon } from 'lucide-react';
 
 const sqlSquared = {
   title: 'sql_squared',
-  description: 'sql_squared is a vibrant data and AI community I founded, home to insightful podcasts, informative blogs, and engaging events for enthusiasts and professionals alike.',
+  description: 'Founded and manage a thriving data community. We host podcasts, publish technical articles, and organize regular events to foster knowledge sharing and networking among data professionals.',
   links: [
-    { type: 'Podcast', icon: <Podcast className="mr-2 h-4 w-4" />, url: 'https://podcast.sqlsquared.co.uk' },
-    { type: 'Blogs', icon: <BookOpen className="mr-2 h-4 w-4" />, url: 'https://www.sqlsquared.co.uk/blog' },
-    { type: 'Events', icon: <Calendar className="mr-2 h-4 w-4" />, url: 'https://www.sqlsquared.co.uk/events' },
-    { type: 'Community Forum', icon: <Users className="mr-2 h-4 w-4" />, url: 'https://www.sqlsquared.co.uk/forum' },
-    { type: 'YouTube', icon: <Youtube className="mr-2 h-4 w-4" />, url: 'https://www.youtube.com/@sql_squared' },
-  ]
+    { type: 'Website', url: 'https://www.sqlsquared.co.uk', icon: <ExternalLink className="mr-2 h-4 w-4" /> },
+    { type: 'Blog', url: 'https://www.sqlsquared.co.uk/blog', icon: <ExternalLink className="mr-2 h-4 w-4" /> },
+    { type: 'Podcast', url: 'https://www.sqlsquared.co.uk/podcast', icon: <ExternalLink className="mr-2 h-4 w-4" /> },
+    { type: 'YouTube', url: 'https://www.youtube.com/@sql_squared', icon: <PlayCircle className="mr-2 h-4 w-4" /> },
+  ],
 };
 
-const projects = [
-  {
-    title: 'Global Azure Data Platform - Enterprise Scale',
-    description: 'Architected and delivered a comprehensive Azure data platform serving 1000+ users across 12+ countries. The platform processes large daily data volumes with a high degree of data quality improvement and major performance optimization. Features real-time analytics, automated data validation, and enterprise-grade security.',
-    image: '/images/projects/DataPlatform.jpg',
-    imageHint: 'Azure data platform',
-    techStack: ['Azure Synapse Analytics', 'Azure Data Lake Storage Gen2', 'Azure Data Factory', 'Azure Logic Apps', 'Power BI Premium', 'Azure SQL Database', 'Python', 'KQL', 'Azure DevOps'],
-    liveLink: '#',
-    githubLink: '#',
-    achievements: ['Performance improvement', '£100k+ annual cost savings', '1500+ global users']
-  },
-  {
-    title: 'Real-time LinkedIn Job Market Analytics',
-    description: 'Built an enterprise-grade data warehousing solution ingesting and analyzing daily global LinkedIn job market data using Azure Data Explorer. Features real-time analytics dashboards, predictive modeling, and automated trend detection serving business intelligence teams.',
-    image: '/images/projects/LinkedInJobData.jpg',
-    imageHint: 'data warehousing',
-    techStack: ['Azure Data Explorer (Kusto)', 'Kusto Query Language (KQL)', 'Azure Functions', 'Power BI', 'Azure Event Hubs', 'Python', 'REST APIs'],
-    liveLink: '#',
-    githubLink: '#',
-    achievements: ['Real-time data processing', 'Predictive job market insights', 'Global trend analysis']
-  },
-  {
-    title: 'Global Telephony Platform Integration Suite',
-    description: 'Developed comprehensive real-time integrations with multiple global telephony platforms using event-driven architecture. Built scalable ETL pipelines processing call data for in-depth analysis, global reporting, and business intelligence across international markets.',
-    image: '/images/projects/TelephonyData.jpg',
-    imageHint: 'telephony reporting',
-    techStack: ['REST APIs', 'Azure Functions', 'Azure SQL Database', 'Power BI', 'Event-driven Architecture', 'C#', 'Python'],
-    liveLink: '#',
-    githubLink: '#',
-    achievements: ['Multi-platform integration', 'Real-time call analytics', 'Global reporting capabilities']
-  },
-  {
-    title: 'SAP ByDesign ERP Integration Platform',
-    description: 'Engineered robust, enterprise-scale data integration pipelines connecting SAP ByDesign ERP system with downstream financial reporting and forecasting tools. Implemented automated data validation, error handling, and reconciliation processes ensuring 99.9% data accuracy.',
-    image: '/images/projects/FinanceData.jpg',
-    imageHint: 'ERP integration',
-    techStack: ['SAP ByDesign APIs', 'Azure Function Apps', 'Microsoft Fabric', 'Financial Reporting Tools', 'SOAP', 'Python', 'ETL Pipelines', 'Data Validation'],
-    liveLink: '#',
-    githubLink: '#',
-    achievements: ['99.9% data accuracy', 'Automated reconciliation', 'Enterprise-scale integration']
-  },
-  {
-    title: 'Salesforce Data Lake & Analytics Platform',
-    description: 'Implemented a comprehensive batch and real-time ETL solution for ingesting Salesforce sales data into Azure Data Lake. Built dimensional data models, implemented data governance frameworks, and created self-service analytics capabilities for business users.',
-    image: '/images/projects/SalesforceData.jpg',
-    imageHint: 'batch data ingestion',
-    techStack: ['Azure Data Factory', 'Salesforce APIs', 'SOQL', 'Azure Data Lake Storage', 'Azure Synapse', 'Power BI', 'Python', 'SQL'],
-    liveLink: '#',
-    githubLink: '#',
-    achievements: ['Self-service analytics', 'Data governance framework', 'Real-time sales insights']
-  },
-  {
-    title: 'Enterprise Database DevOps & CI/CD Platform',
-    description: 'Established comprehensive Database DevOps practices and implemented automated CI/CD pipelines for database changes across multiple environments. Reduced deployment risks by 90%, improved release velocity by 80%, and implemented automated testing frameworks.',
-    image: '/images/projects/DevOpsData.jpg',
-    imageHint: 'DevOps CI/CD',
-    techStack: ['Azure DevOps', 'CI/CD Pipelines', 'SQL Server Data Tools (SSDT)', 'Git', 'PowerShell', 'Azure SQL Database', 'Automated Testing'],
-    liveLink: '#',
-    githubLink: '#',
-    achievements: ['90% risk reduction', '80% faster deployments', 'Automated testing framework']
-  },
-];
+const plasticCrack = {
+  title: 'Plastic Crack',
+  tagline: 'Warhammer Collection Management App',
+  description: 'The ultimate tool for Warhammer enthusiasts. Track your miniatures with AI-powered photo recognition, get personalised painting guidance, discover real-time market pricing and deals, and connect with a community of fellow hobbyists. Currently in closed beta.',
+  features: [
+    { label: 'Smart Collection Tracking', description: 'AI-powered photo recognition and detailed progress tracking.', icon: Camera },
+    { label: 'AI Painting Guidance', description: 'Personalised colour schemes and techniques based on your models and skill level.', icon: Palette },
+    { label: 'Market Intelligence', description: 'Real-time pricing, deal alerts, and collection value tracking from multiple retailers.', icon: TrendingUp },
+    { label: 'Community Features', description: 'Share your work, get feedback, and connect with fellow Warhammer enthusiasts.', icon: Users },
+  ],
+  liveLink: 'https://plastic-crack.com/',
+  betaLink: 'https://plastic-crack.com/beta-interest',
+};
+
+const projects: {
+  title: string;
+  description: string;
+  techStack: string[];
+  achievements: string[];
+  liveLink: string;
+  githubLink: string;
+  icon: LucideIcon;
+}[] = [
+    {
+      title: 'Microsoft Fabric Enterprise Implementation',
+      description: 'Led the strategic implementation and migration to Microsoft Fabric for an enterprise organization. Consolidated disparate data workloads into a unified SaaS analytics platform, enabling seamless data engineering, data science, and real-time analytics capabilities.',
+      techStack: ['Microsoft Fabric', 'OneLake', 'Data Engineering', 'Power BI', 'Synapse Data Warehousing', 'Data Science', 'Spark'],
+      achievements: ['Unified analytics platform', 'Reduced infrastructure complexity', 'Accelerated time-to-insight'],
+      liveLink: '#',
+      githubLink: '#',
+      icon: Layers,
+    },
+    {
+      title: 'Enterprise Master Data Management with Tamr & Microsoft Fabric',
+      description: 'Designed and implemented an enterprise Master Data Management solution using Tamr on top of Microsoft Fabric, enabling AI-powered entity resolution and deduplication of critical business data. Built automated pipelines to master golden records across key business domains and publish authoritative data to downstream third-party services and applications via event-driven and API-based integrations.',
+      techStack: ['Tamr', 'Microsoft Fabric', 'OneLake', 'Azure Data Factory', 'REST APIs', 'Python', 'SQL', 'Event-driven Architecture', 'Data Governance'],
+      achievements: ['Golden record mastering across key business domains', 'Automated publishing to 3rd party services & applications', 'Improved data consistency and reduced duplication across the platform'],
+      liveLink: '#',
+      githubLink: '#',
+      icon: GitMerge,
+    },
+    {
+      title: 'Global Azure Synapse Platform Architecture & Delivery',
+      description: 'Architected and delivered a comprehensive Azure data platform serving 1000+ users across 12+ countries. The platform processes large daily data volumes with a high degree of data quality improvement and major performance optimization. Features real-time analytics, automated data validation, and enterprise-grade security.',
+      techStack: ['Azure Synapse Analytics', 'Azure Data Lake Storage Gen2', 'Azure Data Factory', 'Azure Logic Apps', 'Power BI Premium', 'Azure SQL Database', 'Python', 'KQL', 'Azure DevOps'],
+      achievements: ['Performance improvement', '£100k+ annual cost savings', '1500+ global users'],
+      liveLink: '#',
+      githubLink: '#',
+      icon: Globe,
+    },
+    {
+      title: 'LinkedIn Job Market Analytics & Whitespace Reporting',
+      description: 'Built an enterprise-grade data warehousing solution ingesting and analysing daily global LinkedIn job market data using Azure Data Explorer. Integrated Azure Language and Cognitive Services to automatically extract, normalise, and map skills and industries from job postings, enabling accurate whitespace reporting that highlights unmet talent demand and emerging hiring trends for business intelligence teams.',
+      techStack: ['Azure Data Explorer (Kusto)', 'Kusto Query Language (KQL)', 'Azure Language Services', 'Azure Cognitive Services', 'Azure Functions', 'Power BI', 'Python', 'REST APIs'],
+      achievements: ['Daily job market data ingestion & processing', 'AI-powered skills & industry mapping via Azure Cognitive Services', 'Whitespace reporting to surface unmet talent demand'],
+      liveLink: '#',
+      githubLink: '#',
+      icon: BarChart2,
+    },
+    {
+      title: 'Global Telephony Platform Integration Suite',
+      description: 'Developed comprehensive real-time integrations with multiple global telephony platforms using event-driven architecture. Built scalable ETL pipelines processing call data for in-depth analysis, global reporting, and business intelligence across international markets.',
+      techStack: ['REST APIs', 'Azure Functions', 'Azure SQL Database', 'Power BI', 'Event-driven Architecture', 'C#', 'Python'],
+      achievements: ['Multi-platform integration', 'Real-time call analytics', 'Global reporting capabilities'],
+      liveLink: '#',
+      githubLink: '#',
+      icon: Phone,
+    },
+    {
+      title: 'SAP ByDesign ERP Integration Platform',
+      description: 'Engineered robust, enterprise-scale data integration pipelines connecting SAP ByDesign ERP system with downstream financial reporting and forecasting tools. Implemented automated data validation, error handling, and reconciliation processes ensuring 99.9% data accuracy.',
+      techStack: ['SAP ByDesign APIs', 'Azure Function Apps', 'Microsoft Fabric', 'Financial Reporting Tools', 'SOAP', 'Python', 'ETL Pipelines', 'Data Validation'],
+      achievements: ['99.9% data accuracy', 'Automated reconciliation', 'Enterprise-scale integration'],
+      liveLink: '#',
+      githubLink: '#',
+      icon: Building2,
+    },
+    {
+      title: 'Salesforce Data Lake & Analytics Platform',
+      description: 'Implemented a comprehensive batch and real-time ETL solution for ingesting Salesforce sales data into Azure Data Lake. Built dimensional data models, implemented data governance frameworks, and created self-service analytics capabilities for business users.',
+      techStack: ['Azure Data Factory', 'Salesforce APIs', 'SOQL', 'Azure Data Lake Storage', 'Azure Synapse', 'Power BI', 'Python', 'SQL'],
+      achievements: ['Self-service analytics', 'Data governance framework', 'Real-time sales insights'],
+      liveLink: '#',
+      githubLink: '#',
+      icon: Cloud,
+    },
+    {
+      title: 'Enterprise Database DevOps & CI/CD Platform',
+      description: 'Established comprehensive Database DevOps practices and implemented automated CI/CD pipelines for database changes across multiple environments. Reduced deployment risks by 90%, improved release velocity by 80%, and implemented automated testing frameworks.',
+      techStack: ['Azure DevOps', 'CI/CD Pipelines', 'SQL Server Data Tools (SSDT)', 'Git', 'PowerShell', 'Azure SQL Database', 'Automated Testing'],
+      achievements: ['90% risk reduction', '80% faster deployments', 'Automated testing framework'],
+      liveLink: '#',
+      githubLink: '#',
+      icon: GitBranch,
+    },
+  ];
 
 export default function ProjectsSection() {
-  const { theme } = useTheme();
-  const sqlSquaredLogoSrc = theme === 'light' ? '/images/logo-square_light.png' : '/images/logo-square_dark.png';
-
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const sqlSquaredBlockRef = useRef<HTMLDivElement>(null);
-  const projectsGridRef = useRef<HTMLDivElement>(null);
-
-  const [isTitleVisible, setIsTitleVisible] = useState(false);
-  const [isSqlSquaredBlockVisible, setIsSqlSquaredBlockVisible] = useState(false);
-  const [isProjectsGridVisible, setIsProjectsGridVisible] = useState(false);
-
-  useEffect(() => {
-    const observerOptions = { threshold: 0.1 };
-    const contentObserverOptions = { threshold: 0.2 };
-
-    const createObserver = (
-      ref: React.RefObject<HTMLElement>,
-      setter: React.Dispatch<React.SetStateAction<boolean>>,
-      options = observerOptions
-    ) => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            setter(true);
-            observer.unobserve(entry.target);
-          }
-        });
-      }, options);
-      if (ref.current) observer.observe(ref.current);
-      return observer;
-    };
-
-    const titleObserver = createObserver(titleRef, setIsTitleVisible);
-    const sqlSquaredBlockObserver = createObserver(sqlSquaredBlockRef, setIsSqlSquaredBlockVisible, contentObserverOptions);
-    const projectsGridObserver = createObserver(projectsGridRef, setIsProjectsGridVisible, { ...observerOptions, threshold: 0.05 }); // Trigger sooner for the grid
-
-    return () => {
-      if (titleRef.current) titleObserver.unobserve(titleRef.current);
-      if (sqlSquaredBlockRef.current) sqlSquaredBlockObserver.unobserve(sqlSquaredBlockRef.current);
-      if (projectsGridRef.current) projectsGridObserver.unobserve(projectsGridRef.current);
-    };
-  }, []);
-
-
   return (
-    <section id="projects" className="py-16 md:py-24 bg-background overflow-hidden" ref={sectionRef}>
+    <div className="py-24 bg-surface-lowest">
       <div className="container mx-auto px-4 md:px-6">
-        <h2
-          ref={titleRef}
-          className={cn(
-            "text-3xl md:text-4xl font-bold text-center mb-12 text-foreground transition-all duration-700 ease-out",
-            isTitleVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          )}
-        >
-          My Projects
-        </h2>
 
-        {/* sql_squared section */}
-        <div
-          ref={sqlSquaredBlockRef}
-          className="grid lg:grid-cols-5 gap-12 items-center mb-16"
-        >
-          <div className={cn(
-            "lg:col-span-3 space-y-8 transition-all duration-700 ease-out",
-            isSqlSquaredBlockVisible ? "opacity-100 translate-x-0 delay-200" : "opacity-0 -translate-x-10"
-          )}>
-            <Card className="flex flex-col md:flex-row items-center bg-card shadow-lg p-6 md:p-8 hover:shadow-xl transition-all duration-300 ease-in-out hover:scale-[1.02] hover:-translate-y-1">
-              <CardHeader className="flex-shrink-0 mb-4 md:mb-0 md:mr-8 p-0">
-                <Image src={sqlSquaredLogoSrc} alt="sql_squared logo" width={100} height={100} />
-              </CardHeader>
-              <CardContent className="flex-grow p-0">
-                <CardTitle className="text-2xl md:text-3xl font-bold text-accent mb-3">
-                  {sqlSquared.title}
-                </CardTitle>
-                <CardDescription className="text-muted-foreground text-base mb-4">
-                  {sqlSquared.description}
-                </CardDescription>
-                <div className="flex flex-wrap gap-4">
-                  {sqlSquared.links.map((link) => (
-                    <Button key={link.type} variant="outline" asChild className="border-accent text-accent hover:bg-accent/10 hover:text-accent/80 hover:border-accent/80">
-                      <Link href={link.url} target="_blank" rel="noopener noreferrer">
-                        {link.icon} {link.type}
-                      </Link>
-                    </Button>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-          <div className={cn(
-            "lg:col-span-2 lg:h-[400px] order-last lg:order-last transition-all duration-700 ease-out",
-            isSqlSquaredBlockVisible ? "opacity-100 translate-x-0 delay-300" : "opacity-0 translate-x-10"
-          )}>            <div className="bg-background dark:bg-muted shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg p-4 h-full flex items-center justify-center relative overflow-hidden">
-              <div className="relative w-full h-full max-w-[90%] max-h-[90%]">
+        <div className="text-center mb-16 space-y-4">
+          <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
+            Selected Work
+          </span>
+          <h2 className="text-4xl font-bold font-display text-foreground">
+            Projects & <em className="not-italic text-primary">Initiatives.</em>
+          </h2>
+          <p className="text-secondary text-lg max-w-2xl mx-auto">
+            A showcase of major architectural implementations, platform migrations, and community contributions.
+          </p>
+        </div>
+
+        {/* sql_squared Highlight Feature */}
+        <Card className="border-0 shadow-ambient bg-surface-low rounded-[2rem] overflow-hidden mb-16 hover:shadow-ambient-lg transition-all duration-300">
+          <div className="flex flex-col lg:flex-row">
+            <div className="lg:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-6 w-fit">
+                Community Project
+              </div>
+              <h4 className="text-3xl font-bold text-foreground font-display mb-4">
+                {sqlSquared.title}
+              </h4>
+              <p className="text-secondary text-lg leading-relaxed mb-8">
+                {sqlSquared.description}
+              </p>
+              <div className="flex flex-wrap gap-4 mt-auto">
+                {sqlSquared.links.map((link) => (
+                  <Button key={link.type} variant="outline" asChild className="border border-surface-high/50 bg-surface-lowest text-foreground hover:bg-surface hover:text-primary rounded-full transition-all">
+                    <Link href={link.url} target="_blank" rel="noopener noreferrer">
+                      {link.icon} {link.type}
+                    </Link>
+                  </Button>
+                ))}
+              </div>
+            </div>
+            <div className="lg:w-1/2 bg-surface flex items-center justify-center p-12 min-h-[300px] relative">
+              {/* Decorative background blur */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent blur-2xl" />
+              <div className="relative w-full max-w-sm aspect-square mix-blend-multiply opacity-90 transition-transform duration-500 hover:scale-105">
                 <Image
-                  src={'/images/squiggle.png'}
-                  alt={'sql_squared brand image'}
+                  src="/images/squiggle.png"
+                  alt="sql_squared brand abstract"
                   fill
-                  sizes="(max-width: 768px) 80vw, (max-width: 1200px) 50vw, 400px"
-                  className="rounded-md object-contain hover:scale-105 transition-transform duration-300"
-                  data-ai-hint="abstract data"
+                  className="object-contain"
                 />
               </div>
             </div>
           </div>
+        </Card>
+
+        {/* sql_squared Podcast Player */}
+        <div className="mb-16">
+          <div id="buzzsprout-large-player" />
+          <Script
+            src="https://www.buzzsprout.com/2509445.js?container_id=buzzsprout-large-player&player=large"
+            strategy="afterInteractive"
+          />
         </div>
 
-        {/* Existing projects grid */}
-        <div
-          ref={projectsGridRef}
-          className="grid md:grid-cols-2 lg:grid-cols-2 gap-8"
-        >
-          {projects.map((project, index) => (
-            <Card
-              key={project.title}
-              className={cn(
-                "flex flex-col bg-card shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden group hover:scale-[1.02] hover:-translate-y-1 min-h-[600px]",
-                "transform",
-                isProjectsGridVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
-              )}
-              style={{ transitionProperty: 'opacity, transform', transitionDuration: '700ms', transitionTimingFunction: 'ease-out', transitionDelay: `${isProjectsGridVisible ? index * 150 + 500 : 0}ms` }}
-            >
-              <div className="relative w-full h-64">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  layout="fill"
-                  objectFit="cover"
-                  className="transition-transform duration-500 group-hover:scale-105"
-                  data-ai-hint={project.imageHint}
-                />
+        {/* Plastic Crack Feature */}
+        <Card className="border-0 shadow-ambient bg-surface-low rounded-[2rem] overflow-hidden mb-16 hover:shadow-ambient-lg transition-all duration-300">
+          <div className="flex flex-col lg:flex-row">
+            <div className="lg:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-6 w-fit">
+                Personal Project
               </div>
-              <CardHeader>
-                <CardTitle className="text-2xl text-accent">{project.title}</CardTitle>
-                <CardDescription className="text-muted-foreground h-24 overflow-y-auto text-sm leading-relaxed">{project.description}</CardDescription>
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <div className="mb-4">
-                  <h4 className="font-semibold text-foreground mb-2 flex items-center">
-                    <Settings className="mr-2 h-5 w-5 text-primary" />
-                    Technology Stack:
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.techStack.map((tech) => (
-                      <Badge key={tech} variant="secondary" className="bg-primary/20 text-primary-foreground hover:bg-primary/30 transition-colors">
-                        {tech}
-                      </Badge>
-                    ))}
+              <h4 className="text-3xl font-bold text-foreground font-display mb-2">
+                {plasticCrack.title}
+              </h4>
+              <p className="text-primary text-sm font-semibold mb-4">{plasticCrack.tagline}</p>
+              <p className="text-secondary text-lg leading-relaxed mb-8">
+                {plasticCrack.description}
+              </p>
+              <div className="flex flex-wrap gap-4 mt-auto">
+                <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full transition-all">
+                  <Link href={plasticCrack.liveLink} target="_blank" rel="noopener noreferrer">
+                    <ExternalLink className="mr-2 h-4 w-4" /> Visit Site
+                  </Link>
+                </Button>
+                <Button variant="outline" asChild className="border border-surface-high/50 bg-surface-lowest text-foreground hover:bg-surface hover:text-primary rounded-full transition-all">
+                  <Link href={plasticCrack.betaLink} target="_blank" rel="noopener noreferrer">
+                    <Swords className="mr-2 h-4 w-4" /> Join Beta
+                  </Link>
+                </Button>
+              </div>
+            </div>
+            <div className="lg:w-1/2 bg-surface p-8 md:p-12 flex flex-col justify-center">
+              <div className="grid grid-cols-2 gap-4">
+                {plasticCrack.features.map((feature) => (
+                  <div key={feature.label} className="bg-surface-low rounded-2xl p-5 flex flex-col gap-3">
+                    <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                      <feature.icon className="h-5 w-5" />
+                    </div>
+                    <p className="text-sm font-semibold text-foreground leading-snug">{feature.label}</p>
+                    <p className="text-xs text-secondary leading-relaxed">{feature.description}</p>
                   </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </Card>
+
+        {/* Projects Grid */}
+        <div className="grid md:grid-cols-2 gap-8">
+          {projects.map((project) => (
+            <Card key={project.title} className="border-0 shadow-ambient bg-surface-low rounded-2xl overflow-hidden group flex flex-col hover:shadow-ambient-lg transition-all duration-300 hover:-translate-y-1">
+
+              {/* Card icon header */}
+              <div className="h-40 w-full bg-primary/5 flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent" />
+                <div className="h-16 w-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary relative z-10 transition-transform duration-300 group-hover:scale-110">
+                  <project.icon className="h-8 w-8" />
                 </div>
-                {project.achievements && (
-                  <div className="mb-4">
-                    <h4 className="font-semibold text-foreground mb-2 flex items-center">
-                      <CheckCircle className="mr-2 h-5 w-5 text-accent" />
-                      Key Achievements:
-                    </h4>
-                    <ul className="space-y-1">
-                      {project.achievements.map((achievement, idx) => (
-                        <li key={idx} className="text-sm text-muted-foreground flex items-center">
-                          <span className="w-1.5 h-1.5 bg-accent rounded-full mr-2 flex-shrink-0"></span>
-                          {achievement}
-                        </li>
+              </div>
+
+              <CardContent className="p-8 flex flex-col flex-grow">
+                <h5 className="text-2xl font-bold text-foreground font-display mb-3">{project.title}</h5>
+                <p className="text-secondary mb-6 leading-relaxed flex-grow">
+                  {project.description}
+                </p>
+
+                <div className="space-y-6">
+                  <div>
+                    <div className="flex items-center text-sm font-semibold text-foreground mb-3">
+                      <LayoutGrid className="mr-2 h-4 w-4 text-primary" /> Stack
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {project.techStack.map((tech) => (
+                        <span key={tech} className="px-2.5 py-1 rounded-md bg-surface text-secondary text-xs font-medium">
+                          {tech}
+                        </span>
                       ))}
-                    </ul>
+                    </div>
                   </div>
-                )}
+
+                  {project.achievements && (
+                    <div>
+                      <div className="flex items-center text-sm font-semibold text-foreground mb-3">
+                        <CheckCircle className="mr-2 h-4 w-4 text-primary" /> Impact
+                      </div>
+                      <ul className="space-y-2">
+                        {project.achievements.map((achievement, idx) => (
+                          <li key={idx} className="text-sm text-secondary flex items-start">
+                            <span className="text-primary mr-2 mt-0.5">•</span>
+                            {achievement}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
               </CardContent>
-              <CardFooter className="flex justify-end gap-3 border-t pt-4">
-                {project.liveLink && project.liveLink !== '#' && (
-                  <Button variant="outline" asChild className="border-accent text-accent hover:bg-accent/10 hover:text-accent/80 hover:border-accent/80">
-                    <Link href={project.liveLink} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
-                    </Link>
-                  </Button>
-                )}
-                {project.githubLink && project.githubLink !== '#' && (
-                  <Button variant="ghost" asChild className="text-foreground hover:bg-primary/20 hover:text-accent-foreground">
-                    <Link href={project.githubLink} target="_blank" rel="noopener noreferrer">
-                      <Github className="mr-2 h-4 w-4" /> Source Code
-                    </Link>
-                  </Button>
-                )}
-              </CardFooter>
+
+              {/* Footer Actions */}
+              {(project.liveLink !== '#' || project.githubLink !== '#') && (
+                <div className="p-6 pt-0 mt-auto flex gap-3">
+                  {project.liveLink !== '#' && (
+                    <Button variant="ghost" asChild className="text-primary hover:bg-primary/10 hover:text-primary rounded-full px-4">
+                      <Link href={project.liveLink} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="mr-2 h-4 w-4" /> Live
+                      </Link>
+                    </Button>
+                  )}
+                  {project.githubLink !== '#' && (
+                    <Button variant="ghost" asChild className="text-secondary hover:bg-surface hover:text-foreground rounded-full px-4">
+                      <Link href={project.githubLink} target="_blank" rel="noopener noreferrer">
+                        <Github className="mr-2 h-4 w-4" /> Source
+                      </Link>
+                    </Button>
+                  )}
+                </div>
+              )}
             </Card>
           ))}
         </div>
+
       </div>
-    </section>
+    </div>
   );
 }
-
