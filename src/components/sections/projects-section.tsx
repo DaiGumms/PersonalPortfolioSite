@@ -2,7 +2,7 @@
 
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github, LayoutGrid, CheckCircle, Layers, GitMerge, Globe, BarChart2, Phone, Building2, Cloud, GitBranch, Camera, Palette, TrendingUp, Users, Swords, PlayCircle } from 'lucide-react';
+import { ExternalLink, Github, LayoutGrid, CheckCircle, Layers, GitMerge, Globe, BarChart2, Phone, Building2, Cloud, GitBranch, Swords, TrendingUp, Users, MessageCircle, PlayCircle } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Script from 'next/script';
@@ -19,18 +19,18 @@ const sqlSquared = {
   ],
 };
 
-const plasticCrack = {
-  title: 'Plastic Crack',
-  tagline: 'Warhammer Collection Management App',
-  description: 'The ultimate tool for Warhammer enthusiasts. Track your miniatures with AI-powered photo recognition, get personalised painting guidance, discover real-time market pricing and deals, and connect with a community of fellow hobbyists. Currently in closed beta.',
+const echelon = {
+  title: 'Echelon',
+  tagline: 'Warhammer Crusade Campaign Manager',
+  description: 'A standalone web app for managing Warhammer 40K Crusade campaigns. Track your force\'s progression through battles, manage Crusade Cards, and chronicle your army\'s story from first skirmish to legendary status.',
   features: [
-    { label: 'Smart Collection Tracking', description: 'AI-powered photo recognition and detailed progress tracking.', icon: Camera },
-    { label: 'AI Painting Guidance', description: 'Personalised colour schemes and techniques based on your models and skill level.', icon: Palette },
-    { label: 'Market Intelligence', description: 'Real-time pricing, deal alerts, and collection value tracking from multiple retailers.', icon: TrendingUp },
-    { label: 'Community Features', description: 'Share your work, get feedback, and connect with fellow Warhammer enthusiasts.', icon: Users },
+    { label: 'Crusade Tracking', description: "Track your force's progression through battles and campaigns.", icon: Swords },
+    { label: 'Battle History', description: "Record growth, honours earned, and scars suffered over your army's story.", icon: TrendingUp },
+    { label: 'Army Import', description: 'Import existing army lists in seconds instead of manual entry.', icon: GitBranch },
+    { label: 'Community', description: 'Connect with players, share campaign stories, and grow together.', icon: Users },
   ],
-  liveLink: 'https://plastic-crack.com/',
-  betaLink: 'https://plastic-crack.com/beta-interest',
+  liveLink: 'https://echelon.sqlsquared.co.uk/',
+  discordLink: 'https://discord.gg/AtmsQEfDfU',
 };
 
 const projects: {
@@ -180,7 +180,7 @@ export default function ProjectsSection() {
           />
         </div>
 
-        {/* Plastic Crack Feature */}
+        {/* Echelon Feature */}
         <Card className="border-0 shadow-ambient bg-surface-low rounded-[2rem] overflow-hidden mb-16 hover:shadow-ambient-lg transition-all duration-300">
           <div className="flex flex-col lg:flex-row">
             <div className="lg:w-1/2 p-8 md:p-12 flex flex-col justify-center">
@@ -188,28 +188,28 @@ export default function ProjectsSection() {
                 Personal Project
               </div>
               <h4 className="text-3xl font-bold text-foreground font-display mb-2">
-                {plasticCrack.title}
+                {echelon.title}
               </h4>
-              <p className="text-primary text-sm font-semibold mb-4">{plasticCrack.tagline}</p>
+              <p className="text-primary text-sm font-semibold mb-4">{echelon.tagline}</p>
               <p className="text-secondary text-lg leading-relaxed mb-8">
-                {plasticCrack.description}
+                {echelon.description}
               </p>
               <div className="flex flex-wrap gap-4 mt-auto">
                 <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full transition-all">
-                  <Link href={plasticCrack.liveLink} target="_blank" rel="noopener noreferrer">
+                  <Link href={echelon.liveLink} target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="mr-2 h-4 w-4" /> Visit Site
                   </Link>
                 </Button>
                 <Button variant="outline" asChild className="border border-surface-high/50 bg-surface-lowest text-foreground hover:bg-surface hover:text-primary rounded-full transition-all">
-                  <Link href={plasticCrack.betaLink} target="_blank" rel="noopener noreferrer">
-                    <Swords className="mr-2 h-4 w-4" /> Join Beta
+                  <Link href={echelon.discordLink} target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="mr-2 h-4 w-4" /> Join Discord
                   </Link>
                 </Button>
               </div>
             </div>
             <div className="lg:w-1/2 bg-surface p-8 md:p-12 flex flex-col justify-center">
               <div className="grid grid-cols-2 gap-4">
-                {plasticCrack.features.map((feature) => (
+                {echelon.features.map((feature) => (
                   <div key={feature.label} className="bg-surface-low rounded-2xl p-5 flex flex-col gap-3">
                     <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
                       <feature.icon className="h-5 w-5" />
