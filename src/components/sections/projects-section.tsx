@@ -2,11 +2,12 @@
 
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github, LayoutGrid, CheckCircle, Layers, GitMerge, Globe, BarChart2, Phone, Building2, Cloud, GitBranch, Swords, TrendingUp, Users, MessageCircle, PlayCircle } from 'lucide-react';
+import { ExternalLink, Github, LayoutGrid, CheckCircle, Layers, GitMerge, Globe, BarChart2, Phone, Building2, Cloud, GitBranch, Workflow, Swords, TrendingUp, Users, MessageCircle, PlayCircle } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Script from 'next/script';
 import type { LucideIcon } from 'lucide-react';
+import { findLogos } from '@/lib/tech-logos';
 
 const sqlSquared = {
   title: 'sql_squared',
@@ -113,6 +114,20 @@ const projects: {
       liveLink: '#',
       githubLink: '#',
       icon: GitBranch,
+    },
+    {
+      title: 'TalentLink to Fabric Data Integration Platform',
+      description: 'Client-focused Microsoft Fabric platform integration reading recruitment data via GraphQL from TalentLink, structuring it into a SQL database using notebooks, with a multi-platform CI/CD deployment process combining Fabric deployment, YAML pipelines, and SSDT for maximum security, validation, and flexibility.',
+      techStack: ['Microsoft Fabric', 'GraphQL', 'TalentLink API', 'Notebooks', 'SQL', 'Azure DevOps', 'YAML Pipelines', 'SSDT', 'CI/CD'],
+      achievements: [
+        'GraphQL ingestion from TalentLink into a structured SQL data model',
+        'Hybrid Fabric + YAML + SSDT CI/CD pipeline for defense-in-depth validation',
+        'Notebook-driven data structuring reduced manual transformation overhead',
+        'Enterprise-grade security controls for a client-specific integration',
+      ],
+      liveLink: '#',
+      githubLink: '#',
+      icon: Workflow,
     },
   ];
 
@@ -225,7 +240,9 @@ export default function ProjectsSection() {
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project) => (
+          {projects.map((project) => {
+            const logos = findLogos(project.techStack);
+            return (
             <Card key={project.title} className="border-0 shadow-ambient bg-surface-low rounded-2xl overflow-hidden group flex flex-col hover:shadow-ambient-lg transition-all duration-300 hover:-translate-y-1">
 
               {/* Card icon header */}
@@ -237,7 +254,16 @@ export default function ProjectsSection() {
               </div>
 
               <CardContent className="p-8 flex flex-col flex-grow">
-                <h5 className="text-2xl font-bold text-foreground font-display mb-3">{project.title}</h5>
+                <div className="flex items-center gap-2 mb-3">
+                  <h5 className="text-2xl font-bold text-foreground font-display">{project.title}</h5>
+                  {logos.length > 0 && (
+                    <div className="flex items-center gap-1.5 shrink-0">
+                      {logos.map((logo) => (
+                        <Image key={logo.src} src={logo.src} alt={logo.alt} width={18} height={18} title={logo.alt} />
+                      ))}
+                    </div>
+                  )}
+                </div>
                 <p className="text-secondary mb-6 leading-relaxed flex-grow">
                   {project.description}
                 </p>
@@ -294,7 +320,8 @@ export default function ProjectsSection() {
                 </div>
               )}
             </Card>
-          ))}
+            );
+          })}
         </div>
 
       </div>
