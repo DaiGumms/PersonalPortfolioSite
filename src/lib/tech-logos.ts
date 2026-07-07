@@ -11,6 +11,7 @@ const registry: { match: string; logo: TechLogo }[] = [
   { match: 'SSDT', logo: { src: '/logos/sql-server.svg', alt: 'Microsoft SQL Server' } },
   { match: 'Microsoft Fabric', logo: { src: '/logos/fabric.svg', alt: 'Microsoft Fabric' } },
   { match: 'OneLake', logo: { src: '/logos/fabric.svg', alt: 'Microsoft Fabric' } },
+  { match: 'Azure Data Explorer', logo: { src: '/logos/azure-data-explorer.svg', alt: 'Azure Data Explorer' } },
   { match: 'Azure', logo: { src: '/logos/azure.svg', alt: 'Microsoft Azure' } },
   { match: 'SAP', logo: { src: '/logos/sap.svg', alt: 'SAP' } },
   { match: 'Salesforce', logo: { src: '/logos/salesforce.svg', alt: 'Salesforce' } },
@@ -20,6 +21,7 @@ const registry: { match: string; logo: TechLogo }[] = [
   { match: 'C#', logo: { src: '/logos/csharp.svg', alt: 'C#' } },
   { match: 'PowerShell', logo: { src: '/logos/powershell.svg', alt: 'PowerShell' } },
   { match: 'Git', logo: { src: '/logos/git.svg', alt: 'Git' } },
+  { match: 'Docker', logo: { src: '/logos/docker.svg', alt: 'Docker' } },
 ];
 
 /**
