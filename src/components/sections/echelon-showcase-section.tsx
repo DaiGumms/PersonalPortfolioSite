@@ -15,7 +15,7 @@ const highlights = [
   {
     icon: Rocket,
     title: 'Production from day one',
-    description: 'Stripe billing, automated releases and a full test suite in CI, deployed to Cloud Run and Firebase Hosting.',
+    description: 'Stripe billing, automated releases and a full test suite in CI, running fully on Google Cloud with Cloud Run and Firebase Hosting.',
   },
   {
     icon: Bot,
