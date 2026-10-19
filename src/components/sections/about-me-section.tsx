@@ -53,7 +53,7 @@ export default function AboutMeSection() {
 
             <div className="space-y-6 text-lg text-secondary font-sans leading-relaxed">
               <p>
-                I&apos;m David Morgan-Gumm, a Data Platform Manager at Oliver James with {new Date().getFullYear() - 2018} years of experience turning chaotic data ecosystems into streamlined, high-performance engines that drive business value.
+                I&apos;m David Morgan-Gumm, a Data & AI Engineer at Brabners with {new Date().getFullYear() - 2018} years of experience turning chaotic data ecosystems into streamlined, high-performance engines that drive business value.
               </p>
               <p>
                 My approach combines rigorous software engineering practices with deep domain knowledge in data architecture. I believe the best solutions aren&apos;t just technically sound—they&apos;re intuitively designed for the people who use them.

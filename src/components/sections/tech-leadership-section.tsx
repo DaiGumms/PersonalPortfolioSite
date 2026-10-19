@@ -5,6 +5,21 @@ import { Building2, Award, Briefcase, ChevronRight } from 'lucide-react';
 
 const experiences = [
   {
+    role: 'Data & AI Engineer',
+    company: 'Brabners',
+    location: 'Manchester, UK',
+    period: 'Aug 2026 – Present',
+    description: "Brought in to modernise the firm's core data platform, delivering centralised analytics, master data management, system integration, and Azure cloud adoption, while laying the groundwork for the firm's AI strategy.",
+    type: 'new_company',
+    achievements: [
+      'Delivered a new analytical SQL data warehouse built on medallion architecture, forming the foundation for business-wide Power BI reporting suites',
+      'Established the platform for integrating and managing data from multiple business systems, setting the foundation for Azure cloud adoption',
+      "Built 'Central Intelligence Tools', a hub for internal tooling that will link third-party systems together and help fee earners open matters and manage their workflows more easily",
+      'Introduced the foundations of mature DevOps practice in GitHub, with automated testing, CI/CD deployment pipelines, infrastructure as code, and branch protection and pull request policies',
+      'Introduced the development function to advanced Claude tooling and agentic development processes, significantly reducing development lead time and producing robust, secure codebases',
+    ],
+  },
+  {
     role: 'Founder & Host',
     company: 'sql_squared',
     location: 'Manchester, UK',
@@ -20,15 +35,15 @@ const experiences = [
     role: 'Data Platform Manager',
     company: 'Oliver James',
     location: 'Manchester, UK',
-    period: 'Nov 2023 – Present',
-    description: 'Define and execute the strategic roadmap for the data and development functions, leading a high-performing team of data engineers and developers while partnering with senior executives to champion a data-first culture.',
+    period: 'Nov 2023 – Jul 2026',
+    description: 'Defined and executed the strategic roadmap for the data and development functions, leading a high-performing team of data engineers and developers while partnering with senior executives to champion a data-first culture.',
     type: 'promotion',
     achievements: [
       'Matured AGILE processes by solidifying sprint ceremonies, introducing a development change board, and improving release planning and business transparency',
       'Drove continuous platform innovation by translating emerging industry trends into actionable technical strategies, leveraging insights from the sql_squared podcast and major UK conferences',
-      'Lead the end-to-end implementation and rollout of modern enterprise platforms including Microsoft Fabric, solving master data management challenges and improving system integration reliability',
+      'Led the end-to-end implementation and rollout of modern enterprise platforms including Microsoft Fabric, solving master data management challenges and improving system integration reliability',
       'Partnered with external vendors for the successful implementation of large-scale enterprise application suites, technical management processes, and custom public-facing applications',
-      'Translate complex technical capabilities into clear business value and ROI to drive data-led decision-making across the organisation',
+      'Translated complex technical capabilities into clear business value and ROI to drive data-led decision-making across the organisation',
     ],
   },
   {

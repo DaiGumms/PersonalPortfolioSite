@@ -2,7 +2,7 @@
 
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github, LayoutGrid, CheckCircle, Layers, GitMerge, Globe, BarChart2, Phone, Building2, Cloud, GitBranch, Workflow, Swords, TrendingUp, Users, MessageCircle, PlayCircle } from 'lucide-react';
+import { ExternalLink, Github, LayoutGrid, CheckCircle, Layers, GitMerge, Globe, BarChart2, Phone, Building2, Cloud, GitBranch, Workflow, Database, LayoutDashboard, Swords, TrendingUp, Users, MessageCircle, PlayCircle } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Script from 'next/script';
@@ -43,6 +43,24 @@ const projects: {
   githubLink: string;
   icon: LucideIcon;
 }[] = [
+    {
+      title: 'Enterprise Analytical Data Warehouse',
+      description: "Designed and delivered a new analytical SQL data warehouse at Brabners as the foundation for business-wide reporting. Structured around medallion architecture, it centralises data from multiple business systems, underpins Power BI reporting suites, and sets the groundwork for master data management and Azure cloud adoption.",
+      techStack: ['SQL Server', 'Azure SQL Database', 'Medallion Architecture', 'Power BI', 'GitHub Actions', 'Infrastructure as Code (IaC)', 'CI/CD', 'Automated Testing', 'Data Modeling'],
+      achievements: ['Single centralised foundation for business-wide Power BI reporting', 'Medallion architecture for scalable, maintainable dataflows', 'Foundation for system integration, MDM and cloud adoption'],
+      liveLink: '#',
+      githubLink: '#',
+      icon: Database,
+    },
+    {
+      title: 'Central Intelligence Tools',
+      description: "Built Central Intelligence Tools, an internal application that acts as the hub for tooling across the firm. Over time it will link third-party systems together from one place, letting fee earners open matters and manage their business workflows more easily.",
+      techStack: ['React', 'Next.js', 'TypeScript', 'Azure App Service', 'GitHub Actions', 'Infrastructure as Code (IaC)', 'CI/CD', 'Automated Testing', 'Claude Code', 'Agentic Development'],
+      achievements: ['Central hub for internal tooling and system integration', 'Simpler matter opening and workflow management for fee earners', 'Automated testing and deployment from day one', 'Built with agentic development workflows, shortening lead time while keeping the codebase robust and secure'],
+      liveLink: '#',
+      githubLink: '#',
+      icon: LayoutDashboard,
+    },
     {
       title: 'Microsoft Fabric Enterprise Implementation',
       description: 'Led the strategic implementation and migration to Microsoft Fabric for an enterprise organization. Consolidated disparate data workloads into a unified SaaS analytics platform, enabling seamless data engineering, data science, and real-time analytics capabilities.',
