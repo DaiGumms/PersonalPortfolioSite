@@ -60,7 +60,7 @@ export default function TechLeadershipSectionVision() {
   }, []);
 
   return (
-    <section id="leadership" className="py-16 md:py-24 bg-muted/50 overflow-hidden" ref={sectionRef}>
+    <section id="leadership" className="py-14 md:py-20 bg-muted/50 overflow-hidden" ref={sectionRef}>
       <div className="container mx-auto px-4 md:px-6">
         <h2
           className={cn(
@@ -76,7 +76,7 @@ export default function TechLeadershipSectionVision() {
             isVisible ? "opacity-100 translate-y-0 delay-200" : "opacity-0 translate-y-5"
           )}
         >
-          As a Data Platform Manager leading a team of data & software engineers, I focus on empowering people, driving innovation, and delivering enterprise-scale solutions. My approach combines strategic vision with hands-on technical expertise to tackle complex challenges and achieve ambitious goals that create lasting business value.
+          As a technical leader in the world of data, I focus on empowering people, driving innovation, and delivering enterprise-scale solutions. My approach combines strategic vision with hands-on technical expertise to tackle complex challenges and achieve ambitious goals that create lasting business value.
         </p>
         <div className="grid lg:grid-cols-5 gap-12 items-center">
           <div

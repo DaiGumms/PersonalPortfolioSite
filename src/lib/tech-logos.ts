@@ -1,6 +1,8 @@
 export type TechLogo = {
   src: string;
   alt: string;
+  // Black logo that needs inverting on dark backgrounds.
+  mono?: boolean;
 };
 
 // Ordered by match specificity — earlier entries are checked first so a tag
@@ -20,6 +22,10 @@ const registry: { match: string; logo: TechLogo }[] = [
   { match: 'Python', logo: { src: '/logos/python.svg', alt: 'Python' } },
   { match: 'C#', logo: { src: '/logos/csharp.svg', alt: 'C#' } },
   { match: 'PowerShell', logo: { src: '/logos/powershell.svg', alt: 'PowerShell' } },
+  { match: 'React', logo: { src: '/logos/react.svg', alt: 'React' } },
+  { match: 'Next.js', logo: { src: '/logos/nextjs.svg', alt: 'Next.js', mono: true } },
+  { match: 'TypeScript', logo: { src: '/logos/typescript.svg', alt: 'TypeScript' } },
+  { match: 'GitHub Actions', logo: { src: '/logos/github-actions.svg', alt: 'GitHub Actions' } },
   { match: 'Git', logo: { src: '/logos/git.svg', alt: 'Git' } },
   { match: 'Docker', logo: { src: '/logos/docker.svg', alt: 'Docker' } },
 ];

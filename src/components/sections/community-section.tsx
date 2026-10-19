@@ -60,9 +60,9 @@ const highlights = [
 
 export default function CommunitySection() {
   return (
-    <div className="py-24 bg-surface-lowest">
+    <div className="py-20 bg-surface-lowest">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-col lg:flex-row gap-16">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
 
           {/* Left Column: Intro & Socials */}
           <div className="order-2 lg:order-1 lg:w-5/12 space-y-8">
@@ -106,11 +106,11 @@ export default function CommunitySection() {
 
             {/* Redgate Ambassador — the highlight */}
             <Link href={redgateAmbassador.href} target="_blank" rel="noopener noreferrer" className="group block">
-              <Card className="border-0 shadow-ambient-lg rounded-[2rem] overflow-hidden bg-primary hover:shadow-ambient-lg hover:-translate-y-0.5 transition-all duration-300">
+              <Card className="border-0 shadow-ambient-lg rounded-[2rem] overflow-hidden bg-primary-fill hover:shadow-ambient-lg hover:-translate-y-0.5 transition-all duration-300">
                 <div className="flex flex-col sm:flex-row items-center">
                   <CardContent className="p-8 md:p-10 flex-1 relative z-10">
                     <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-50 -z-10" />
-                    <div className="inline-flex items-center px-3 py-1 rounded-full bg-white text-primary text-[10px] font-bold uppercase tracking-wider mb-4">
+                    <div className="inline-flex items-center px-3 py-1 rounded-full bg-white text-primary-fill text-[10px] font-bold uppercase tracking-wider mb-4">
                       {redgateAmbassador.badge}
                     </div>
                     <h4 className="text-3xl md:text-4xl font-bold font-display leading-tight text-white">
@@ -139,7 +139,7 @@ export default function CommunitySection() {
             {/* Supporting cards */}
             <div className="grid sm:grid-cols-2 gap-6">
               {highlights.map((item) => {
-                const badgeClassName = 'inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-primary text-white';
+                const badgeClassName = 'inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-primary-fill text-white';
                 const titleClassName = 'text-3xl font-bold font-display leading-tight text-foreground';
 
                 const cardBody = (

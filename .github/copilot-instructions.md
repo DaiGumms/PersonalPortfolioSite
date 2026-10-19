@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is David Morgan-Gumm's personal portfolio site — a **Next.js 15 single-page application** using the App Router. It is a professional showcase for David's work as a Data Platform Manager at Oliver James, featuring his projects, career history, skills, AI tooling, and a contact form.
+This is David Morgan-Gumm's personal portfolio site — a **Next.js 15 single-page application** using the App Router. It is a professional showcase for David's work as a Data & AI Engineer at Brabners, featuring his projects, career history, skills, AI tooling, and a contact form.
 
 - **Owner:** David Morgan-Gumm (`DaiGumms`)
 - **Hosted:** Firebase App Hosting (Cloud Run backend)
@@ -297,8 +297,8 @@ See `.github/copilot/instructions/github-issue-create.instructions.md` for the f
 ## Personal Details (for content decisions)
 
 - **Name:** David Morgan-Gumm
-- **Title:** Data Platform Manager
-- **Employer:** Oliver James
+- **Title:** Data & AI Engineer
+- **Employer:** Brabners
 - **Experience:** 6+ years in data engineering / analytics / technical leadership
 - **Community:** Founder of `sql_squared` — podcasts, blogs, events at sqlsquared.co.uk
 - **Education:** BSc Computer Science 2:1, University of Liverpool (2018)

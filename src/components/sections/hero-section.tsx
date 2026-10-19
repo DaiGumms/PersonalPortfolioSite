@@ -1,7 +1,8 @@
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Zap, Shield, Rocket } from 'lucide-react';
+import { Zap, Shield, Rocket, ArrowRight } from 'lucide-react';
+import HeroLogoField from '@/components/hero/logo-field';
 
 const taglines = [
   { icon: Zap, text: 'Turning messy data into clean decisions.' },
@@ -9,31 +10,33 @@ const taglines = [
   { icon: Rocket, text: 'Scaling teams, systems, and communities.' },
 ];
 
-const skillChips = [
-  { label: 'Microsoft Fabric', className: 'top-6 -right-6 lg:-right-16' },
-  { label: 'Azure', className: 'top-[28%] -right-4 lg:-right-12' },
-  { label: 'sql_squared', className: 'top-[52%] -right-6 lg:-right-14' },
-  { label: 'Python', className: 'bottom-10 -right-4 lg:-right-10' },
-  { label: 'AI / ML', className: 'top-6 -left-4 lg:-left-12' },
-  { label: 'Data Platform', className: 'top-[30%] -left-6 lg:-left-18' },
-  { label: 'Power BI', className: 'top-[55%] -left-4 lg:-left-12' },
-  { label: 'Azure DevOps', className: 'bottom-10 -left-6 lg:-left-16' },
-];
-
 export default function HeroSection() {
   return (
-    <section className="pt-24 pb-16 md:pt-32 md:pb-24 bg-surface-lowest relative overflow-hidden">
+    <section className="pt-16 pb-14 md:pt-24 md:pb-20 bg-surface-lowest relative overflow-hidden">
       {/* Background gradient wash */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_75%_10%,hsl(var(--primary)/0.12),transparent)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_50%_at_15%_85%,hsl(var(--primary)/0.07),transparent)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_40%_at_15%_55%,hsl(var(--primary)/0.07),transparent)] pointer-events-none" />
+      <HeroLogoField />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
 
-          {/* Left: Text */}
-          <div className="flex-1 space-y-8 text-center md:text-left order-2 md:order-1">
-            <div className="inline-block px-4 py-1.5 rounded-full bg-surface-low text-primary text-sm font-semibold tracking-wide uppercase mb-2 shadow-sm border border-surface-high/30">
-              Tech Leader • Data & AI Innovator
+          {/* Left: Text, on a frosted panel that blurs the logo field behind it */}
+          <div className="flex-1 space-y-8 text-center md:text-left order-2 md:order-1 rounded-[2rem] hero-glass px-4 py-6 sm:p-8 lg:p-10">
+            <div className="flex flex-wrap items-center gap-3 justify-center md:justify-start mb-2">
+              <div className="inline-block px-4 py-1.5 rounded-full bg-surface-low text-primary text-xs sm:text-sm font-semibold tracking-wide uppercase shadow-sm border border-surface-high/30">
+                Tech Leader • Data & AI Innovator
+              </div>
+              <Link
+                href="/projects#echelon"
+                className="group inline-flex items-center gap-2 pl-1.5 pr-3.5 py-1 rounded-full bg-echelon-void text-white text-sm font-medium shadow-ambient ring-1 ring-echelon-violet/40 transition-colors hover:ring-echelon-violet"
+              >
+                <span className="h-6 w-6 rounded-full bg-white/10 flex items-center justify-center">
+                  <Image src="/logos/echelon.svg" alt="" width={14} height={14} aria-hidden />
+                </span>
+                Founder of Echelon
+                <ArrowRight className="h-3.5 w-3.5 text-echelon-lilac transition-transform group-hover:translate-x-0.5" />
+              </Link>
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.1]">
               Engineering the <br className="hidden md:block" />
@@ -56,12 +59,12 @@ export default function HeroSection() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <Button size="lg" asChild className="bg-primary text-white hover:bg-primary/90 rounded-full px-8 shadow-ambient transition-transform hover:scale-105 h-14 text-base">
+              <Button size="lg" asChild className="bg-primary-fill text-white hover:bg-primary-fill/90 rounded-full px-8 shadow-ambient transition-transform hover:scale-105 motion-reduce:transition-none motion-reduce:hover:scale-100 h-14 text-base">
                 <Link href="/projects">
                   View My Work
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" asChild className="border-0 bg-surface-low text-foreground hover:bg-surface hover:text-primary rounded-full px-8 h-14 text-base transition-transform hover:scale-105 shadow-sm">
+              <Button variant="outline" size="lg" asChild className="border-0 bg-surface-low text-foreground hover:bg-surface hover:text-primary rounded-full px-8 h-14 text-base transition-transform hover:scale-105 motion-reduce:transition-none motion-reduce:hover:scale-100 shadow-sm">
                 <Link href="/contact">
                   Get In Touch
                 </Link>
@@ -69,21 +72,9 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right: Photo + floating chips */}
+          {/* Right: Photo */}
           <div className="flex-1 w-full max-w-md mx-auto md:max-w-none order-1 md:order-2 relative">
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-3xl blur-3xl -z-10 transform scale-90 translate-y-10" />
-
-            {/* Floating skill chips */}
-            {skillChips.map((chip, i) => (
-              <div
-                key={chip.label}
-                className={`absolute hidden lg:flex items-center px-3 py-1.5 rounded-full bg-surface-lowest shadow-ambient border border-surface-high/60 text-xs font-semibold text-foreground whitespace-nowrap z-20 animate-float ${chip.className}`}
-                style={{ animationDelay: `${i * 0.5}s` }}
-              >
-                <span className="h-1.5 w-1.5 rounded-full bg-primary mr-2 flex-shrink-0" />
-                {chip.label}
-              </div>
-            ))}
 
             <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-ambient-lg border border-surface-high/50 bg-surface-low">
               <Image

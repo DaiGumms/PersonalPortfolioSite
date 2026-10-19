@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Public_Sans, Inter } from 'next/font/google';
+import { Public_Sans, Inter, Cinzel } from 'next/font/google';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import Navbar from '@/components/layout/navbar';
@@ -19,9 +19,19 @@ const inter = Inter({
   display: 'swap',
 });
 
+// Echelon's display face, used only for its wordmark
+const cinzel = Cinzel({
+  subsets: ['latin'],
+  weight: ['600'],
+  variable: '--font-cinzel',
+  display: 'swap',
+  // Only the Echelon wordmark on /projects uses Cinzel, so don't preload it on every route.
+  preload: false,
+});
+
 export const metadata: Metadata = {
-  title: 'David Morgan-Gumm | Tech Leader',
-  description: 'Personal portfolio of David Morgan-Gumm, Tech Leader, showcasing expertise, projects, and journey.',
+  title: 'David Morgan-Gumm | Data & AI Engineer',
+  description: 'Personal portfolio of David Morgan-Gumm, Data & AI Engineer in Manchester: projects, career journey and community work.',
   icons: {
     icon: [
       {
@@ -44,7 +54,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className={`${publicSans.variable} ${inter.variable} font-sans antialiased text-foreground bg-surface-lowest`}>
+      <body className={`${publicSans.variable} ${inter.variable} ${cinzel.variable} font-sans antialiased text-foreground bg-surface-lowest`}>
         <ThemeProvider>
           <div className="flex flex-col min-h-screen">
             <Navbar />

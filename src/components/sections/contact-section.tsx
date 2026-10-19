@@ -155,9 +155,9 @@ export default function ContactSection() {
   };
 
   return (
-    <div className="py-24 bg-surface-low">
+    <div className="py-20 bg-surface-low">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-col lg:flex-row gap-16">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
 
           {/* Left Column: Intro text & direct contact */}
           <div className="lg:w-5/12 space-y-8 lg:pr-12">
@@ -282,7 +282,7 @@ export default function ContactSection() {
                       <Button
                         type="submit"
                         disabled={isSubmitting || submitCount >= 3}
-                        className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12 shadow-ambient transition-all"
+                        className="bg-primary-fill hover:bg-primary-fill/90 text-white rounded-full px-8 h-12 shadow-ambient transition-all"
                       >
                         {isSubmitting ? (
                           <>

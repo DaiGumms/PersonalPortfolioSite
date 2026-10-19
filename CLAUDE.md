@@ -20,6 +20,10 @@ There is no unit test runner configured. `tests/contact-form.spec.ts` is a Playw
 
 `next.config.ts` sets `typescript.ignoreBuildErrors: true` and `eslint.ignoreDuringBuilds: true` — **`npm run build` succeeds even with type or lint errors.** Always run `typecheck` and `lint` manually before considering a change done.
 
+`npm run build` writes to the same `.next/` directory a running dev server uses, so it breaks that dev server until you restart it. `.claude/launch.json` defines two preview configs: `portfolio-dev` (`npm run dev`, port 9002) and `portfolio-dev-alt` (`next dev --turbopack -p 9003`, for a second dev server alongside the first).
+
+The downloadable CV `public/DavidMorganGumm-Resume.pdf` is generated, not hand-edited: edit `resume/cv.html`, then run `pwsh resume/build.ps1`. The script prints the HTML to PDF with headless Microsoft Edge (hardcoded Windows install path), then runs `resume/set-metadata.mjs`, which uses the `pdf-lib` devDependency to replace Edge's PDF metadata with the CV's own.
+
 ## Architecture
 
 ### Routing: one page component per route, sections are shared building blocks
@@ -28,13 +32,13 @@ This is **not** a single-page scrolling site — it's a multi-page App Router si
 
 | Route | File | Sections used |
 |---|---|---|
-| `/` | `src/app/page.tsx` | `HeroSection`, `AboutMeSection`, `ResumeDownloadSection` |
+| `/` | `src/app/page.tsx` | `HeroSection`, `LogoStripSection`, `AboutMeSection`, `ResumeDownloadSection` |
 | `/journey` | `src/app/journey/page.tsx` | `TechLeadershipSectionVision`, `ExperienceEducationSection` (aliased from `tech-leadership-section.tsx`), `AchievementsSection` |
-| `/projects` | `src/app/projects/page.tsx` | `ProjectsSection` |
+| `/projects` | `src/app/projects/page.tsx` | `ProjectsSection` (renders `EchelonShowcaseSection` below the sql_squared block, anchored at `#echelon`) |
 | `/community` | `src/app/community/page.tsx` | `CommunitySection` |
 | `/contact` | `src/app/contact/page.tsx` | `ContactSection`, `ResumeDownloadSection` |
 
-Section components live in `src/components/sections/` (one per page section) and are composed into page files — a page file itself contains no markup, just a list of sections. `src/components/sections/testimonials-section.tsx` and `technical-articles-section.tsx` (if present) are not wired into any route; check before assuming a section file is live.
+Section components live in `src/components/sections/` (one per page section) and are composed into page files — a page file itself contains no markup, just a list of sections. `src/components/sections/testimonials-section.tsx` and `technical-articles-section.tsx` (if present) are not wired into any route; check before assuming a section file is live. Larger sections pull sub-components from feature folders beside `sections/`: `src/components/echelon/` (Echelon showcase brand, interactive panel, screen carousel; data in `src/lib/echelon.ts`) and `src/components/hero/` (the hero's logo field).
 
 Top-level nav is centralized in `src/components/layout/navbar.tsx` (`navItems` array) — updating routes/labels there is the single source of truth for nav links and active-state highlighting (via `usePathname`).
 
@@ -49,7 +53,7 @@ Do not introduce `next-themes` — it will conflict with this provider.
 
 ### Styling
 
-All design tokens are CSS custom properties in `src/app/globals.css` (HSL triples consumed by Tailwind's `hsl(var(--x))` convention), not hardcoded hex in components. Current design language ("soft tech"): primary purple `hsl(260 65% 53%)`, layered `--surface-lowest/low/surface/high` background steps instead of borders (global border-color is forced transparent — borders are opt-in per element), soft shadows via `.shadow-ambient` / `.shadow-ambient-lg` utility classes, and `.glass` / `.glass-card` for glassmorphism. `src/components/ui/` is shadcn/ui-generated — treat as vendor code, avoid hand-editing beyond what shadcn regeneration would produce.
+All design tokens are CSS custom properties in `src/app/globals.css` (HSL triples consumed by Tailwind's `hsl(var(--x))` convention), not hardcoded hex in components. Current design language ("soft tech"): primary purple `hsl(260 65% 53%)`, layered `--surface-lowest/low/surface/high` background steps instead of borders (global border-color is forced transparent — borders are opt-in per element), soft shadows via `.shadow-ambient` / `.shadow-ambient-lg` utility classes, and `.glass` / `.glass-card` for glassmorphism. For filled surfaces with white text (buttons, badges), use `bg-primary-fill` (`--primary-fill`, Tailwind `primary.fill`) rather than `bg-primary`: it equals `--primary` in light mode but is a darker purple in dark mode so white text stays above 4.5:1 contrast. The Echelon showcase has its own always-dark brand tokens (`--echelon-void` / `--echelon-violet` / `--echelon-lilac`, Tailwind `echelon.*`) and `font-echelon` (Cinzel, loaded in `layout.tsx` with `preload: false`), the same in both themes. `src/components/ui/` is shadcn/ui-generated — treat as vendor code, avoid hand-editing beyond what shadcn regeneration would produce.
 
 ### Contact form flow
 
@@ -72,6 +76,7 @@ Firebase App Hosting, backend id `personalportfolio-h48sk26` (`firebase.json`, `
 - Forms: `react-hook-form` + `zodResolver`, schema defined above the component, shadcn `Form`/`FormField`/`FormItem`/`FormLabel`/`FormControl`/`FormMessage`, honeypot field for bot protection (see `ContactSection`).
 - Images: always `next/image`, never `<img>`. `next.config.ts` allowlists `placehold.co` as a remote image host.
 - Icons: `lucide-react` throughout.
+- Tech logos: tag-to-logo lookup lives in `src/lib/tech-logos.ts` (SVGs in `public/logos/`). Entries match in order, so list more specific names first (`GitHub Actions` before `Git`). Set `mono: true` on black logos so they render with `dark:invert`.
 
 ## Skill routing
 

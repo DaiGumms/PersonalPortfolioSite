@@ -1,6 +1,6 @@
 # David Morgan-Gumm — Personal Portfolio
 
-Personal portfolio site built with **Next.js 15** and deployed on **Firebase App Hosting**. A single-page application showcasing my work as a Data Platform Manager, including projects, career history, skills, an AI-powered summary tool, and a contact form.
+Personal portfolio site built with **Next.js 15** and deployed on **Firebase App Hosting**. A single-page application showcasing my work as a Data & AI Engineer, including projects, career history, skills, an AI-powered summary tool, and a contact form.
 
 🌐 **Live site:** [davidmorgangumm.com](https://davidmorgangumm.com)
 
@@ -66,6 +66,7 @@ npm run genkit:dev   # Genkit AI dev UI (separate terminal)
 | `npm run typecheck`    | TypeScript check (no emit)       |
 | `npm run lint`         | ESLint                           |
 | `npm run genkit:watch` | Genkit dev UI with file watching |
+| `pwsh resume/build.ps1` | Rebuild `public/DavidMorganGumm-Resume.pdf` from `resume/cv.html` (headless Edge, Windows) |
 
 ---
 
@@ -76,6 +77,8 @@ src/
   app/                  # Next.js App Router (pages, API routes, global styles)
   ai/                   # Genkit flows and configuration
   components/
+    echelon/            # Echelon showcase panels and screenshot carousel
+    hero/               # Hero logo field
     layout/             # Navbar, Footer, FloatingThemeToggle
     sections/           # One component per page section
     ui/                 # shadcn/ui primitives

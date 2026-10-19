@@ -88,7 +88,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center space-x-4">
           <Button
             asChild
-            className="bg-primary hover:bg-primary/90 text-white rounded-full px-6 shadow-ambient"
+            className="bg-primary-fill hover:bg-primary-fill/90 text-white rounded-full px-6 shadow-ambient"
           >
             <Link href="/contact">Get in Touch</Link>
           </Button>
@@ -123,7 +123,7 @@ export default function Navbar() {
                 <div className="mt-auto">
                   <Button
                     asChild
-                    className="w-full bg-primary hover:bg-primary/90 text-white rounded-full shadow-ambient"
+                    className="w-full bg-primary-fill hover:bg-primary-fill/90 text-white rounded-full shadow-ambient"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <Link href="/contact">Get in Touch</Link>
