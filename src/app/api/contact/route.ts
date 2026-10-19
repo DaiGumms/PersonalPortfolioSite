@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import type SMTPTransport from 'nodemailer/lib/smtp-transport';
 import { google } from 'googleapis';
 import {
   sanitizeInput,
@@ -42,7 +43,7 @@ const createTransporter = async () => {
         refreshToken: process.env.GMAIL_REFRESH_TOKEN,
         accessToken: accessToken, // Use freshly obtained access token
       },
-    } as any); // Use 'as any' due to potential type mismatches in nodemailer
+    } as SMTPTransport.Options);
 
     return transporter;
   } catch (error) {
@@ -218,7 +219,7 @@ David Morgan-Gumm
 
     // Determine the specific error type for better user feedback
     let errorMessage = 'Failed to send email. Please try again later.';
-    let statusCode = 500;
+    const statusCode = 500;
 
     if (error instanceof Error) {
       const errorString = error.toString().toLowerCase();
