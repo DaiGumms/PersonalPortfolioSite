@@ -37,7 +37,7 @@ const experiences: Employer[] = [
         achievements: [
           'Delivered a new analytical SQL data warehouse built on medallion architecture, forming the foundation for business-wide Power BI reporting suites',
           'Established the platform for integrating and managing data from multiple business systems, setting the foundation for Azure cloud adoption',
-          "Built 'Central Intelligence Tools', a hub for internal tooling that will link third-party systems together and help fee earners open matters and manage their workflows more easily",
+          "Built and launched 'Central Intelligence Tools', an internal application used by 400–500 people that handles new matter opening end to end and is being extended to link third-party systems together",
           'Introduced the foundations of mature DevOps practice in GitHub, with automated testing, CI/CD deployment pipelines, infrastructure as code, and branch protection and pull request policies',
           'Introduced the development function to advanced Claude tooling and agentic development processes, significantly reducing development lead time and producing robust, secure codebases',
         ],
@@ -141,12 +141,12 @@ const education = [
     name: 'Computer Science (BSc) 2:1 Hons',
     institution: 'University of Liverpool',
     year: '2018',
-    description: 'Specialized in Software Engineering and Data Structures'
+    description: 'Specialised in Software Engineering and Data Structures'
   },
   {
     name: 'Management & Leadership (Level 5)',
-    institution: 'Chartered Managers Institute',
-    year: 'In Progress',
+    institution: 'Chartered Management Institute',
+    year: '2026',
     description: 'Advanced leadership and strategic management'
   },
   {

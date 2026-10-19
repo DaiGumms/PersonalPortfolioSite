@@ -11,7 +11,7 @@ import EchelonShowcaseSection from '@/components/sections/echelon-showcase-secti
 
 const sqlSquared = {
   title: 'sql_squared',
-  description: 'Founded and manage a thriving data community. We host podcasts, publish technical articles, and organize regular events to foster knowledge sharing and networking among data professionals.',
+  description: 'Founded and manage a thriving data community. We host a podcast with industry practitioners, publish technical articles and share videos to foster knowledge sharing among data professionals.',
   links: [
     { type: 'Website', url: 'https://www.sqlsquared.co.uk', icon: <ExternalLink className="mr-2 h-4 w-4" /> },
     { type: 'Blog', url: 'https://www.sqlsquared.co.uk/blog', icon: <ExternalLink className="mr-2 h-4 w-4" /> },
@@ -32,7 +32,7 @@ const projects: {
     {
       title: 'Enterprise Analytical Data Warehouse',
       description: "Designed and delivered a new analytical SQL data warehouse at Brabners as the foundation for business-wide reporting. Structured around medallion architecture, it centralises data from multiple business systems, underpins Power BI reporting suites, and sets the groundwork for master data management and Azure cloud adoption.",
-      techStack: ['SQL Server', 'Azure SQL Database', 'Medallion Architecture', 'Power BI', 'GitHub Actions', 'Infrastructure as Code (IaC)', 'CI/CD', 'Automated Testing', 'Data Modeling'],
+      techStack: ['SQL Server', 'Azure SQL Database', 'Medallion Architecture', 'Power BI', 'GitHub Actions', 'Infrastructure as Code (IaC)', 'CI/CD', 'Automated Testing', 'Data Modelling'],
       achievements: ['Single centralised foundation for business-wide Power BI reporting', 'Medallion architecture for scalable, maintainable dataflows', 'Foundation for system integration, MDM and cloud adoption'],
       liveLink: '#',
       githubLink: '#',
@@ -40,8 +40,8 @@ const projects: {
     },
     {
       title: 'Central Intelligence Tools',
-      description: "Built Central Intelligence Tools, an internal application that acts as the hub for tooling across the firm. Over time it will link third-party systems together from one place, letting fee earners open matters and manage their business workflows more easily.",
-      techStack: ['React', 'Next.js', 'TypeScript', 'Azure App Service', 'GitHub Actions', 'Infrastructure as Code (IaC)', 'CI/CD', 'Automated Testing', 'Claude Code', 'Agentic Development'],
+      description: "Built and launched Central Intelligence Tools, an internal application used by 400–500 people across the firm. Fee earners use it to open new matters, setting up everything they need to work on a matter in one place, and it is being extended into a hub that links third-party systems together.",
+      techStack: ['React', 'Next.js', 'TypeScript', 'Azure App Service', 'GitHub Actions', 'Infrastructure as Code (Bicep)', 'CI/CD', 'Automated Testing', 'Claude Code', 'Agentic Development'],
       achievements: ['Central hub for internal tooling and system integration', 'Simpler matter opening and workflow management for fee earners', 'Automated testing and deployment from day one', 'Built with agentic development workflows, shortening lead time while keeping the codebase robust and secure'],
       liveLink: '#',
       githubLink: '#',
@@ -49,7 +49,7 @@ const projects: {
     },
     {
       title: 'Microsoft Fabric Enterprise Implementation',
-      description: 'Led the strategic implementation and migration to Microsoft Fabric for an enterprise organization. Consolidated disparate data workloads into a unified SaaS analytics platform, enabling seamless data engineering, data science, and real-time analytics capabilities.',
+      description: 'Led the strategic implementation and migration to Microsoft Fabric for an enterprise organisation. Consolidated disparate data workloads into a unified SaaS analytics platform, enabling seamless data engineering, data science, and real-time analytics capabilities.',
       techStack: ['Microsoft Fabric', 'OneLake', 'Data Engineering', 'Power BI', 'Data Science', 'Spark', 'Lakehouse', 'Data Pipelines', 'Notebooks', 'Jupyter', 'Bicep', 'Delta Lake', 'Dataflows Gen2', 'PySpark', 'Fabric REST API', 'Semantic Models'],
       achievements: ['Unified analytics platform', 'Reduced infrastructure complexity', 'Accelerated time-to-insight'],
       liveLink: '#',
@@ -76,9 +76,9 @@ const projects: {
     },
     {
       title: 'Global Azure Synapse Platform Architecture & Delivery',
-      description: 'Architected and delivered a comprehensive Azure data platform serving 1000+ users across 12+ countries. The platform processes large daily data volumes with a high degree of data quality improvement and major performance optimization. Features real-time analytics, automated data validation, and enterprise-grade security.',
+      description: 'Architected and delivered a comprehensive Azure data platform serving 1000+ users across 12+ countries. The platform processes large daily data volumes with a high degree of data quality improvement and major performance optimisation. Features real-time analytics, automated data validation, and enterprise-grade security.',
       techStack: ['Azure Synapse Analytics', 'Azure Data Lake Storage Gen2', 'Azure Data Factory', 'Azure Logic Apps', 'Power BI', 'Azure SQL Database', 'Python', 'KQL', 'Azure DevOps', 'Bicep', 'Entra ID / RBAC', 'Dedicated SQL Pools', 'Synapse Pipelines', 'Azure Key Vault', 'Managed Private Endpoints / VNet', 'Data Validation'],
-      achievements: ['Performance improvement', '£100k+ annual cost savings', '1500+ global users'],
+      achievements: ['Performance improvement', '£100k+ annual cost savings', '1000+ global users'],
       liveLink: '#',
       githubLink: '#',
       icon: Globe,
@@ -104,7 +104,7 @@ const projects: {
     {
       title: 'Salesforce Data Lake & Analytics Platform',
       description: 'Implemented a comprehensive batch and real-time ETL solution for ingesting Salesforce sales data into Azure Data Lake. Built dimensional data models, implemented data governance frameworks, and created self-service analytics capabilities for business users.',
-      techStack: ['Azure Data Factory', 'Salesforce APIs', 'SOQL', 'Azure Data Lake Storage', 'Azure Synapse', 'Power BI', 'Python', 'SQL', 'Dimensional Modeling', 'Data Governance', 'Data Modeling', 'ETL Pipelines'],
+      techStack: ['Azure Data Factory', 'Salesforce APIs', 'SOQL', 'Azure Data Lake Storage', 'Azure Synapse', 'Power BI', 'Python', 'SQL', 'Dimensional Modelling', 'Data Governance', 'Data Modelling', 'ETL Pipelines'],
       achievements: ['Self-service analytics', 'Data governance framework', 'Real-time sales insights'],
       liveLink: '#',
       githubLink: '#',
@@ -122,7 +122,7 @@ const projects: {
     {
       title: 'TalentLink to Fabric Data Integration Platform',
       description: 'Client-focused Microsoft Fabric platform integration reading recruitment data via GraphQL from TalentLink, structuring it into a SQL database using notebooks, with a multi-platform CI/CD deployment process combining Fabric deployment, YAML pipelines, and SSDT for maximum security, validation, and flexibility.',
-      techStack: ['Microsoft Fabric', 'GraphQL', 'TalentLink API', 'Notebooks', 'SQL', 'Azure DevOps', 'YAML Pipelines', 'SSDT', 'CI/CD', 'Lakehouse', 'Data Pipelines', 'PySpark', 'Fabric Deployment Pipelines', 'Data Modeling', 'Azure Key Vault', 'Data Validation'],
+      techStack: ['Microsoft Fabric', 'GraphQL', 'TalentLink API', 'Notebooks', 'SQL', 'Azure DevOps', 'YAML Pipelines', 'SSDT', 'CI/CD', 'Lakehouse', 'Data Pipelines', 'PySpark', 'Fabric Deployment Pipelines', 'Data Modelling', 'Azure Key Vault', 'Data Validation'],
       achievements: [
         'GraphQL ingestion from TalentLink into a structured SQL data model',
         'Hybrid Fabric + YAML + SSDT CI/CD pipeline for defense-in-depth validation',

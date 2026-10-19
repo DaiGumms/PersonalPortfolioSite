@@ -1,0 +1,214 @@
+<!doctype html>
+<!--
+  Source for public/DavidMorganGumm-Resume.pdf (A4, two pages).
+  Regenerate with resume/build.ps1 after editing.
+
+  Layout rules that keep the PDF readable by applicant tracking systems:
+  single column in reading order, plain section names, real text bullets,
+  no icon fonts, no letter-spaced headings, contact details in the body.
+-->
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>David Morgan-Gumm CV</title>
+<meta name="author" content="David Morgan-Gumm">
+<meta name="description" content="CV of David Morgan-Gumm, Data &amp; AI Engineer, Manchester">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1c1b22;
+    --muted: #55536a;
+    --accent: #6a3fd1;
+    --rule: #dcd6ee;
+  }
+  @page { size: A4; margin: 14mm 15mm 13mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    margin: 0;
+    font-family: 'Public Sans', Arial, sans-serif;
+    font-size: 9.4pt;
+    line-height: 1.42;
+    color: var(--ink);
+    background: #fff;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  header { border-bottom: 2px solid var(--accent); padding-bottom: 8pt; margin-bottom: 9pt; }
+  h1 { font-size: 22pt; line-height: 1.1; margin: 0; font-weight: 700; letter-spacing: -0.01em; }
+  .headline { font-size: 11.5pt; font-weight: 600; color: var(--accent); margin: 2pt 0 5pt; }
+  .contact { font-size: 9pt; color: var(--muted); margin: 0; }
+  .contact .sep { color: var(--rule); padding: 0 4pt; }
+  .contact a, .contact .item { white-space: nowrap; }
+
+  h2 {
+    font-size: 10pt;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    margin: 11pt 0 5pt;
+    padding-bottom: 2pt;
+    border-bottom: 1px solid var(--rule);
+    break-after: avoid;
+  }
+  p { margin: 0 0 4pt; }
+
+  .skills { margin: 0; padding: 0; list-style: none; }
+  .skills li { margin-bottom: 2pt; }
+  .skills strong { font-weight: 600; }
+
+  .employer { margin-bottom: 8pt; }
+  .employer-line, .role-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12pt;
+    break-after: avoid;
+  }
+  .employer-line { font-size: 10.5pt; font-weight: 700; margin-top: 2pt; }
+  .employer-line .where { font-weight: 400; color: var(--muted); font-size: 9.2pt; }
+  .role-line { margin-top: 4pt; }
+  .role-line .title { font-weight: 600; }
+  .dates { color: var(--muted); white-space: nowrap; font-size: 9pt; }
+  .single .role-line .title { font-size: 10.5pt; font-weight: 700; }
+
+  ul.bullets { margin: 2pt 0 0; padding-left: 13pt; }
+  ul.bullets li { margin-bottom: 2pt; padding-left: 1pt; }
+  ul.bullets li::marker { color: var(--accent); }
+  .entry { break-inside: avoid; }
+  .stack { color: var(--muted); font-size: 8.8pt; margin-top: 1pt; }
+
+  .edu { margin: 0; padding: 0; list-style: none; }
+  .edu li { display: flex; justify-content: space-between; gap: 12pt; margin-bottom: 2pt; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>David Morgan-Gumm</h1>
+  <p class="headline">Data &amp; AI Engineer</p>
+  <p class="contact"><span class="item">Manchester, UK</span><span class="sep">|</span><span class="item">+44 7949 905787</span><span class="sep">|</span><a href="mailto:davidmorgangumm@gmail.com">davidmorgangumm@gmail.com</a><span class="sep">|</span><a href="https://www.linkedin.com/in/david-morgan-gumm-450751133/">linkedin.com/in/david-morgan-gumm-450751133</a><span class="sep">|</span><a href="https://dmg.sqlsquared.co.uk">dmg.sqlsquared.co.uk</a></p>
+</header>
+
+<h2>Profile</h2>
+<p>Data &amp; AI Engineer with eight years building data platforms on Azure, from SQL warehouses to Microsoft Fabric. Promoted three times at Oliver James, finishing as Data Platform Manager leading a team of six. Chose to return to hands-on engineering at Brabners to build with AI as a developer before moving further into senior leadership, and now delivering the firm's data platform and internal applications. Founder of the sql_squared data community and the Echelon web app.</p>
+
+<h2>Skills</h2>
+<ul class="skills">
+  <li><strong>Data platforms:</strong> Microsoft Fabric (OneLake, Lakehouse, Data Pipelines, Notebooks), Azure Synapse Analytics, Azure Data Factory, Azure Data Explorer, SQL Server, Azure SQL Database, medallion architecture, dimensional modelling, master data management (Tamr)</li>
+  <li><strong>Languages:</strong> SQL (T-SQL), Python, PySpark, KQL, TypeScript, C#</li>
+  <li><strong>Cloud and DevOps:</strong> Azure (Functions, Logic Apps, Key Vault, Entra ID), GitHub Actions, Azure DevOps YAML pipelines, Bicep, Docker, CI/CD, automated testing, Google Cloud Run</li>
+  <li><strong>Analytics and AI:</strong> Power BI, semantic models, Microsoft Foundry, Azure AI Language, Claude Code, agentic development workflows</li>
+  <li><strong>Integration:</strong> REST, SOAP, OData, GraphQL, event-driven architecture, Salesforce (SOQL), SAP Business ByDesign</li>
+  <li><strong>Applications:</strong> React, Next.js, Node.js (Express), PostgreSQL (Supabase), Drizzle ORM, Stripe</li>
+</ul>
+
+<h2>Experience</h2>
+
+<div class="employer single">
+  <div class="role-line entry">
+    <span><span class="title">Data &amp; AI Engineer</span>, Brabners, Manchester</span>
+    <span class="dates">Aug 2026 – Present</span>
+  </div>
+  <ul class="bullets">
+    <li>Built and launched Central Intelligence Tools, a Next.js and TypeScript application used by 400–500 people to open new matters, with everything needed to work on a matter set up in one place.</li>
+    <li>Delivered a new analytical SQL data warehouse on a medallion architecture, now in production, fed by two source systems and running a full Power BI reporting suite.</li>
+    <li>Laid the groundwork for bringing more of the firm's business systems onto the platform, towards master data management and Azure adoption.</li>
+    <li>Put DevOps foundations in place on GitHub: automated testing, CI/CD pipelines, infrastructure as code in Bicep, branch protection and pull request policies.</li>
+    <li>Introduced Claude Code and agentic development to a four-person development team as part of implementing the firm's AI strategy, with tests, CI checks and pull request review gating every change.</li>
+  </ul>
+</div>
+
+<div class="employer">
+  <div class="employer-line entry">
+    <span>Oliver James <span class="where">Manchester</span></span>
+    <span class="dates">Feb 2021 – Jul 2026</span>
+  </div>
+
+  <div class="role-line">
+    <span class="title">Data Platform Manager</span>
+    <span class="dates">Nov 2023 – Jul 2026</span>
+  </div>
+  <ul class="bullets">
+    <li>Led a team of six data engineers and developers, including one manager, and owned the roadmap for the data and development functions; mentored two junior engineers through to promotion.</li>
+    <li>Migrated the internal data estate from Azure Synapse to Microsoft Fabric (OneLake, Lakehouse, PySpark notebooks, Bicep), bringing major improvements in data quality and master data management.</li>
+    <li>Delivered master data management with Tamr on Fabric across 1 million+ people and company records, removing 20–30% duplication and publishing golden records to downstream systems through event-driven and API integrations.</li>
+    <li>Built daily LinkedIn job-market analytics on Azure Data Explorer, using Azure AI Language to map skills and industries from job postings for whitespace reporting on unmet talent demand.</li>
+    <li>Introduced a development change board, firmer sprint ceremonies and a release plan shared with the business, protecting planned work from ad-hoc requests.</li>
+    <li>Managed implementation partners delivering enterprise application suites and public-facing applications, defining requirements for the business-critical integrations.</li>
+  </ul>
+
+  <div class="role-line">
+    <span class="title">Data Engineering Lead</span>
+    <span class="dates">Oct 2022 – Oct 2023</span>
+  </div>
+  <ul class="bullets">
+    <li>Created the business's DevOps function: Azure DevOps YAML pipelines took all software, data and AI resources from manual releases to fully automated deployment, cutting deployment time by 80%.</li>
+    <li>Built an event-driven reporting suite for telephony data across five countries, with call statistics reaching management within seconds; later added AI call transcription summaries using Microsoft Foundry.</li>
+    <li>Wrote the long-term data strategy with senior leadership, focused on embedding data in core business processes.</li>
+  </ul>
+
+  <div class="role-line">
+    <span class="title">Senior Data Engineer</span>
+    <span class="dates">Oct 2021 – Sep 2022</span>
+  </div>
+  <ul class="bullets">
+    <li>Designed and delivered a greenfield Azure Synapse data platform (Data Lake Storage Gen2, Data Factory, dimensional models) serving 1,000+ users across 12+ countries.</li>
+    <li>Integrated legacy finance systems with a new SAP Business ByDesign ERP alongside third-party consultancies; automated validation and reconciliation held data accuracy at 99.9%.</li>
+    <li>Designed the Salesforce integration, delta-loading sales activity with custom SOQL into the data lake behind core business reporting.</li>
+  </ul>
+
+  <div class="role-line">
+    <span class="title">SQL Developer</span>
+    <span class="dates">Feb 2021 – Sep 2021</span>
+  </div>
+  <ul class="bullets">
+    <li>Built a cloud-first SQL data warehouse during a period of hyper-growth, reverse-engineering legacy systems to keep key business logic.</li>
+  </ul>
+</div>
+
+<div class="employer single">
+  <div class="role-line entry">
+    <span><span class="title">SQL Developer &amp; Software Tester</span>, Evolution Recruitment, Warrington</span>
+    <span class="dates">Jul 2018 – Feb 2021</span>
+  </div>
+  <ul class="bullets">
+    <li>Extended the SQL data warehouse behind the in-house CRM and worked on the business's first migration to an Azure data stack.</li>
+    <li>Improved software usability and reporting through testing-led fixes, recognised by the business.</li>
+  </ul>
+</div>
+
+<h2>Projects and Community</h2>
+
+<div class="entry">
+  <div class="role-line">
+    <span><span class="title">Founder</span>, SQL Squared Ltd (alongside employment)</span>
+    <span class="dates">2024 – Present</span>
+  </div>
+  <ul class="bullets">
+    <li><strong>Echelon</strong> (<a href="https://echelon.sqlsquared.co.uk">echelon.sqlsquared.co.uk</a>): a live web app replacing the spreadsheets tabletop Crusade groups use to run their campaigns, with free and paid tiers and its own Discord community.
+      <div class="stack">TypeScript, React, Express, PostgreSQL (Supabase), Drizzle ORM, Stripe, Vitest, Docker, Google Cloud Run, Firebase Hosting. Built with Claude Code as a pair programmer; architecture and review of every change owned end to end.</div></li>
+    <li><strong>sql_squared</strong> (<a href="https://www.sqlsquared.co.uk">sqlsquared.co.uk</a>): a community for data and AI professionals, with a podcast interviewing industry practitioners, a YouTube channel and technical articles.</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="role-line">
+    <span><span class="title">Redgate Community Ambassador</span></span>
+    <span class="dates">May 2025 – Present</span>
+  </div>
+  <ul class="bullets">
+    <li>Give product feedback, write and attend events as part of Redgate's ambassador programme for database DevOps tooling.</li>
+  </ul>
+</div>
+
+<h2>Education and Certifications</h2>
+<ul class="edu">
+  <li><span><strong>BSc (Hons) Computer Science, 2:1</strong>, University of Liverpool</span><span class="dates">2018</span></li>
+  <li><span><strong>Level 5 Management and Leadership</strong>, Chartered Management Institute</span><span class="dates">2026</span></li>
+  <li><span><strong>Microsoft Certified: Azure Fundamentals (AZ-900)</strong>, Microsoft</span><span class="dates">2019</span></li>
+</ul>
+
+</body>
+</html>

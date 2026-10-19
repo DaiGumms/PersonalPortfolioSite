@@ -28,8 +28,8 @@ const cinzel = Cinzel({
 });
 
 export const metadata: Metadata = {
-  title: 'David Morgan-Gumm | Tech Leader',
-  description: 'Personal portfolio of David Morgan-Gumm, Tech Leader, showcasing expertise, projects, and journey.',
+  title: 'David Morgan-Gumm | Data & AI Engineer',
+  description: 'Personal portfolio of David Morgan-Gumm, Data & AI Engineer in Manchester: projects, career journey and community work.',
   icons: {
     icon: [
       {
