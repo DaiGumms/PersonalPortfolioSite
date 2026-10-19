@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Zap, Shield, Rocket } from 'lucide-react';
+import { Zap, Shield, Rocket, ArrowRight } from 'lucide-react';
 
 const taglines = [
   { icon: Zap, text: 'Turning messy data into clean decisions.' },
@@ -32,8 +32,20 @@ export default function HeroSection() {
 
           {/* Left: Text */}
           <div className="flex-1 space-y-8 text-center md:text-left order-2 md:order-1">
-            <div className="inline-block px-4 py-1.5 rounded-full bg-surface-low text-primary text-sm font-semibold tracking-wide uppercase mb-2 shadow-sm border border-surface-high/30">
-              Tech Leader • Data & AI Innovator
+            <div className="flex flex-wrap items-center gap-3 justify-center md:justify-start mb-2">
+              <div className="inline-block px-4 py-1.5 rounded-full bg-surface-low text-primary text-sm font-semibold tracking-wide uppercase shadow-sm border border-surface-high/30">
+                Tech Leader • Data & AI Innovator
+              </div>
+              <Link
+                href="/projects#echelon"
+                className="group inline-flex items-center gap-2 pl-1.5 pr-3.5 py-1 rounded-full bg-echelon-void text-white text-sm font-medium shadow-ambient ring-1 ring-echelon-violet/40 transition-colors hover:ring-echelon-violet"
+              >
+                <span className="h-6 w-6 rounded-full bg-white/10 flex items-center justify-center">
+                  <Image src="/logos/echelon.svg" alt="" width={14} height={14} aria-hidden />
+                </span>
+                Founder of Echelon
+                <ArrowRight className="h-3.5 w-3.5 text-echelon-lilac transition-transform group-hover:translate-x-0.5" />
+              </Link>
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.1]">
               Engineering the <br className="hidden md:block" />

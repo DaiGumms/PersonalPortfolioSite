@@ -2,12 +2,13 @@
 
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github, LayoutGrid, CheckCircle, Layers, GitMerge, Globe, BarChart2, Phone, Building2, Cloud, GitBranch, Workflow, Database, LayoutDashboard, Swords, TrendingUp, Users, MessageCircle, PlayCircle } from 'lucide-react';
+import { ExternalLink, Github, LayoutGrid, CheckCircle, Layers, GitMerge, Globe, BarChart2, Phone, Building2, Cloud, GitBranch, Workflow, Database, LayoutDashboard, PlayCircle } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Script from 'next/script';
 import type { LucideIcon } from 'lucide-react';
 import { findLogos } from '@/lib/tech-logos';
+import EchelonShowcaseSection from '@/components/sections/echelon-showcase-section';
 
 const sqlSquared = {
   title: 'sql_squared',
@@ -18,20 +19,6 @@ const sqlSquared = {
     { type: 'Podcast', url: 'https://www.sqlsquared.co.uk/podcast', icon: <ExternalLink className="mr-2 h-4 w-4" /> },
     { type: 'YouTube', url: 'https://www.youtube.com/@sql_squared', icon: <PlayCircle className="mr-2 h-4 w-4" /> },
   ],
-};
-
-const echelon = {
-  title: 'Echelon',
-  tagline: 'Warhammer Crusade Campaign Manager',
-  description: 'A standalone web app for managing Warhammer 40K Crusade campaigns. Track your force\'s progression through battles, manage Crusade Cards, and chronicle your army\'s story from first skirmish to legendary status.',
-  features: [
-    { label: 'Crusade Tracking', description: "Track your force's progression through battles and campaigns.", icon: Swords },
-    { label: 'Battle History', description: "Record growth, honours earned, and scars suffered over your army's story.", icon: TrendingUp },
-    { label: 'Army Import', description: 'Import existing army lists in seconds instead of manual entry.', icon: GitBranch },
-    { label: 'Community', description: 'Connect with players, share campaign stories, and grow together.', icon: Users },
-  ],
-  liveLink: 'https://echelon.sqlsquared.co.uk/',
-  discordLink: 'https://discord.gg/AtmsQEfDfU',
 };
 
 const projects: {
@@ -213,48 +200,8 @@ export default function ProjectsSection() {
           />
         </div>
 
-        {/* Echelon Feature */}
-        <Card className="border-0 shadow-ambient bg-surface-low rounded-[2rem] overflow-hidden mb-16 hover:shadow-ambient-lg transition-all duration-300">
-          <div className="flex flex-col lg:flex-row">
-            <div className="lg:w-1/2 p-8 md:p-12 flex flex-col justify-center">
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-6 w-fit">
-                Personal Project
-              </div>
-              <h4 className="text-3xl font-bold text-foreground font-display mb-2">
-                {echelon.title}
-              </h4>
-              <p className="text-primary text-sm font-semibold mb-4">{echelon.tagline}</p>
-              <p className="text-secondary text-lg leading-relaxed mb-8">
-                {echelon.description}
-              </p>
-              <div className="flex flex-wrap gap-4 mt-auto">
-                <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full transition-all">
-                  <Link href={echelon.liveLink} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="mr-2 h-4 w-4" /> Visit Site
-                  </Link>
-                </Button>
-                <Button variant="outline" asChild className="border border-surface-high/50 bg-surface-lowest text-foreground hover:bg-surface hover:text-primary rounded-full transition-all">
-                  <Link href={echelon.discordLink} target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="mr-2 h-4 w-4" /> Join Discord
-                  </Link>
-                </Button>
-              </div>
-            </div>
-            <div className="lg:w-1/2 bg-surface p-8 md:p-12 flex flex-col justify-center">
-              <div className="grid grid-cols-2 gap-4">
-                {echelon.features.map((feature) => (
-                  <div key={feature.label} className="bg-surface-low rounded-2xl p-5 flex flex-col gap-3">
-                    <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-                      <feature.icon className="h-5 w-5" />
-                    </div>
-                    <p className="text-sm font-semibold text-foreground leading-snug">{feature.label}</p>
-                    <p className="text-xs text-secondary leading-relaxed">{feature.description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </Card>
+        {/* Echelon flagship showcase, a SQL Squared Ltd product */}
+        <EchelonShowcaseSection />
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 gap-8">

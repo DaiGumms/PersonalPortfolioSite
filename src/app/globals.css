@@ -41,6 +41,11 @@
     --ring: 260 65% 53%; /* Primary Purple for focus rings */
 
     --radius: 0.75rem; /* rounded-xl by default */
+
+    /* Echelon product brand: always-dark panels that mirror echelon.sqlsquared.co.uk, same in both themes */
+    --echelon-void: 221 45% 6%; /* #080C15 */
+    --echelon-violet: 262 83% 58%; /* #7C3AED */
+    --echelon-lilac: 252 95% 85%; /* #C4B5FD */
   }
 
   /* Keeping Dark Mode very subtle or relying purely on light mode as per design system, but providing soft dark variables if needed */
@@ -106,5 +111,59 @@
   }
   .shadow-ambient-lg {
     box-shadow: 0 20px 60px -15px rgba(0,0,0,0.08);
+  }
+  /* Echelon "cosmic violet" backdrop: nebula glow plus a sparse starfield */
+  .echelon-nebula {
+    background:
+      radial-gradient(ellipse 70% 55% at 85% 0%, hsl(var(--echelon-violet) / 0.38), transparent 70%),
+      radial-gradient(ellipse 55% 60% at 0% 100%, hsl(var(--echelon-violet) / 0.2), transparent 70%),
+      hsl(var(--echelon-void));
+  }
+  .echelon-starfield {
+    background-image:
+      radial-gradient(1px 1px at 12% 18%, rgba(255,255,255,0.7), transparent),
+      radial-gradient(1px 1px at 34% 72%, rgba(255,255,255,0.5), transparent),
+      radial-gradient(1.5px 1.5px at 58% 28%, rgba(255,255,255,0.6), transparent),
+      radial-gradient(1px 1px at 76% 64%, rgba(255,255,255,0.45), transparent),
+      radial-gradient(1px 1px at 90% 12%, rgba(255,255,255,0.55), transparent),
+      radial-gradient(1.5px 1.5px at 22% 92%, rgba(255,255,255,0.4), transparent),
+      radial-gradient(1px 1px at 66% 88%, rgba(255,255,255,0.5), transparent);
+    background-size: 420px 420px;
+  }
+  /* Mouse-reactive layers, driven by --mx / --my from EchelonPanel. At rest (0.5, 0.5) every transform is the identity. */
+  .echelon-panel {
+    --mx: 0.5;
+    --my: 0.5;
+  }
+  .echelon-glow {
+    background: radial-gradient(350px circle at calc(var(--mx) * 100%) calc(var(--my) * 100%), hsl(var(--echelon-violet) / 0.12), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  .echelon-panel[data-active] .echelon-glow {
+    opacity: 1;
+  }
+  .echelon-parallax-far,
+  .echelon-parallax-near,
+  .echelon-tilt {
+    transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .echelon-parallax-far {
+    transform: translate3d(calc((var(--mx) - 0.5) * -20px), calc((var(--my) - 0.5) * -20px), 0);
+  }
+  .echelon-parallax-near {
+    transform: translate3d(calc((var(--mx) - 0.5) * 22px), calc((var(--my) - 0.5) * 22px), 0);
+  }
+  .echelon-tilt {
+    transform: perspective(1400px) rotateY(calc((var(--mx) - 0.5) * 9deg)) rotateX(calc((var(--my) - 0.5) * -7deg));
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .echelon-glow,
+    .echelon-parallax-far,
+    .echelon-parallax-near,
+    .echelon-tilt {
+      transform: none;
+      transition: none;
+    }
   }
 }

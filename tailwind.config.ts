@@ -19,6 +19,7 @@ export default {
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
         display: ["var(--font-public-sans)", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
+        echelon: ["var(--font-cinzel)", "Georgia", "serif"],
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -56,6 +57,11 @@ export default {
           low: 'hsl(var(--surface-low))',
           DEFAULT: 'hsl(var(--surface))',
           high: 'hsl(var(--surface-high))',
+        },
+        echelon: {
+          void: 'hsl(var(--echelon-void))',
+          violet: 'hsl(var(--echelon-violet))',
+          lilac: 'hsl(var(--echelon-lilac))',
         },
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
