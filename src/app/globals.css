@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Hero logo-field spotlight position, set each frame by HeroLogoField. Registered so the resting values below apply before JS runs. */
+/* Hero logo-field spotlight position, set each frame by HeroLogoField. Registered so the resting values below apply before JS runs.
+   Keep the initial values equal to roamPath[0] in src/components/hero/logo-field.tsx: touch devices never run the loop and rest here. */
 @property --hx {
   syntax: '<number>';
   inherits: true;
@@ -28,8 +29,8 @@
     /* Primary Purple #6B38D4 */
     --primary: 260 65% 53%;
     --primary-foreground: 0 0% 100%; /* White */
-    /* Background for filled buttons with white text */
-    --primary-fill: 260 65% 53%;
+    /* Background for filled surfaces with white text (same as primary in light mode) */
+    --primary-fill: var(--primary);
 
     /* Secondary/Muted/Text Colors */
     --secondary: 215 16% 47%; /* Slate Gray #475569 for secondary text */

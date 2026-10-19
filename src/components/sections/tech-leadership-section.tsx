@@ -287,7 +287,7 @@ export default function TechLeadershipSection() {
             </h4>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {education.map((edu, index) => (
-                <Card key={index} className="border-0 shadow-ambient bg-surface-low rounded-2xl transition-all duration-300 hover:shadow-ambient-lg hover:-translate-y-1">
+                <Card key={index} className="border-0 shadow-ambient bg-surface-low rounded-2xl transition-all duration-300 hover:shadow-ambient-lg hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:translate-y-0">
                   <CardContent className="p-6 flex flex-col h-full">
                     <div className="mb-4">
                       <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-4">

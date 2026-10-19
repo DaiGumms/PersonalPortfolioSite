@@ -197,9 +197,7 @@ export default function ProjectsSection() {
         <div className="mb-12">
           <iframe
             src="https://www.buzzsprout.com/2509445?client_source=large_player&iframe=true"
-            title="The sql_squared Podcast"
-            referrerPolicy="strict-origin-when-cross-origin"
-            width="100%"
+            title="The sql_squared Podcast"            width="100%"
             height="375"
             loading="lazy"
             className="block w-full rounded-2xl"

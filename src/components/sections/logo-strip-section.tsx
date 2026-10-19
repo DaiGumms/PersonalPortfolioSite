@@ -24,7 +24,7 @@ export default function LogoStripSection() {
                 width={employer.width}
                 height={employer.height}
                 style={{ height: employer.displayHeight, width: 'auto' }}
-                className="brightness-0 opacity-50 transition-opacity duration-300 hover:opacity-90 dark:invert dark:opacity-60"
+                className="brightness-0 opacity-50 transition-opacity duration-300 hover:opacity-90 dark:invert dark:opacity-60 dark:hover:opacity-90"
               />
             </li>
           ))}

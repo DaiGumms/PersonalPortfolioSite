@@ -70,7 +70,7 @@ function LogoLayer({ imageClassName, colour = false }: { imageClassName: string;
           } as CSSProperties}
         >
           <div
-            className="motion-safe:animate-float"
+            className="motion-safe:[@media(any-hover:hover)]:animate-float"
             style={{ animationDuration: `${5 + (1 - logo.depth) * 4}s`, animationDelay: `${-i * 0.7}s` }}
           >
             <Image
@@ -99,8 +99,9 @@ const ROAM_SECONDS = 24;
 // How quickly the spotlight closes the gap to its target, per second. Lower is floatier.
 const FOLLOW_RATE = 5;
 const RETURN_RATE = 1.5;
-// The idle roam is slow, so ~30fps looks the same and halves the repaint work.
-const IDLE_FRAME_MS = 33;
+// The idle roam is slow, so ~30fps (every other 60Hz frame, with slack for timestamp jitter) looks the same
+// and halves the repaint work.
+const IDLE_FRAME_MS = 29;
 
 function roamPoint(t: number) {
   const pos = ((t / ROAM_SECONDS) % 1) * roamPath.length;
@@ -117,7 +118,8 @@ function roamPoint(t: number) {
 // hero glides rather than jumps. The position lives in --hx / --hy (0 to 1 across the hero), which globals.css
 // uses for the reveal mask, the glow and the parallax. Listeners go on the parent section so the hero itself can
 // stay a server component. The loop only runs while the hero is on screen, and not at all under reduced motion
-// or on devices without hover (phones, tablets), where the spotlight just rests at the start of its path.
+// or on devices with no hover-capable pointer (phones, tablets), where the spotlight rests at the start of its
+// path: the @property initial values for --hx / --hy in globals.css, which must match roamPath[0].
 export default function HeroLogoField() {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -128,14 +130,13 @@ export default function HeroLogoField() {
       !el ||
       !host ||
       window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
-      window.matchMedia('(hover: none)').matches
+      !window.matchMedia('(any-hover: hover)').matches
     ) {
       return;
     }
 
     let [x, y] = roamPoint(0);
     let mouse: [number, number] | null = null;
-    let rect: DOMRect | null = null;
     let frame = 0;
     let last = 0;
 
@@ -164,34 +165,24 @@ export default function HeroLogoField() {
       frame = 0;
     };
 
-    // The field's rect is cached between moves (reading it right after the loop's style writes would force a
-    // style recalc on every event) and dropped whenever scrolling or resizing could have moved it.
     const onMove = (e: PointerEvent) => {
       if (e.pointerType !== 'mouse') return;
-      rect ??= el.getBoundingClientRect();
+      const rect = el.getBoundingClientRect();
       mouse = [(e.clientX - rect.left) / rect.width, (e.clientY - rect.top) / rect.height];
     };
     const onLeave = () => {
       mouse = null;
-      rect = null;
-    };
-    const dropRect = () => {
-      rect = null;
     };
 
     const visibility = new IntersectionObserver(([entry]) => (entry.isIntersecting ? start() : stop()));
     visibility.observe(host);
     host.addEventListener('pointermove', onMove);
     host.addEventListener('pointerleave', onLeave);
-    window.addEventListener('scroll', dropRect, { passive: true });
-    window.addEventListener('resize', dropRect);
     return () => {
       stop();
       visibility.disconnect();
       host.removeEventListener('pointermove', onMove);
       host.removeEventListener('pointerleave', onLeave);
-      window.removeEventListener('scroll', dropRect);
-      window.removeEventListener('resize', dropRect);
     };
   }, []);
 

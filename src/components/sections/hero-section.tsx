@@ -59,12 +59,12 @@ export default function HeroSection() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <Button size="lg" asChild className="bg-primary-fill text-white hover:bg-primary-fill/90 rounded-full px-8 shadow-ambient transition-transform hover:scale-105 h-14 text-base">
+              <Button size="lg" asChild className="bg-primary-fill text-white hover:bg-primary-fill/90 rounded-full px-8 shadow-ambient transition-transform hover:scale-105 motion-reduce:transition-none motion-reduce:hover:scale-100 h-14 text-base">
                 <Link href="/projects">
                   View My Work
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" asChild className="border-0 bg-surface-low text-foreground hover:bg-surface hover:text-primary rounded-full px-8 h-14 text-base transition-transform hover:scale-105 shadow-sm">
+              <Button variant="outline" size="lg" asChild className="border-0 bg-surface-low text-foreground hover:bg-surface hover:text-primary rounded-full px-8 h-14 text-base transition-transform hover:scale-105 motion-reduce:transition-none motion-reduce:hover:scale-100 shadow-sm">
                 <Link href="/contact">
                   Get In Touch
                 </Link>
