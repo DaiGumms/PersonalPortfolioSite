@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import type { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 
 // Brand primitives that mirror echelon.sqlsquared.co.uk: the stacked-chevron mark,
@@ -21,7 +22,9 @@ export function EchelonWordmark({ size = 'md', className }: { size?: 'md' | 'lg'
   );
 }
 
-export function BrowserFrame({ src, alt, priority = false }: { src: string; alt: string; priority?: boolean }) {
+// Frames hold their screen(s) as children in a fixed-aspect box, so stacked
+// fill images can crossfade inside them.
+export function BrowserFrame({ children }: { children: ReactNode }) {
   return (
     <div className="rounded-xl overflow-hidden bg-echelon-void ring-1 ring-white/10 shadow-[0_30px_80px_-20px_hsl(var(--echelon-violet)/0.45)]">
       <div className="flex items-center gap-1.5 px-3 py-2 bg-white/5">
@@ -32,20 +35,12 @@ export function BrowserFrame({ src, alt, priority = false }: { src: string; alt:
           echelon.sqlsquared.co.uk
         </span>
       </div>
-      <Image
-        src={src}
-        alt={alt}
-        width={1280}
-        height={860}
-        priority={priority}
-        sizes="(max-width: 1024px) 100vw, 60vw"
-        className="w-full h-auto"
-      />
+      <div className="relative aspect-[1280/860]">{children}</div>
     </div>
   );
 }
 
-export function PhoneFrame({ src, alt, className }: { src: string; alt: string; className?: string }) {
+export function PhoneFrame({ children, className }: { children: ReactNode; className?: string }) {
   return (
     <div
       className={cn(
@@ -53,14 +48,7 @@ export function PhoneFrame({ src, alt, className }: { src: string; alt: string; 
         className,
       )}
     >
-      <Image
-        src={src}
-        alt={alt}
-        width={780}
-        height={1688}
-        sizes="200px"
-        className="w-full h-auto rounded-[1.1rem]"
-      />
+      <div className="relative aspect-[780/1688] overflow-hidden rounded-[1.1rem]">{children}</div>
     </div>
   );
 }

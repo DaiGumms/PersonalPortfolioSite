@@ -1,5 +1,4 @@
-// Shared Echelon content, used by the home page spotlight and the /projects showcase.
-// Stats taken from the echelon repo (git history, tags, test files) in October 2026.
+// Shared Echelon links and screens, used by the /projects showcase.
 
 export const echelonLinks = {
   site: 'https://echelon.sqlsquared.co.uk/',
@@ -7,9 +6,12 @@ export const echelonLinks = {
   discord: 'https://discord.gg/AtmsQEfDfU',
 };
 
-export const echelonStats = [
-  { value: '1,700+', label: 'commits since April 2026' },
-  { value: '52', label: 'production releases' },
-  { value: '150k+', label: 'lines of TypeScript' },
-  { value: '4,700+', label: 'automated tests' },
+// Each key has a desktop (`<key>.webp`) and phone (`<key>-mobile.webp`) capture in
+// public/images/projects/echelon. The first entry is shown first.
+export const echelonScreens = [
+  { key: 'campaign-overview', title: 'Campaign overview' },
+  { key: 'force-sheet', title: 'Crusade Force Sheet' },
+  { key: 'crusade-cards', title: 'Crusade Cards' },
+  { key: 'battle-companion', title: 'Live battle companion' },
+  { key: 'alliances', title: 'Alliances' },
 ];

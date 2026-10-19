@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, MessageCircle, BookOpen, Layers, Rocket, Bot } from 'lucide-react';
-import { BrowserFrame, EchelonWordmark, PhoneFrame } from '@/components/echelon/brand';
+import { EchelonWordmark } from '@/components/echelon/brand';
 import { EchelonPanel } from '@/components/echelon/interactive-panel';
+import { EchelonScreenCarousel } from '@/components/echelon/screen-carousel';
 import { echelonLinks } from '@/lib/echelon';
 
 const highlights = [
@@ -82,17 +83,7 @@ export default function EchelonShowcaseSection() {
             </div>
           </div>
 
-          <div className="echelon-tilt relative pb-10 pr-12 sm:pr-16">
-            <BrowserFrame
-              src="/images/projects/echelon/campaign-overview.webp"
-              alt="Echelon campaign overview, desktop view"
-            />
-            <PhoneFrame
-              src="/images/projects/echelon/campaign-overview-mobile.webp"
-              alt="Echelon campaign overview, phone view"
-              className="echelon-parallax-near absolute right-0 bottom-0 w-[24%] min-w-[90px] max-w-[180px]"
-            />
-          </div>
+          <EchelonScreenCarousel />
         </div>
 
         {/* How it's built */}

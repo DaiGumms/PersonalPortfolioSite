@@ -28,7 +28,7 @@ This is **not** a single-page scrolling site — it's a multi-page App Router si
 
 | Route | File | Sections used |
 |---|---|---|
-| `/` | `src/app/page.tsx` | `HeroSection`, `LogoStripSection`, `EchelonSpotlightSection`, `AboutMeSection`, `ResumeDownloadSection` |
+| `/` | `src/app/page.tsx` | `HeroSection`, `LogoStripSection`, `AboutMeSection`, `ResumeDownloadSection` |
 | `/journey` | `src/app/journey/page.tsx` | `TechLeadershipSectionVision`, `ExperienceEducationSection` (aliased from `tech-leadership-section.tsx`), `AchievementsSection` |
 | `/projects` | `src/app/projects/page.tsx` | `ProjectsSection` (renders `EchelonShowcaseSection` below the sql_squared block, anchored at `#echelon`) |
 | `/community` | `src/app/community/page.tsx` | `CommunitySection` |
