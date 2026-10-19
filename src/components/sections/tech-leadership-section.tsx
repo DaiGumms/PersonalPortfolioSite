@@ -190,9 +190,9 @@ function PromotedBadge() {
 
 export default function TechLeadershipSection() {
   return (
-    <div className="py-24 bg-surface-lowest">
+    <div className="py-20 bg-surface-lowest">
       <div className="container mx-auto px-4 md:px-6 max-w-5xl">
-        <div className="text-center mb-16 space-y-4">
+        <div className="text-center mb-12 space-y-4">
           <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
             Career Journey
           </span>

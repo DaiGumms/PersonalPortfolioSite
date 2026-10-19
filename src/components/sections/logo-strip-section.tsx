@@ -10,7 +10,7 @@ const employers = [
 
 export default function LogoStripSection() {
   return (
-    <section aria-labelledby="logo-strip-heading" className="py-10 md:py-12 bg-surface-low">
+    <section aria-labelledby="logo-strip-heading" className="py-8 md:py-10 bg-surface-lowest">
       <div className="container mx-auto px-4 md:px-6">
         <h2 id="logo-strip-heading" className="text-center text-xs font-bold uppercase tracking-wider text-secondary mb-8">
           Where I&apos;ve worked

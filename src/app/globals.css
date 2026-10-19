@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Hero logo-field spotlight position, set each frame by HeroLogoField. Registered so the resting values below apply before JS runs. */
+@property --hx {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0.55;
+}
+@property --hy {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0.08;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%; /* White #FFFFFF */
@@ -157,7 +169,39 @@
   .echelon-tilt {
     transform: perspective(1400px) rotateY(calc((var(--mx) - 0.5) * 9deg)) rotateX(calc((var(--my) - 0.5) * -7deg));
   }
+  /* Frosted glass panel for the hero text: mostly see-through, blurring and saturating the logo field behind it,
+     with a light edge highlight so it reads as a pane of glass rather than a card */
+  .hero-glass {
+    background: linear-gradient(135deg, hsl(var(--surface-lowest) / 0.45), hsl(var(--surface-lowest) / 0.15));
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    backdrop-filter: blur(16px) saturate(160%);
+    box-shadow:
+      inset 0 1px 0 0 rgb(255 255 255 / 0.7),
+      inset 0 0 0 1px rgb(255 255 255 / 0.4),
+      0 20px 60px -15px rgb(0 0 0 / 0.1);
+  }
+  .dark .hero-glass {
+    background: linear-gradient(135deg, hsl(var(--surface-high) / 0.3), hsl(var(--surface-low) / 0.1));
+    box-shadow:
+      inset 0 1px 0 0 rgb(255 255 255 / 0.1),
+      inset 0 0 0 1px rgb(255 255 255 / 0.07),
+      0 20px 60px -15px rgb(0 0 0 / 0.6);
+  }
+  /* Hero logo field, driven by --hx / --hy from HeroLogoField */
+  .hero-logo-spotlight {
+    -webkit-mask-image: radial-gradient(300px circle at calc(var(--hx) * 100%) calc(var(--hy) * 100%), #000 15%, transparent 100%);
+    mask-image: radial-gradient(300px circle at calc(var(--hx) * 100%) calc(var(--hy) * 100%), #000 15%, transparent 100%);
+  }
+  .hero-logo-glow {
+    background: radial-gradient(320px circle at calc(var(--hx) * 100%) calc(var(--hy) * 100%), hsl(var(--primary) / 0.1), transparent 70%);
+  }
+  .hero-logo-parallax {
+    transform: translate3d(calc((var(--hx) - 0.5) * var(--depth) * -40px), calc((var(--hy) - 0.5) * var(--depth) * -40px), 0);
+  }
   @media (prefers-reduced-motion: reduce) {
+    .hero-logo-parallax {
+      transform: none;
+    }
     .echelon-glow,
     .echelon-parallax-far,
     .echelon-parallax-near,

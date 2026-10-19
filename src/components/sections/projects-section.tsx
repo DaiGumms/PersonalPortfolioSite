@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button';
 import { ExternalLink, Github, LayoutGrid, CheckCircle, Layers, GitMerge, Globe, BarChart2, Phone, Building2, Cloud, GitBranch, Workflow, Database, LayoutDashboard, PlayCircle } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Script from 'next/script';
 import type { LucideIcon } from 'lucide-react';
 import { findLogos } from '@/lib/tech-logos';
 import EchelonShowcaseSection from '@/components/sections/echelon-showcase-section';
@@ -138,10 +137,10 @@ const projects: {
 
 export default function ProjectsSection() {
   return (
-    <div className="py-24 bg-surface-lowest">
+    <div className="py-20 bg-surface-lowest">
       <div className="container mx-auto px-4 md:px-6">
 
-        <div className="text-center mb-16 space-y-4">
+        <div className="text-center mb-12 space-y-4">
           <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
             Selected Work
           </span>
@@ -154,7 +153,7 @@ export default function ProjectsSection() {
         </div>
 
         {/* sql_squared Highlight Feature */}
-        <Card className="border-0 shadow-ambient bg-surface-low rounded-[2rem] overflow-hidden mb-16 hover:shadow-ambient-lg transition-all duration-300">
+        <Card className="border-0 shadow-ambient bg-surface-low rounded-[2rem] overflow-hidden mb-12 hover:shadow-ambient-lg transition-all duration-300">
           <div className="flex flex-col lg:flex-row">
             <div className="lg:w-1/2 p-8 md:p-12 flex flex-col justify-center">
               <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-6 w-fit">
@@ -179,7 +178,9 @@ export default function ProjectsSection() {
             <div className="lg:w-1/2 bg-surface flex items-center justify-center p-12 min-h-[300px] relative">
               {/* Decorative background blur */}
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent blur-2xl" />
-              <div className="relative w-full max-w-sm aspect-square mix-blend-multiply opacity-90 transition-transform duration-500 hover:scale-105">
+              {/* The artwork is black-on-white: multiply drops the white in light mode; in dark mode invert + hue-rotate
+                  flips it to white-on-black with the squiggle's colours kept, and screen drops the black */}
+              <div className="relative w-full max-w-sm aspect-square mix-blend-multiply opacity-90 transition-transform duration-500 hover:scale-105 dark:invert dark:hue-rotate-180 dark:mix-blend-screen">
                 <Image
                   src="/images/squiggle.png"
                   alt="sql_squared brand abstract"
@@ -191,12 +192,16 @@ export default function ProjectsSection() {
           </div>
         </Card>
 
-        {/* sql_squared Podcast Player */}
-        <div className="mb-16">
-          <div id="buzzsprout-large-player" />
-          <Script
-            src="https://www.buzzsprout.com/2509445.js?container_id=buzzsprout-large-player&player=large"
-            strategy="afterInteractive"
+        {/* sql_squared Podcast Player: the iframe Buzzsprout's embed script would inject, rendered directly so it
+            survives client-side navigation (next/script won't re-run an already-loaded script on remount) */}
+        <div className="mb-12">
+          <iframe
+            src="https://www.buzzsprout.com/2509445?client_source=large_player&iframe=true"
+            title="The sql_squared Podcast"
+            width="100%"
+            height="375"
+            loading="lazy"
+            className="block w-full rounded-2xl"
           />
         </div>
 

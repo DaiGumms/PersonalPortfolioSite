@@ -32,7 +32,7 @@ const techStack = [
 
 export default function EchelonShowcaseSection() {
   return (
-    <EchelonPanel as="section" id="echelon" labelledBy="echelon-heading" className="mb-16 scroll-mt-28">
+    <EchelonPanel as="section" id="echelon" labelledBy="echelon-heading" className="mb-12 scroll-mt-28">
       <div className="relative p-6 sm:p-10 lg:p-14 space-y-12">
 
         {/* Overview + screenshot */}

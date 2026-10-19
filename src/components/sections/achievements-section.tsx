@@ -72,13 +72,13 @@ export default function AchievementsSection() {
   }, []);
 
   return (
-    <section id="achievements" className="py-24 bg-surface-low overflow-hidden" ref={sectionRef}>
+    <section id="achievements" className="py-20 bg-surface-low overflow-hidden" ref={sectionRef}>
       <div className="container mx-auto px-4 md:px-6">
 
         {/* Section header */}
         <div
           className={cn(
-            "text-center mb-16 transition-all duration-700 ease-out",
+            "text-center mb-12 transition-all duration-700 ease-out",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
           )}
         >

@@ -60,9 +60,9 @@ const highlights = [
 
 export default function CommunitySection() {
   return (
-    <div className="py-24 bg-surface-lowest">
+    <div className="py-20 bg-surface-lowest">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-col lg:flex-row gap-16">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
 
           {/* Left Column: Intro & Socials */}
           <div className="order-2 lg:order-1 lg:w-5/12 space-y-8">

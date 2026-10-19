@@ -36,9 +36,9 @@ const skills = [
 
 export default function AboutMeSection() {
   return (
-    <section className="py-24 bg-surface-lowest">
+    <section className="py-20 bg-surface-lowest">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-col md:flex-row gap-16">
+        <div className="flex flex-col md:flex-row gap-12 md:gap-16">
 
           {/* Left Column: Text */}
           <div className="md:w-5/12 space-y-8">
