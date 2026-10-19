@@ -28,6 +28,8 @@
     /* Primary Purple #6B38D4 */
     --primary: 260 65% 53%;
     --primary-foreground: 0 0% 100%; /* White */
+    /* Background for filled buttons with white text */
+    --primary-fill: 260 65% 53%;
 
     /* Secondary/Muted/Text Colors */
     --secondary: 215 16% 47%; /* Slate Gray #475569 for secondary text */
@@ -72,6 +74,8 @@
 
     --primary: 260 65% 65%; /* Lighter purple for dark mode contrast */
     --primary-foreground: 0 0% 100%;
+    /* Darker than --primary so white button text stays above 4.5:1 */
+    --primary-fill: 260 60% 55%;
 
     --secondary: 215 20% 65%;
     --secondary-foreground: 210 40% 98%;

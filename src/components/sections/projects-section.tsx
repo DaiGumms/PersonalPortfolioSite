@@ -198,6 +198,7 @@ export default function ProjectsSection() {
           <iframe
             src="https://www.buzzsprout.com/2509445?client_source=large_player&iframe=true"
             title="The sql_squared Podcast"
+            referrerPolicy="strict-origin-when-cross-origin"
             width="100%"
             height="375"
             loading="lazy"
@@ -229,7 +230,7 @@ export default function ProjectsSection() {
                   {logos.length > 0 && (
                     <div className="flex items-center gap-1.5 shrink-0">
                       {logos.map((logo) => (
-                        <Image key={logo.src} src={logo.src} alt={logo.alt} width={18} height={18} title={logo.alt} />
+                        <Image key={logo.src} src={logo.src} alt={logo.alt} width={18} height={18} title={logo.alt} className={logo.mono ? 'dark:invert' : undefined} />
                       ))}
                     </div>
                   )}

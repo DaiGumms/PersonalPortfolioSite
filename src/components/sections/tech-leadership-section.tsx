@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { Award, Briefcase, ChevronRight } from 'lucide-react';
@@ -215,6 +213,7 @@ export default function TechLeadershipSection() {
                 const accent = job.brand.accent ?? 'hsl(var(--primary))';
                 const [firstRole] = job.roles;
                 const isMultiRole = job.roles.length > 1;
+                const promotions = job.roles.filter((r) => r.promoted).length;
                 return (
                   <div key={job.company} className="relative pl-8 md:pl-14">
                     <div
@@ -229,7 +228,7 @@ export default function TechLeadershipSection() {
                         className={job.logo.padded ? 'h-full w-full object-contain p-1' : 'h-full w-full object-cover'}
                       />
                     </div>
-                    <Card className="border-0 shadow-ambient bg-surface-low rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-ambient-lg hover:-translate-y-1 group">
+                    <Card className="border-0 shadow-ambient bg-surface-low rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-ambient-lg hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:translate-y-0 group">
                       <div className="h-1" style={{ backgroundColor: accent }} />
                       <CardContent className="p-5 md:p-8">
                         <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4 gap-4">
@@ -237,7 +236,7 @@ export default function TechLeadershipSection() {
                             {isMultiRole ? (
                               <>
                                 <h5 className="text-xl font-bold text-foreground font-display">{job.company}</h5>
-                                <p className="text-primary font-medium">{job.roles.length} roles · {job.roles.filter((r) => r.promoted).length} promotions</p>
+                                <p className="text-primary font-medium">{job.roles.length} roles · {promotions} {promotions === 1 ? 'promotion' : 'promotions'}</p>
                               </>
                             ) : (
                               <>

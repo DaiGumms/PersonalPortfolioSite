@@ -25,6 +25,8 @@ const cinzel = Cinzel({
   weight: ['600'],
   variable: '--font-cinzel',
   display: 'swap',
+  // Only the Echelon wordmark on /projects uses Cinzel, so don't preload it on every route.
+  preload: false,
 });
 
 export const metadata: Metadata = {

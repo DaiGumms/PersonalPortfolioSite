@@ -59,7 +59,7 @@ export default function HeroSection() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <Button size="lg" asChild className="bg-primary text-white hover:bg-primary/90 rounded-full px-8 shadow-ambient transition-transform hover:scale-105 h-14 text-base">
+              <Button size="lg" asChild className="bg-primary-fill text-white hover:bg-primary-fill/90 rounded-full px-8 shadow-ambient transition-transform hover:scale-105 h-14 text-base">
                 <Link href="/projects">
                   View My Work
                 </Link>

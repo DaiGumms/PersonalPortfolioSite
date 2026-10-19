@@ -282,7 +282,7 @@ export default function ContactSection() {
                       <Button
                         type="submit"
                         disabled={isSubmitting || submitCount >= 3}
-                        className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12 shadow-ambient transition-all"
+                        className="bg-primary-fill hover:bg-primary-fill/90 text-white rounded-full px-8 h-12 shadow-ambient transition-all"
                       >
                         {isSubmitting ? (
                           <>
