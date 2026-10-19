@@ -12,4 +12,6 @@ $profileDir = Join-Path ([System.IO.Path]::GetTempPath()) 'cv-edge-profile'
   --no-pdf-header-footer --export-tagged-pdf --virtual-time-budget=10000 `
   --print-to-pdf="$output" ([System.Uri]$source).AbsoluteUri | Out-Null
 
+node (Join-Path $PSScriptRoot 'set-metadata.mjs') $output
+
 Write-Host "Wrote $output"
